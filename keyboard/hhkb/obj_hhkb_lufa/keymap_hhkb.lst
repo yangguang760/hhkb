@@ -1,0 +1,443 @@
+   1               		.file	"keymap_hhkb.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.action_get_macro,"ax",@progbits
+  11               	.global	action_get_macro
+  13               	action_get_macro:
+  14               	.LFB103:
+  15               		.file 1 "keymap_hhkb.c"
+   1:keymap_hhkb.c **** /*
+   2:keymap_hhkb.c ****  * HHKB Layout
+   3:keymap_hhkb.c ****  */
+   4:keymap_hhkb.c **** #include "keymap_common.h"
+   5:keymap_hhkb.c **** 
+   6:keymap_hhkb.c **** 
+   7:keymap_hhkb.c **** #ifdef KEYMAP_SECTION_ENABLE
+   8:keymap_hhkb.c **** const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] __attribute__ ((section (".keymap.keymaps"))) = {
+   9:keymap_hhkb.c **** #else
+  10:keymap_hhkb.c **** const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
+  11:keymap_hhkb.c **** #endif
+  12:keymap_hhkb.c ****     /* Layer 0: Default Layer
+  13:keymap_hhkb.c ****      * ,-----------------------------------------------------------.
+  14:keymap_hhkb.c ****      * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|  \|  `|
+  15:keymap_hhkb.c ****      * |-----------------------------------------------------------|
+  16:keymap_hhkb.c ****      * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|Backs|
+  17:keymap_hhkb.c ****      * |-----------------------------------------------------------|
+  18:keymap_hhkb.c ****      * |Contro|  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|Enter   |
+  19:keymap_hhkb.c ****      * |-----------------------------------------------------------|
+  20:keymap_hhkb.c ****      * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|Shift |Fn0|
+  21:keymap_hhkb.c ****      * `-----------------------------------------------------------'
+  22:keymap_hhkb.c ****      *       |Alt|Gui  |         Space         |Gui  |Alt|
+  23:keymap_hhkb.c ****      *       `-------------------------------------------'
+  24:keymap_hhkb.c ****      */
+  25:keymap_hhkb.c ****     KEYMAP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS,GRV,   \
+  26:keymap_hhkb.c ****            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,       \
+  27:keymap_hhkb.c ****            FN2, FN1,   S,   D,   F,   G,   H,   J,   K,   L,  SCLN,QUOT,ENT,             \
+  28:keymap_hhkb.c ****            LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,RSFT,FN0,             \
+  29:keymap_hhkb.c ****                 LGUI,LALT,          SPC,                RALT,RGUI),
+  30:keymap_hhkb.c **** 
+  31:keymap_hhkb.c ****     /* Layer 1: HHKB mode (HHKB Fn)
+  32:keymap_hhkb.c ****      * ,-----------------------------------------------------------.
+  33:keymap_hhkb.c ****      * |Pwr| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
+  34:keymap_hhkb.c ****      * |-----------------------------------------------------------|
+  35:keymap_hhkb.c ****      * |Caps |   |   |   |   |   |   |   |Psc|Slk|Pus|Up |   |Backs|
+  36:keymap_hhkb.c ****      * |-----------------------------------------------------------|
+  37:keymap_hhkb.c ****      * |      |VoD|VoU|Mut|   |   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
+  38:keymap_hhkb.c ****      * |-----------------------------------------------------------|
+  39:keymap_hhkb.c ****      * |        |   |   |   |   |   |  +|  -|End|PgD|Dow|      |   |
+  40:keymap_hhkb.c ****      * `-----------------------------------------------------------'
+  41:keymap_hhkb.c ****      *       |   |     |                       |     |   |
+  42:keymap_hhkb.c ****      *       `-------------------------------------------'
+  43:keymap_hhkb.c ****      */
+  44:keymap_hhkb.c ****     KEYMAP(TRNS, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, INS, DEL,   \
+  45:keymap_hhkb.c ****            CAPS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PSCR,SLCK,PAUS, UP, TRNS, BSPC,      \
+  46:keymap_hhkb.c ****            TRNS,VOLD,VOLU,MUTE,TRNS,TRNS,PAST,PSLS,HOME,PGUP,LEFT,RGHT,PENT,            \
+  47:keymap_hhkb.c ****            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PPLS,PMNS,END, PGDN,DOWN,TRNS,TRNS,            \
+  48:keymap_hhkb.c ****                 TRNS,TRNS,          TRNS,               TRNS,TRNS),
+  49:keymap_hhkb.c **** 
+  50:keymap_hhkb.c ****     /* Layer 2: yg mode
+  51:keymap_hhkb.c ****      * ,-----------------------------------------------------------.
+  52:keymap_hhkb.c ****      * |Pwr| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
+  53:keymap_hhkb.c ****      * |-----------------------------------------------------------|
+  54:keymap_hhkb.c ****      * |Caps |   |   |   |   |   |   |   |Psc|Slk|Pus|Up |   |Backs|
+  55:keymap_hhkb.c ****      * |-----------------------------------------------------------|
+  56:keymap_hhkb.c ****      * |      |VoD|VoU|Mut|   |   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
+  57:keymap_hhkb.c ****      * |-----------------------------------------------------------|
+  58:keymap_hhkb.c ****      * |        |   |   |   |   |   |  +|  -|End|PgD|Dow|      |   |
+  59:keymap_hhkb.c ****      * `-----------------------------------------------------------'
+  60:keymap_hhkb.c ****      *       |   |     |                       |     |   |
+  61:keymap_hhkb.c ****      *       `-------------------------------------------'
+  62:keymap_hhkb.c ****      */
+  63:keymap_hhkb.c ****     KEYMAP(TRNS, TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS, TRNS, TRNS, T
+  64:keymap_hhkb.c ****            CAPS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS, TRNS, TRNS,      \
+  65:keymap_hhkb.c ****            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,LEFT,DOWN,UP,RGHT,TRNS,TRNS,BSPC,            \
+  66:keymap_hhkb.c ****            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS,FN3,TRNS,TRNS,TRNS,            \
+  67:keymap_hhkb.c ****                 TRNS,TRNS,          DEL,               TRNS,TRNS),
+  68:keymap_hhkb.c **** };
+  69:keymap_hhkb.c **** 
+  70:keymap_hhkb.c **** 
+  71:keymap_hhkb.c **** 
+  72:keymap_hhkb.c **** /*
+  73:keymap_hhkb.c ****  * Fn action definition
+  74:keymap_hhkb.c ****  */
+  75:keymap_hhkb.c **** enum macro_id {
+  76:keymap_hhkb.c ****     HELLO,
+  77:keymap_hhkb.c ****     VOLUP,
+  78:keymap_hhkb.c ****     ALT_TAB,
+  79:keymap_hhkb.c **** };
+  80:keymap_hhkb.c **** 
+  81:keymap_hhkb.c **** const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+  82:keymap_hhkb.c **** {
+  16               		.loc 1 82 0
+  17               		.cfi_startproc
+  18               	.LVL0:
+  19               	/* prologue: function */
+  20               	/* frame size = 0 */
+  21               	/* stack size = 0 */
+  22               	.L__stack_usage = 0
+  23 0000 FC01      		movw r30,r24
+  83:keymap_hhkb.c ****     switch (id) {
+  24               		.loc 1 83 0
+  25 0002 6130      		cpi r22,lo8(1)
+  26 0004 01F0      		breq .L3
+  27 0006 00F0      		brlo .L4
+  28 0008 6230      		cpi r22,lo8(2)
+  29 000a 01F0      		breq .L5
+  30 000c 00C0      		rjmp .L8
+  31               	.L4:
+  84:keymap_hhkb.c ****         case HELLO:
+  85:keymap_hhkb.c ****             return (record->event.pressed ?
+  86:keymap_hhkb.c ****                     MACRO(T(SPC),T(MINS),D(LSHIFT),T(DOT),U(LSHIFT),T(SPC), END ) :
+  32               		.loc 1 86 0
+  33 000e 8281      		ldd r24,Z+2
+  34               	.LVL1:
+  35 0010 8823      		tst r24
+  36 0012 01F0      		breq .L8
+  37 0014 80E0      		ldi r24,lo8(__m.4703)
+  38 0016 90E0      		ldi r25,hi8(__m.4703)
+  39 0018 0895      		ret
+  40               	.LVL2:
+  41               	.L3:
+  87:keymap_hhkb.c ****                     MACRO_NONE );
+  88:keymap_hhkb.c ****         case VOLUP:
+  89:keymap_hhkb.c ****             return (record->event.pressed ?
+  90:keymap_hhkb.c ****                     MACRO( D(VOLU), U(VOLU), END ) :
+  42               		.loc 1 90 0
+  43 001a 8281      		ldd r24,Z+2
+  44               	.LVL3:
+  45 001c 8823      		tst r24
+  46 001e 01F0      		breq .L8
+  47 0020 80E0      		ldi r24,lo8(__m.4706)
+  48 0022 90E0      		ldi r25,hi8(__m.4706)
+  49 0024 0895      		ret
+  50               	.LVL4:
+  51               	.L5:
+  91:keymap_hhkb.c ****                     MACRO_NONE );
+  92:keymap_hhkb.c ****         case ALT_TAB:
+  93:keymap_hhkb.c ****             return (record->event.pressed ?
+  94:keymap_hhkb.c ****                     MACRO( D(LALT), D(TAB), END ) :
+  52               		.loc 1 94 0
+  53 0026 8281      		ldd r24,Z+2
+  54               	.LVL5:
+  55 0028 8823      		tst r24
+  56 002a 01F0      		breq .L9
+  57 002c 80E0      		ldi r24,lo8(__m.4709)
+  58 002e 90E0      		ldi r25,hi8(__m.4709)
+  59 0030 0895      		ret
+  60               	.L8:
+  86:keymap_hhkb.c ****                     MACRO_NONE );
+  61               		.loc 1 86 0
+  62 0032 80E0      		ldi r24,0
+  63 0034 90E0      		ldi r25,0
+  64 0036 0895      		ret
+  65               	.L9:
+  66               		.loc 1 94 0
+  67 0038 80E0      		ldi r24,lo8(__m.4711)
+  68 003a 90E0      		ldi r25,hi8(__m.4711)
+  95:keymap_hhkb.c ****                     MACRO( U(TAB), END ));
+  96:keymap_hhkb.c ****     }
+  97:keymap_hhkb.c ****     return MACRO_NONE;
+  98:keymap_hhkb.c **** }
+  69               		.loc 1 98 0
+  70 003c 0895      		ret
+  71               		.cfi_endproc
+  72               	.LFE103:
+  74               		.section	.progmem.data.__m.4711,"a",@progbits
+  77               	__m.4711:
+  78 0000 02        		.byte	2
+  79 0001 2B        		.byte	43
+  80 0002 00        		.byte	0
+  81               		.section	.progmem.data.__m.4709,"a",@progbits
+  84               	__m.4709:
+  85 0000 01        		.byte	1
+  86 0001 E2        		.byte	-30
+  87 0002 01        		.byte	1
+  88 0003 2B        		.byte	43
+  89 0004 00        		.byte	0
+  90               		.section	.progmem.data.__m.4706,"a",@progbits
+  93               	__m.4706:
+  94 0000 01        		.byte	1
+  95 0001 A9        		.byte	-87
+  96 0002 02        		.byte	2
+  97 0003 A9        		.byte	-87
+  98 0004 00        		.byte	0
+  99               		.section	.progmem.data.__m.4703,"a",@progbits
+ 102               	__m.4703:
+ 103 0000 01        		.byte	1
+ 104 0001 2C        		.byte	44
+ 105 0002 02        		.byte	2
+ 106 0003 2C        		.byte	44
+ 107 0004 01        		.byte	1
+ 108 0005 2D        		.byte	45
+ 109 0006 02        		.byte	2
+ 110 0007 2D        		.byte	45
+ 111 0008 01        		.byte	1
+ 112 0009 E1        		.byte	-31
+ 113 000a 01        		.byte	1
+ 114 000b 37        		.byte	55
+ 115 000c 02        		.byte	2
+ 116 000d 37        		.byte	55
+ 117 000e 02        		.byte	2
+ 118 000f E1        		.byte	-31
+ 119 0010 01        		.byte	1
+ 120 0011 2C        		.byte	44
+ 121 0012 02        		.byte	2
+ 122 0013 2C        		.byte	44
+ 123 0014 00        		.byte	0
+ 124               	.global	fn_actions
+ 125               		.section	.progmem.data.fn_actions,"a",@progbits
+ 128               	fn_actions:
+ 129 0000 F1A1      		.word	-24079
+ 130 0002 04A2      		.word	-24060
+ 131 0004 2921      		.word	8489
+ 132 0006 00C0      		.word	-16384
+ 133               	.global	keymaps
+ 134               		.section	.progmem.data.keymaps,"a",@progbits
+ 137               	keymaps:
+ 138 0000 1F        		.byte	31
+ 139 0001 14        		.byte	20
+ 140 0002 1A        		.byte	26
+ 141 0003 16        		.byte	22
+ 142 0004 C1        		.byte	-63
+ 143 0005 1D        		.byte	29
+ 144 0006 1B        		.byte	27
+ 145 0007 06        		.byte	6
+ 146 0008 20        		.byte	32
+ 147 0009 21        		.byte	33
+ 148 000a 15        		.byte	21
+ 149 000b 08        		.byte	8
+ 150 000c 07        		.byte	7
+ 151 000d 09        		.byte	9
+ 152 000e 19        		.byte	25
+ 153 000f 05        		.byte	5
+ 154 0010 22        		.byte	34
+ 155 0011 23        		.byte	35
+ 156 0012 1C        		.byte	28
+ 157 0013 17        		.byte	23
+ 158 0014 0A        		.byte	10
+ 159 0015 0B        		.byte	11
+ 160 0016 11        		.byte	17
+ 161 0017 00        		.byte	0
+ 162 0018 1E        		.byte	30
+ 163 0019 29        		.byte	41
+ 164 001a 2B        		.byte	43
+ 165 001b C2        		.byte	-62
+ 166 001c E1        		.byte	-31
+ 167 001d E3        		.byte	-29
+ 168 001e E2        		.byte	-30
+ 169 001f 2C        		.byte	44
+ 170 0020 24        		.byte	36
+ 171 0021 25        		.byte	37
+ 172 0022 18        		.byte	24
+ 173 0023 0C        		.byte	12
+ 174 0024 0E        		.byte	14
+ 175 0025 0D        		.byte	13
+ 176 0026 10        		.byte	16
+ 177 0027 00        		.byte	0
+ 178 0028 31        		.byte	49
+ 179 0029 35        		.byte	53
+ 180 002a 2A        		.byte	42
+ 181 002b 28        		.byte	40
+ 182 002c C0        		.byte	-64
+ 183 002d E5        		.byte	-27
+ 184 002e E7        		.byte	-25
+ 185 002f E6        		.byte	-26
+ 186 0030 26        		.byte	38
+ 187 0031 27        		.byte	39
+ 188 0032 12        		.byte	18
+ 189 0033 13        		.byte	19
+ 190 0034 33        		.byte	51
+ 191 0035 0F        		.byte	15
+ 192 0036 36        		.byte	54
+ 193 0037 00        		.byte	0
+ 194 0038 2D        		.byte	45
+ 195 0039 2E        		.byte	46
+ 196 003a 30        		.byte	48
+ 197 003b 2F        		.byte	47
+ 198 003c 34        		.byte	52
+ 199 003d 38        		.byte	56
+ 200 003e 37        		.byte	55
+ 201 003f 00        		.byte	0
+ 202 0040 3B        		.byte	59
+ 203 0041 01        		.byte	1
+ 204 0042 01        		.byte	1
+ 205 0043 A9        		.byte	-87
+ 206 0044 AA        		.byte	-86
+ 207 0045 01        		.byte	1
+ 208 0046 01        		.byte	1
+ 209 0047 01        		.byte	1
+ 210 0048 3C        		.byte	60
+ 211 0049 3D        		.byte	61
+ 212 004a 01        		.byte	1
+ 213 004b 01        		.byte	1
+ 214 004c A8        		.byte	-88
+ 215 004d 01        		.byte	1
+ 216 004e 01        		.byte	1
+ 217 004f 01        		.byte	1
+ 218 0050 3E        		.byte	62
+ 219 0051 3F        		.byte	63
+ 220 0052 01        		.byte	1
+ 221 0053 01        		.byte	1
+ 222 0054 01        		.byte	1
+ 223 0055 55        		.byte	85
+ 224 0056 57        		.byte	87
+ 225 0057 00        		.byte	0
+ 226 0058 3A        		.byte	58
+ 227 0059 01        		.byte	1
+ 228 005a 39        		.byte	57
+ 229 005b 01        		.byte	1
+ 230 005c 01        		.byte	1
+ 231 005d 01        		.byte	1
+ 232 005e 01        		.byte	1
+ 233 005f 01        		.byte	1
+ 234 0060 40        		.byte	64
+ 235 0061 41        		.byte	65
+ 236 0062 01        		.byte	1
+ 237 0063 46        		.byte	70
+ 238 0064 4A        		.byte	74
+ 239 0065 54        		.byte	84
+ 240 0066 56        		.byte	86
+ 241 0067 00        		.byte	0
+ 242 0068 49        		.byte	73
+ 243 0069 4C        		.byte	76
+ 244 006a 2A        		.byte	42
+ 245 006b 58        		.byte	88
+ 246 006c 01        		.byte	1
+ 247 006d 01        		.byte	1
+ 248 006e 01        		.byte	1
+ 249 006f 01        		.byte	1
+ 250 0070 42        		.byte	66
+ 251 0071 43        		.byte	67
+ 252 0072 47        		.byte	71
+ 253 0073 48        		.byte	72
+ 254 0074 50        		.byte	80
+ 255 0075 4B        		.byte	75
+ 256 0076 4D        		.byte	77
+ 257 0077 00        		.byte	0
+ 258 0078 44        		.byte	68
+ 259 0079 45        		.byte	69
+ 260 007a 01        		.byte	1
+ 261 007b 52        		.byte	82
+ 262 007c 4F        		.byte	79
+ 263 007d 51        		.byte	81
+ 264 007e 4E        		.byte	78
+ 265 007f 00        		.byte	0
+ 266 0080 01        		.byte	1
+ 267 0081 01        		.byte	1
+ 268 0082 01        		.byte	1
+ 269 0083 01        		.byte	1
+ 270 0084 01        		.byte	1
+ 271 0085 01        		.byte	1
+ 272 0086 01        		.byte	1
+ 273 0087 01        		.byte	1
+ 274 0088 01        		.byte	1
+ 275 0089 01        		.byte	1
+ 276 008a 01        		.byte	1
+ 277 008b 01        		.byte	1
+ 278 008c 01        		.byte	1
+ 279 008d 01        		.byte	1
+ 280 008e 01        		.byte	1
+ 281 008f 01        		.byte	1
+ 282 0090 01        		.byte	1
+ 283 0091 01        		.byte	1
+ 284 0092 01        		.byte	1
+ 285 0093 01        		.byte	1
+ 286 0094 01        		.byte	1
+ 287 0095 50        		.byte	80
+ 288 0096 01        		.byte	1
+ 289 0097 00        		.byte	0
+ 290 0098 01        		.byte	1
+ 291 0099 01        		.byte	1
+ 292 009a 39        		.byte	57
+ 293 009b 01        		.byte	1
+ 294 009c 01        		.byte	1
+ 295 009d 01        		.byte	1
+ 296 009e 01        		.byte	1
+ 297 009f 4C        		.byte	76
+ 298 00a0 01        		.byte	1
+ 299 00a1 01        		.byte	1
+ 300 00a2 01        		.byte	1
+ 301 00a3 01        		.byte	1
+ 302 00a4 52        		.byte	82
+ 303 00a5 51        		.byte	81
+ 304 00a6 01        		.byte	1
+ 305 00a7 00        		.byte	0
+ 306 00a8 01        		.byte	1
+ 307 00a9 01        		.byte	1
+ 308 00aa 01        		.byte	1
+ 309 00ab 2A        		.byte	42
+ 310 00ac 01        		.byte	1
+ 311 00ad 01        		.byte	1
+ 312 00ae 01        		.byte	1
+ 313 00af 01        		.byte	1
+ 314 00b0 01        		.byte	1
+ 315 00b1 01        		.byte	1
+ 316 00b2 01        		.byte	1
+ 317 00b3 01        		.byte	1
+ 318 00b4 01        		.byte	1
+ 319 00b5 4F        		.byte	79
+ 320 00b6 01        		.byte	1
+ 321 00b7 00        		.byte	0
+ 322 00b8 01        		.byte	1
+ 323 00b9 01        		.byte	1
+ 324 00ba 01        		.byte	1
+ 325 00bb 01        		.byte	1
+ 326 00bc 01        		.byte	1
+ 327 00bd 01        		.byte	1
+ 328 00be C3        		.byte	-61
+ 329 00bf 00        		.byte	0
+ 330               		.comm	keymap_config,1,1
+ 331               		.text
+ 332               	.Letext0:
+ 333               		.file 2 "/usr/lib/avr/include/stdint.h"
+ 334               		.file 3 "../../tmk_core/common/keycode.h"
+ 335               		.file 4 "../../tmk_core/common/keyboard.h"
+ 336               		.file 5 "../../tmk_core/common/action_code.h"
+ 337               		.file 6 "../../tmk_core/common/action_macro.h"
+ 338               		.file 7 "../../tmk_core/common/action.h"
+ 339               		.file 8 "../../tmk_core/common/keymap.h"
+ 340               		.file 9 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 keymap_hhkb.c
+     /tmp/ccG1v5BK.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccG1v5BK.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccG1v5BK.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccG1v5BK.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccG1v5BK.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccG1v5BK.s:13     .text.action_get_macro:0000000000000000 action_get_macro
+     /tmp/ccG1v5BK.s:102    .progmem.data.__m.4703:0000000000000000 __m.4703
+     /tmp/ccG1v5BK.s:93     .progmem.data.__m.4706:0000000000000000 __m.4706
+     /tmp/ccG1v5BK.s:84     .progmem.data.__m.4709:0000000000000000 __m.4709
+     /tmp/ccG1v5BK.s:77     .progmem.data.__m.4711:0000000000000000 __m.4711
+     /tmp/ccG1v5BK.s:128    .progmem.data.fn_actions:0000000000000000 fn_actions
+     /tmp/ccG1v5BK.s:137    .progmem.data.keymaps:0000000000000000 keymaps
+                            *COM*:0000000000000001 keymap_config
+
+UNDEFINED SYMBOLS
+__do_clear_bss
