@@ -93,14 +93,17 @@
   44               	/* stack size = 45 */
   45               	.L__stack_usage = 45
   46               	.LVL0:
-  47 0016 E0E0      		ldi r30,lo8(USB_ControlRequest)
-  48 0018 F0E0      		ldi r31,hi8(USB_ControlRequest)
-  49               	.LVL1:
-  50               	.L3:
-  51               	.LBB170:
-  52               	.LBB171:
-  53               	.LBB172:
-  54               		.file 2 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h"
+  47               		.loc 1 50 0
+  48 0016 E0E0      		ldi r30,lo8(USB_ControlRequest)
+  49 0018 F0E0      		ldi r31,hi8(USB_ControlRequest)
+  50 001a 88E0      		ldi r24,lo8(8)
+  51 001c 8E0F      		add r24,r30
+  52               	.LVL1:
+  53               	.L2:
+  54               	.LBB170:
+  55               	.LBB171:
+  56               	.LBB172:
+  57               		.file 2 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h"
    1:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** /*
    2:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h ****              LUFA Library
    3:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h ****      Copyright (C) Dean Camera, 2014.
@@ -643,10 +646,10 @@
  540:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline uint8_t Endpoint_Read_8(void)
  541:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
  542:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				return UEDATX;
-  55               		.loc 2 542 0 discriminator 2
-  56 001a 8091 F100 		lds r24,241
-  57               	.LBE172:
-  58               	.LBE171:
+  58               		.loc 2 542 0 discriminator 3
+  59 001e 9091 F100 		lds r25,241
+  60               	.LBE172:
+  61               	.LBE171:
   51:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	#if defined(ARCH_BIG_ENDIAN)
   52:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	USB_ControlRequest.bmRequestType = Endpoint_Read_8();
   53:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	USB_ControlRequest.bRequest      = Endpoint_Read_8();
@@ -658,115 +661,115 @@
   59:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
   60:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	for (uint8_t RequestHeaderByte = 0; RequestHeaderByte < sizeof(USB_Request_Header_t); RequestHeade
   61:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	  *(RequestHeader++) = Endpoint_Read_8();
-  59               		.loc 1 61 0 discriminator 2
-  60 001e 8193      		st Z+,r24
-  61               	.LVL2:
+  62               		.loc 1 61 0 discriminator 3
+  63 0022 9193      		st Z+,r25
+  64               	.LVL2:
   60:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	  *(RequestHeader++) = Endpoint_Read_8();
-  62               		.loc 1 60 0 discriminator 2
-  63 0020 20E0      		ldi r18,hi8(USB_ControlRequest+8)
-  64 0022 E030      		cpi r30,lo8(USB_ControlRequest+8)
-  65 0024 F207      		cpc r31,r18
-  66 0026 01F4      		brne .L3
-  67               	.LBE170:
+  65               		.loc 1 60 0 discriminator 3
+  66 0024 8E13      		cpse r24,r30
+  67 0026 00C0      		rjmp .L2
+  68               	.LBE170:
   62:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	#endif
   63:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
   64:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	EVENT_USB_Device_ControlRequest();
-  68               		.loc 1 64 0
-  69 0028 0E94 0000 		call EVENT_USB_Device_ControlRequest
-  70               	.LVL3:
-  71               	.LBB173:
-  72               	.LBB174:
+  69               		.loc 1 64 0
+  70 0028 0E94 0000 		call EVENT_USB_Device_ControlRequest
+  71               	.LVL3:
+  72               	.LBB173:
+  73               	.LBB174:
  431:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
-  73               		.loc 2 431 0
-  74 002c 8091 E800 		lds r24,232
-  75               	.LBE174:
-  76               	.LBE173:
+  74               		.loc 2 431 0
+  75 002c 8091 E800 		lds r24,232
+  76               	.LBE174:
+  77               	.LBE173:
   65:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
   66:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	if (Endpoint_IsSETUPReceived())
-  77               		.loc 1 66 0
-  78 0030 83FF      		sbrs r24,3
-  79 0032 00C0      		rjmp .L4
-  80               	.LBB175:
+  78               		.loc 1 66 0
+  79 0030 83FF      		sbrs r24,3
+  80 0032 00C0      		rjmp .L3
+  81               	.LBB175:
   67:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	{
   68:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 		uint8_t bmRequestType = USB_ControlRequest.bmRequestType;
-  81               		.loc 1 68 0
-  82 0034 2091 0000 		lds r18,USB_ControlRequest
-  83               	.LVL4:
+  82               		.loc 1 68 0
+  83 0034 8091 0000 		lds r24,USB_ControlRequest
+  84               	.LVL4:
   69:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
   70:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 		switch (USB_ControlRequest.bRequest)
-  84               		.loc 1 70 0
-  85 0038 3091 0000 		lds r19,USB_ControlRequest+1
-  86 003c 832F      		mov r24,r19
-  87 003e 90E0      		ldi r25,0
-  88 0040 8A30      		cpi r24,10
-  89 0042 9105      		cpc r25,__zero_reg__
-  90 0044 00F0      		brlo .+2
-  91 0046 00C0      		rjmp .L4
-  92 0048 FC01      		movw r30,r24
-  93 004a E050      		subi r30,lo8(-(gs(.L6)))
-  94 004c F040      		sbci r31,hi8(-(gs(.L6)))
-  95 004e 0C94 0000 		jmp __tablejump2__
-  96               		.section	.progmem.gcc_sw_table.USB_Device_ProcessControlRequest,"a",@progbits
-  97               		.p2align	1
-  98               	.L6:
-  99 0000 0000      		.word gs(.L5)
- 100 0002 0000      		.word gs(.L7)
- 101 0004 0000      		.word gs(.L4)
- 102 0006 0000      		.word gs(.L7)
- 103 0008 0000      		.word gs(.L4)
- 104 000a 0000      		.word gs(.L8)
- 105 000c 0000      		.word gs(.L9)
- 106 000e 0000      		.word gs(.L4)
- 107 0010 0000      		.word gs(.L10)
- 108 0012 0000      		.word gs(.L11)
- 109               		.section	.text.USB_Device_ProcessControlRequest
- 110               	.L5:
+  85               		.loc 1 70 0
+  86 0038 9091 0000 		lds r25,USB_ControlRequest+1
+  87 003c 492F      		mov r20,r25
+  88 003e 50E0      		ldi r21,0
+  89 0040 4A30      		cpi r20,10
+  90 0042 5105      		cpc r21,__zero_reg__
+  91 0044 00F0      		brlo .+2
+  92 0046 00C0      		rjmp .L3
+  93 0048 FA01      		movw r30,r20
+  94 004a E050      		subi r30,lo8(-(gs(.L5)))
+  95 004c F040      		sbci r31,hi8(-(gs(.L5)))
+  96 004e 0C94 0000 		jmp __tablejump2__
+  97               		.section	.progmem.gcc_sw_table.USB_Device_ProcessControlRequest,"a",@progbits
+  98               		.p2align	1
+  99               	.L5:
+ 100 0000 0000      		.word gs(.L4)
+ 101 0002 0000      		.word gs(.L6)
+ 102 0004 0000      		.word gs(.L3)
+ 103 0006 0000      		.word gs(.L6)
+ 104 0008 0000      		.word gs(.L3)
+ 105 000a 0000      		.word gs(.L7)
+ 106 000c 0000      		.word gs(.L8)
+ 107 000e 0000      		.word gs(.L3)
+ 108 0010 0000      		.word gs(.L9)
+ 109 0012 0000      		.word gs(.L10)
+ 110               		.section	.text.USB_Device_ProcessControlRequest
+ 111               	.L4:
   71:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 		{
   72:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			case REQ_GetStatus:
   73:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				if ((bmRequestType == (REQDIR_DEVICETOHOST | REQTYPE_STANDARD | REQREC_DEVICE)) ||
- 111               		.loc 1 73 0
- 112 0052 2038      		cpi r18,lo8(-128)
- 113 0054 01F0      		breq .L12
- 114               		.loc 1 73 0 is_stmt 0 discriminator 1
- 115 0056 2238      		cpi r18,lo8(-126)
- 116 0058 01F0      		breq .+2
- 117 005a 00C0      		rjmp .L4
- 118               	.LVL5:
- 119               	.LBB176:
- 120               	.LBB177:
- 121               	.LBB178:
- 122               	.LBB179:
+ 112               		.loc 1 73 0
+ 113 0052 8038      		cpi r24,lo8(-128)
+ 114 0054 01F0      		breq .L11
+ 115               		.loc 1 73 0 is_stmt 0 discriminator 1
+ 116 0056 8238      		cpi r24,lo8(-126)
+ 117 0058 01F0      		breq .+2
+ 118 005a 00C0      		rjmp .L3
+ 119               	.LVL5:
+ 120               	.LBB176:
+ 121               	.LBB177:
+ 122               	.LBB178:
+ 123               	.LBB179:
  270:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
- 123               		.loc 2 270 0 is_stmt 1
- 124 005c 8091 0000 		lds r24,USB_ControlRequest+4
- 125 0060 8F70      		andi r24,lo8(15)
+ 124               		.loc 2 270 0 is_stmt 1
+ 125 005c 8091 0000 		lds r24,USB_ControlRequest+4
  126               	.LVL6:
- 127 0062 8093 E900 		sts 233,r24
- 128               	.LBE179:
- 129               	.LBE178:
- 130               	.LBB180:
- 131               	.LBB181:
+ 127 0060 8F70      		andi r24,lo8(15)
+ 128               	.LVL7:
+ 129 0062 8093 E900 		sts 233,r24
+ 130               	.LVL8:
+ 131               	.LBE179:
+ 132               	.LBE178:
+ 133               	.LBB180:
+ 134               	.LBB181:
  513:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 132               		.loc 2 513 0
- 133 0066 8091 EB00 		lds r24,235
- 134               	.LVL7:
- 135 006a 85FB      		bst r24,5
- 136 006c 8827      		clr r24
- 137 006e 80F9      		bld r24,0
- 138               	.LVL8:
- 139               	.LBE181:
- 140               	.LBE180:
- 141               	.LBB182:
- 142               	.LBB183:
+ 135               		.loc 2 513 0
+ 136 0066 8091 EB00 		lds r24,235
+ 137               	.LVL9:
+ 138 006a 85FB      		bst r24,5
+ 139 006c 8827      		clr r24
+ 140 006e 80F9      		bld r24,0
+ 141               	.LVL10:
+ 142               	.LBE181:
+ 143               	.LBE180:
+ 144               	.LBB182:
+ 145               	.LBB183:
  270:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
- 143               		.loc 2 270 0
- 144 0070 1092 E900 		sts 233,__zero_reg__
- 145               	.LVL9:
- 146 0074 00C0      		rjmp .L14
- 147               	.LVL10:
- 148               	.L12:
- 149               	.LBE183:
- 150               	.LBE182:
+ 146               		.loc 2 270 0
+ 147 0070 1092 E900 		sts 233,__zero_reg__
+ 148               	.LVL11:
+ 149 0074 00C0      		rjmp .L13
+ 150               	.LVL12:
+ 151               	.L11:
+ 152               	.LBE183:
+ 153               	.LBE182:
   74:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 					(bmRequestType == (REQDIR_DEVICETOHOST | REQTYPE_STANDARD | REQREC_ENDPOINT)))
   75:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				{
   76:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 					USB_Device_GetStatus();
@@ -984,9 +987,9 @@
  288:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** static void USB_Device_GetStatus(void)
  289:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** {
  290:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	uint8_t CurrentStatus = 0;
- 151               		.loc 1 290 0
- 152 0076 8091 0000 		lds r24,USB_Device_CurrentlySelfPowered
- 153               	.LVL11:
+ 154               		.loc 1 290 0
+ 155 0076 8091 0000 		lds r24,USB_Device_CurrentlySelfPowered
+ 156               	.LVL13:
  291:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
  292:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	switch (USB_ControlRequest.bmRequestType)
  293:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	{
@@ -998,26 +1001,26 @@
  299:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
  300:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			#if !defined(NO_DEVICE_REMOTE_WAKEUP)
  301:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			if (USB_Device_RemoteWakeupEnabled)
- 154               		.loc 1 301 0
- 155 007a 9091 0000 		lds r25,USB_Device_RemoteWakeupEnabled
- 156 007e 9111      		cpse r25,__zero_reg__
+ 157               		.loc 1 301 0
+ 158 007a 9091 0000 		lds r25,USB_Device_RemoteWakeupEnabled
+ 159 007e 9111      		cpse r25,__zero_reg__
  302:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			  CurrentStatus |= FEATURE_REMOTE_WAKEUP_ENABLED;
- 157               		.loc 1 302 0
- 158 0080 8260      		ori r24,lo8(2)
- 159               	.LVL12:
- 160               	.L14:
- 161               	.LBB184:
- 162               	.LBB185:
+ 160               		.loc 1 302 0
+ 161 0080 8260      		ori r24,lo8(2)
+ 162               	.LVL14:
+ 163               	.L13:
+ 164               	.LBB184:
+ 165               	.LBB185:
  444:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 163               		.loc 2 444 0
- 164 0082 9091 E800 		lds r25,232
- 165 0086 977F      		andi r25,lo8(-9)
- 166 0088 9093 E800 		sts 232,r25
- 167               	.LVL13:
- 168               	.LBE185:
- 169               	.LBE184:
- 170               	.LBB186:
- 171               	.LBB187:
+ 166               		.loc 2 444 0
+ 167 0082 9091 E800 		lds r25,232
+ 168 0086 977F      		andi r25,lo8(-9)
+ 169 0088 9093 E800 		sts 232,r25
+ 170               	.LVL15:
+ 171               	.LBE185:
+ 172               	.LBE184:
+ 173               	.LBB186:
+ 174               	.LBB187:
  543:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  544:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 
  545:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			/** Writes one byte to the currently selected endpoint's bank, for IN direction endpoints.
@@ -1101,26 +1104,26 @@
  623:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline void Endpoint_Write_16_LE(const uint16_t Data)
  624:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
  625:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				UEDATX = (Data & 0xFF);
- 172               		.loc 2 625 0
- 173 008c 8093 F100 		sts 241,r24
+ 175               		.loc 2 625 0
+ 176 008c 8093 F100 		sts 241,r24
  626:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				UEDATX = (Data >> 8);
- 174               		.loc 2 626 0
- 175 0090 1092 F100 		sts 241,__zero_reg__
- 176 0094 00C0      		rjmp .L65
- 177               	.LVL14:
- 178               	.L7:
- 179               	.LBE187:
- 180               	.LBE186:
- 181               	.LBE177:
- 182               	.LBE176:
+ 177               		.loc 2 626 0
+ 178 0090 1092 F100 		sts 241,__zero_reg__
+ 179 0094 00C0      		rjmp .L66
+ 180               	.LVL16:
+ 181               	.L6:
+ 182               	.LBE187:
+ 183               	.LBE186:
+ 184               	.LBE177:
+ 185               	.LBE176:
   82:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 					(bmRequestType == (REQDIR_HOSTTODEVICE | REQTYPE_STANDARD | REQREC_ENDPOINT)))
- 183               		.loc 1 82 0
- 184 0096 822F      		mov r24,r18
- 185 0098 8D7F      		andi r24,lo8(-3)
- 186 009a 01F0      		breq .+2
- 187 009c 00C0      		rjmp .L4
- 188               	.LBB188:
- 189               	.LBB189:
+ 186               		.loc 1 82 0
+ 187 0096 282F      		mov r18,r24
+ 188 0098 2D7F      		andi r18,lo8(-3)
+ 189 009a 01F0      		breq .+2
+ 190 009c 00C0      		rjmp .L3
+ 191               	.LBB188:
+ 192               	.LBB189:
  303:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			#endif
  304:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			break;
  305:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 		case (REQDIR_DEVICETOHOST | REQTYPE_STANDARD | REQREC_ENDPOINT):
@@ -1148,31 +1151,33 @@
  327:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** static void USB_Device_ClearSetFeature(void)
  328:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** {
  329:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	switch (USB_ControlRequest.bmRequestType & CONTROL_REQTYPE_RECIPIENT)
- 190               		.loc 1 329 0
- 191 009e 2223      		tst r18
- 192 00a0 01F0      		breq .L15
- 193 00a2 2230      		cpi r18,lo8(2)
- 194 00a4 01F0      		breq .L16
- 195 00a6 00C0      		rjmp .L4
- 196               	.L15:
+ 193               		.loc 1 329 0
+ 194 009e 8823      		tst r24
+ 195 00a0 01F0      		breq .L14
+ 196 00a2 8230      		cpi r24,lo8(2)
+ 197 00a4 01F0      		breq .L15
+ 198 00a6 00C0      		rjmp .L3
+ 199               	.L14:
  330:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	{
  331:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 		#if !defined(NO_DEVICE_REMOTE_WAKEUP)
  332:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 		case REQREC_DEVICE:
  333:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			if ((uint8_t)USB_ControlRequest.wValue == FEATURE_SEL_DeviceRemoteWakeup)
- 197               		.loc 1 333 0
- 198 00a8 8091 0000 		lds r24,USB_ControlRequest+2
- 199 00ac 8130      		cpi r24,lo8(1)
- 200 00ae 01F0      		breq .+2
- 201 00b0 00C0      		rjmp .L4
+ 200               		.loc 1 333 0
+ 201 00a8 8091 0000 		lds r24,USB_ControlRequest+2
+ 202               	.LVL17:
+ 203 00ac 8130      		cpi r24,lo8(1)
+ 204 00ae 01F0      		breq .+2
+ 205 00b0 00C0      		rjmp .L3
  334:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			  USB_Device_RemoteWakeupEnabled = (USB_ControlRequest.bRequest == REQ_SetFeature);
- 202               		.loc 1 334 0
- 203 00b2 3330      		cpi r19,lo8(3)
- 204 00b4 01F0      		breq .L17
- 205 00b6 80E0      		ldi r24,0
- 206               	.L17:
- 207 00b8 8093 0000 		sts USB_Device_RemoteWakeupEnabled,r24
- 208 00bc 00C0      		rjmp .L18
- 209               	.L16:
+ 206               		.loc 1 334 0
+ 207 00b2 9330      		cpi r25,lo8(3)
+ 208 00b4 01F0      		breq .L16
+ 209 00b6 80E0      		ldi r24,0
+ 210               	.L16:
+ 211 00b8 8093 0000 		sts USB_Device_RemoteWakeupEnabled,r24
+ 212 00bc 00C0      		rjmp .L17
+ 213               	.LVL18:
+ 214               	.L15:
  335:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			else
  336:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			  return;
  337:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
@@ -1181,144 +1186,143 @@
  340:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 		#if !defined(CONTROL_ONLY_DEVICE)
  341:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 		case REQREC_ENDPOINT:
  342:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			if ((uint8_t)USB_ControlRequest.wValue == FEATURE_SEL_EndpointHalt)
- 210               		.loc 1 342 0
- 211 00be 8091 0000 		lds r24,USB_ControlRequest+2
- 212 00c2 8111      		cpse r24,__zero_reg__
- 213 00c4 00C0      		rjmp .L18
- 214               	.LBB190:
+ 215               		.loc 1 342 0
+ 216 00be 8091 0000 		lds r24,USB_ControlRequest+2
+ 217               	.LVL19:
+ 218 00c2 8111      		cpse r24,__zero_reg__
+ 219 00c4 00C0      		rjmp .L17
+ 220               	.LBB190:
  343:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 			{
  344:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				uint8_t EndpointIndex = ((uint8_t)USB_ControlRequest.wIndex & ENDPOINT_EPNUM_MASK);
- 215               		.loc 1 344 0
- 216 00c6 2091 0000 		lds r18,USB_ControlRequest+4
- 217               	.LVL15:
- 218 00ca 2F70      		andi r18,lo8(15)
- 219               	.LVL16:
+ 221               		.loc 1 344 0
+ 222 00c6 8091 0000 		lds r24,USB_ControlRequest+4
+ 223 00ca 8F70      		andi r24,lo8(15)
+ 224               	.LVL20:
  345:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
  346:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				if (EndpointIndex == ENDPOINT_CONTROLEP)
- 220               		.loc 1 346 0
- 221 00cc 01F4      		brne .+2
- 222 00ce 00C0      		rjmp .L4
- 223               	.LVL17:
- 224               	.LBB191:
- 225               	.LBB192:
+ 225               		.loc 1 346 0
+ 226 00cc 01F4      		brne .+2
+ 227 00ce 00C0      		rjmp .L3
+ 228               	.LVL21:
+ 229               	.LBB191:
+ 230               	.LBB192:
  270:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
- 226               		.loc 2 270 0
- 227 00d0 2093 E900 		sts 233,r18
- 228               	.LVL18:
- 229               	.LBE192:
- 230               	.LBE191:
- 231               	.LBB193:
- 232               	.LBB194:
+ 231               		.loc 2 270 0
+ 232 00d0 8093 E900 		sts 233,r24
+ 233               	.LVL22:
+ 234               	.LBE192:
+ 235               	.LBE191:
+ 236               	.LBB193:
+ 237               	.LBB194:
  313:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 233               		.loc 2 313 0
- 234 00d4 8091 EB00 		lds r24,235
- 235               	.LBE194:
- 236               	.LBE193:
+ 238               		.loc 2 313 0
+ 239 00d4 2091 EB00 		lds r18,235
+ 240               	.LBE194:
+ 241               	.LBE193:
  347:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				  return;
  348:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
  349:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				Endpoint_SelectEndpoint(EndpointIndex);
  350:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
  351:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				if (Endpoint_IsEnabled())
- 237               		.loc 1 351 0
- 238 00d8 80FF      		sbrs r24,0
- 239 00da 00C0      		rjmp .L18
- 240               	.LBB195:
- 241               	.LBB196:
- 491:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 242               		.loc 2 491 0
- 243 00dc 8091 EB00 		lds r24,235
- 244               	.LBE196:
- 245               	.LBE195:
+ 242               		.loc 1 351 0
+ 243 00d8 20FF      		sbrs r18,0
+ 244 00da 00C0      		rjmp .L17
  352:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				{
  353:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 					if (USB_ControlRequest.bRequest == REQ_SetFeature)
- 246               		.loc 1 353 0
- 247 00e0 3330      		cpi r19,lo8(3)
- 248 00e2 01F4      		brne .L21
- 249               	.LBB198:
- 250               	.LBB197:
+ 245               		.loc 1 353 0
+ 246 00dc 9330      		cpi r25,lo8(3)
+ 247 00de 01F4      		brne .L20
+ 248               	.LBB195:
+ 249               	.LBB196:
  491:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 251               		.loc 2 491 0
- 252 00e4 8062      		ori r24,lo8(32)
- 253 00e6 00C0      		rjmp .L62
- 254               	.L21:
- 255               	.LBE197:
- 256               	.LBE198:
- 257               	.LBB199:
- 258               	.LBB200:
+ 250               		.loc 2 491 0
+ 251 00e0 8091 EB00 		lds r24,235
+ 252               	.LVL23:
+ 253 00e4 8062      		ori r24,lo8(32)
+ 254 00e6 00C0      		rjmp .L63
+ 255               	.LVL24:
+ 256               	.L20:
+ 257               	.LBE196:
+ 258               	.LBE195:
+ 259               	.LBB197:
+ 260               	.LBB198:
  501:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 259               		.loc 2 501 0
- 260 00e8 8061      		ori r24,lo8(16)
- 261 00ea 8093 EB00 		sts 235,r24
- 262               	.LVL19:
- 263               	.LBE200:
- 264               	.LBE199:
- 265               	.LBB201:
- 266               	.LBB202:
+ 261               		.loc 2 501 0
+ 262 00e8 9091 EB00 		lds r25,235
+ 263 00ec 9061      		ori r25,lo8(16)
+ 264 00ee 9093 EB00 		sts 235,r25
+ 265               	.LVL25:
+ 266               	.LBE198:
+ 267               	.LBE197:
+ 268               	.LBB199:
+ 269               	.LBB200:
  282:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				UERST = 0;
- 267               		.loc 2 282 0
- 268 00ee 81E0      		ldi r24,lo8(1)
- 269 00f0 90E0      		ldi r25,0
- 270 00f2 022E      		mov r0,r18
- 271 00f4 00C0      		rjmp 2f
- 272               		1:
- 273 00f6 880F      		lsl r24
- 274               		2:
- 275 00f8 0A94      		dec r0
- 276 00fa 02F4      		brpl 1b
- 277 00fc 8093 EA00 		sts 234,r24
+ 270               		.loc 2 282 0
+ 271 00f2 21E0      		ldi r18,lo8(1)
+ 272 00f4 30E0      		ldi r19,0
+ 273 00f6 A901      		movw r20,r18
+ 274 00f8 00C0      		rjmp 2f
+ 275               		1:
+ 276 00fa 440F      		lsl r20
+ 277 00fc 551F      		rol r21
+ 278               		2:
+ 279 00fe 8A95      		dec r24
+ 280 0100 02F4      		brpl 1b
+ 281 0102 4093 EA00 		sts 234,r20
  283:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 278               		.loc 2 283 0
- 279 0100 1092 EA00 		sts 234,__zero_reg__
- 280               	.LBE202:
- 281               	.LBE201:
- 282               	.LBB203:
- 283               	.LBB204:
+ 282               		.loc 2 283 0
+ 283 0106 1092 EA00 		sts 234,__zero_reg__
+ 284               	.LBE200:
+ 285               	.LBE199:
+ 286               	.LBB201:
+ 287               	.LBB202:
  520:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 284               		.loc 2 520 0
- 285 0104 8091 EB00 		lds r24,235
- 286 0108 8860      		ori r24,lo8(8)
- 287               	.LVL20:
- 288               	.L62:
- 289 010a 8093 EB00 		sts 235,r24
- 290               	.LVL21:
- 291               	.L18:
- 292               	.LBE204:
- 293               	.LBE203:
- 294               	.LBE190:
- 295               	.LBB205:
- 296               	.LBB206:
+ 288               		.loc 2 520 0
+ 289 010a 8091 EB00 		lds r24,235
+ 290               	.LVL26:
+ 291 010e 8860      		ori r24,lo8(8)
+ 292               	.LVL27:
+ 293               	.L63:
+ 294 0110 8093 EB00 		sts 235,r24
+ 295               	.LVL28:
+ 296               	.L17:
+ 297               	.LBE202:
+ 298               	.LBE201:
+ 299               	.LBE190:
+ 300               	.LBB203:
+ 301               	.LBB204:
  270:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
- 297               		.loc 2 270 0
- 298 010e 1092 E900 		sts 233,__zero_reg__
- 299               	.LBE206:
- 300               	.LBE205:
- 301               	.LBB207:
- 302               	.LBB208:
+ 302               		.loc 2 270 0
+ 303 0114 1092 E900 		sts 233,__zero_reg__
+ 304               	.LBE204:
+ 305               	.LBE203:
+ 306               	.LBB205:
+ 307               	.LBB206:
  444:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 303               		.loc 2 444 0
- 304 0112 8091 E800 		lds r24,232
- 305 0116 877F      		andi r24,lo8(-9)
- 306 0118 00C0      		rjmp .L63
- 307               	.LVL22:
- 308               	.L8:
- 309               	.LBE208:
- 310               	.LBE207:
- 311               	.LBE189:
- 312               	.LBE188:
+ 308               		.loc 2 444 0
+ 309 0118 8091 E800 		lds r24,232
+ 310 011c 877F      		andi r24,lo8(-9)
+ 311 011e 00C0      		rjmp .L64
+ 312               	.LVL29:
+ 313               	.L7:
+ 314               	.LBE206:
+ 315               	.LBE205:
+ 316               	.LBE189:
+ 317               	.LBE188:
   90:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				  USB_Device_SetAddress();
- 313               		.loc 1 90 0
- 314 011a 2111      		cpse r18,__zero_reg__
- 315 011c 00C0      		rjmp .L4
- 316               	.LBB209:
- 317               	.LBB210:
+ 318               		.loc 1 90 0
+ 319 0120 8111      		cpse r24,__zero_reg__
+ 320 0122 00C0      		rjmp .L3
+ 321               	.LBB207:
+ 322               	.LBB208:
  127:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
- 318               		.loc 1 127 0
- 319 011e 1091 0000 		lds r17,USB_ControlRequest+2
- 320 0122 1F77      		andi r17,lo8(127)
- 321               	.LVL23:
- 322               	.LBB211:
- 323               	.LBB212:
- 324               		.file 3 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h"
+ 323               		.loc 1 127 0
+ 324 0124 1091 0000 		lds r17,USB_ControlRequest+2
+ 325 0128 1F77      		andi r17,lo8(127)
+ 326               	.LVL30:
+ 327               	.LBB209:
+ 328               	.LBB210:
+ 329               		.file 3 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h"
    1:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** /*
    2:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h ****              LUFA Library
    3:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h ****      Copyright (C) Dean Camera, 2014.
@@ -1532,41 +1536,43 @@
  211:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 			static inline void USB_Device_SetDeviceAddress(const uint8_t Address)
  212:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 			{
  213:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 				UDADDR = (UDADDR & (1 << ADDEN)) | (Address & 0x7F);
- 325               		.loc 3 213 0
- 326 0124 8091 E300 		lds r24,227
- 327 0128 8078      		andi r24,lo8(-128)
- 328 012a 812B      		or r24,r17
- 329 012c 8093 E300 		sts 227,r24
- 330               	.LBE212:
- 331               	.LBE211:
- 332               	.LBB213:
- 333               	.LBB214:
+ 330               		.loc 3 213 0
+ 331 012a 8091 E300 		lds r24,227
+ 332               	.LVL31:
+ 333 012e 8078      		andi r24,lo8(-128)
+ 334 0130 812B      		or r24,r17
+ 335 0132 8093 E300 		sts 227,r24
+ 336               	.LVL32:
+ 337               	.LBE210:
+ 338               	.LBE209:
+ 339               	.LBB211:
+ 340               	.LBB212:
  444:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 334               		.loc 2 444 0
- 335 0130 8091 E800 		lds r24,232
- 336 0134 877F      		andi r24,lo8(-9)
- 337 0136 8093 E800 		sts 232,r24
- 338               	.LBE214:
- 339               	.LBE213:
+ 341               		.loc 2 444 0
+ 342 0136 8091 E800 		lds r24,232
+ 343 013a 877F      		andi r24,lo8(-9)
+ 344 013c 8093 E800 		sts 232,r24
+ 345               	.LBE212:
+ 346               	.LBE211:
  133:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
- 340               		.loc 1 133 0
- 341 013a 0E94 0000 		call Endpoint_ClearStatusStage
- 342               	.LVL24:
- 343               	.L23:
- 344               	.LBB215:
- 345               	.LBB216:
+ 347               		.loc 1 133 0
+ 348 0140 0E94 0000 		call Endpoint_ClearStatusStage
+ 349               	.LVL33:
+ 350               	.L21:
+ 351               	.LBB213:
+ 352               	.LBB214:
  407:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 346               		.loc 2 407 0
- 347 013e 8091 E800 		lds r24,232
- 348               	.LBE216:
- 349               	.LBE215:
+ 353               		.loc 2 407 0
+ 354 0144 8091 E800 		lds r24,232
+ 355               	.LBE214:
+ 356               	.LBE213:
  135:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
- 350               		.loc 1 135 0
- 351 0142 80FF      		sbrs r24,0
- 352 0144 00C0      		rjmp .L23
- 353               	.LVL25:
- 354               	.LBB217:
- 355               	.LBB218:
+ 357               		.loc 1 135 0
+ 358 0148 80FF      		sbrs r24,0
+ 359 014a 00C0      		rjmp .L21
+ 360               	.LVL34:
+ 361               	.LBB215:
+ 362               	.LBB216:
  214:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 			}
  215:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 
  216:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 			static inline void USB_Device_EnableDeviceAddress(const uint8_t Address) ATTR_ALWAYS_INLINE;
@@ -1575,60 +1581,60 @@
  219:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 				(void)Address;
  220:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 
  221:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 				UDADDR |= (1 << ADDEN);
- 356               		.loc 3 221 0
- 357 0146 8091 E300 		lds r24,227
- 358 014a 8068      		ori r24,lo8(-128)
- 359 014c 8093 E300 		sts 227,r24
- 360               	.LBE218:
- 361               	.LBE217:
+ 363               		.loc 3 221 0
+ 364 014c 8091 E300 		lds r24,227
+ 365 0150 8068      		ori r24,lo8(-128)
+ 366 0152 8093 E300 		sts 227,r24
+ 367               	.LBE216:
+ 368               	.LBE215:
  139:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** }
- 362               		.loc 1 139 0
- 363 0150 1123      		tst r17
- 364 0152 01F0      		breq .L36
- 365 0154 83E0      		ldi r24,lo8(3)
- 366 0156 00C0      		rjmp .L24
- 367               	.L36:
- 368 0158 82E0      		ldi r24,lo8(2)
- 369               	.L24:
- 370 015a 8093 0000 		sts USB_DeviceState,r24
- 371 015e 00C0      		rjmp .L4
- 372               	.LVL26:
- 373               	.L9:
- 374               	.LBE210:
- 375               	.LBE209:
+ 369               		.loc 1 139 0
+ 370 0156 1111      		cpse r17,__zero_reg__
+ 371 0158 00C0      		rjmp .L33
+ 372 015a 82E0      		ldi r24,lo8(2)
+ 373 015c 00C0      		rjmp .L22
+ 374               	.L33:
+ 375 015e 83E0      		ldi r24,lo8(3)
+ 376               	.L22:
+ 377 0160 8093 0000 		sts USB_DeviceState,r24
+ 378 0164 00C0      		rjmp .L3
+ 379               	.LVL35:
+ 380               	.L8:
+ 381               	.LBE208:
+ 382               	.LBE207:
   95:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 					(bmRequestType == (REQDIR_DEVICETOHOST | REQTYPE_STANDARD | REQREC_INTERFACE)))
- 376               		.loc 1 95 0
- 377 0160 2058      		subi r18,lo8(-(-128))
- 378               	.LVL27:
- 379 0162 2230      		cpi r18,lo8(2)
- 380 0164 00F0      		brlo .+2
- 381 0166 00C0      		rjmp .L4
- 382               	.LBB219:
- 383               	.LBB220:
+ 383               		.loc 1 95 0
+ 384 0166 8058      		subi r24,lo8(-(-128))
+ 385               	.LVL36:
+ 386 0168 8230      		cpi r24,lo8(2)
+ 387 016a 00F0      		brlo .+2
+ 388 016c 00C0      		rjmp .L3
+ 389               	.LBB217:
+ 390               	.LBB218:
  250:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	{
- 384               		.loc 1 250 0
- 385 0168 8091 0000 		lds r24,USB_ControlRequest+2
- 386 016c 9091 0000 		lds r25,USB_ControlRequest+2+1
- 387 0170 8C3D      		cpi r24,-36
- 388 0172 23E0      		ldi r18,3
- 389 0174 9207      		cpc r25,r18
- 390 0176 01F4      		brne .L25
- 391               	.LBB221:
- 392               	.LBB222:
+ 391               		.loc 1 250 0
+ 392 016e 8091 0000 		lds r24,USB_ControlRequest+2
+ 393 0172 9091 0000 		lds r25,USB_ControlRequest+2+1
+ 394 0176 8C3D      		cpi r24,-36
+ 395 0178 53E0      		ldi r21,3
+ 396 017a 9507      		cpc r25,r21
+ 397 017c 01F4      		brne .L23
+ 398               	.LBB219:
+ 399               	.LBB220:
  227:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	SignatureDescriptor.Header.Size = USB_STRING_LEN(INTERNAL_SERIAL_LENGTH_BITS / 4);
- 393               		.loc 1 227 0
- 394 0178 83E0      		ldi r24,lo8(3)
- 395 017a 8A83      		std Y+2,r24
+ 400               		.loc 1 227 0
+ 401 017e 83E0      		ldi r24,lo8(3)
+ 402 0180 8A83      		std Y+2,r24
  228:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
- 396               		.loc 1 228 0
- 397 017c 8AE2      		ldi r24,lo8(42)
- 398 017e 8983      		std Y+1,r24
- 399               	.LVL28:
- 400               	.LBB223:
- 401               	.LBB224:
- 402               	.LBB225:
- 403               	.LBB226:
- 404               		.file 4 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h"
+ 403               		.loc 1 228 0
+ 404 0182 8AE2      		ldi r24,lo8(42)
+ 405 0184 8983      		std Y+1,r24
+ 406               	.LVL37:
+ 407               	.LBB221:
+ 408               	.LBB222:
+ 409               	.LBB223:
+ 410               	.LBB224:
+ 411               		.file 4 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h"
    1:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** /*
    2:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h ****              LUFA Library
    3:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h ****      Copyright (C) Dean Camera, 2014.
@@ -1936,16 +1942,16 @@
  305:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 			static inline uint_reg_t GetGlobalInterruptMask(void)
  306:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 			{
  307:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				GCC_MEMORY_BARRIER();
- 405               		.loc 4 307 0
+ 412               		.loc 4 307 0
  308:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 
  309:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				#if (ARCH == ARCH_AVR8)
  310:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				return SREG;
- 406               		.loc 4 310 0
- 407 0180 4FB7      		in r20,__SREG__
- 408               	.LBE226:
- 409               	.LBE225:
- 410               	.LBB227:
- 411               	.LBB228:
+ 413               		.loc 4 310 0
+ 414 0186 4FB7      		in r20,__SREG__
+ 415               	.LBE224:
+ 416               	.LBE223:
+ 417               	.LBB225:
+ 418               	.LBB226:
  311:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				#elif (ARCH == ARCH_UC3)
  312:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				return __builtin_mfsr(AVR32_SR);
  313:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				#elif (ARCH == ARCH_XMEGA)
@@ -2008,15 +2014,15 @@
  370:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 			static inline void GlobalInterruptDisable(void)
  371:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 			{
  372:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				GCC_MEMORY_BARRIER();
- 412               		.loc 4 372 0
+ 419               		.loc 4 372 0
  373:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 
  374:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				#if (ARCH == ARCH_AVR8)
  375:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				cli();
- 413               		.loc 4 375 0
- 414               	/* #APP */
- 415               	 ;  375 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h" 1
- 416 0182 F894      		cli
- 417               	 ;  0 "" 2
+ 420               		.loc 4 375 0
+ 421               	/* #APP */
+ 422               	 ;  375 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h" 1
+ 423 0188 F894      		cli
+ 424               	 ;  0 "" 2
  376:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				#elif (ARCH == ARCH_UC3)
  377:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				__builtin_ssrf(AVR32_SR_GM_OFFSET);
  378:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				#elif (ARCH == ARCH_XMEGA)
@@ -2024,14 +2030,14 @@
  380:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				#endif
  381:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 
  382:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				GCC_MEMORY_BARRIER();
- 418               		.loc 4 382 0
- 419               	.LVL29:
- 420               	/* #NOAPP */
- 421 0184 DE01      		movw r26,r28
- 422 0186 1396      		adiw r26,3
- 423               	.LBE228:
- 424               	.LBE227:
- 425               	.LBB229:
+ 425               		.loc 4 382 0
+ 426               	.LVL38:
+ 427               	/* #NOAPP */
+ 428 018a DE01      		movw r26,r28
+ 429 018c 1396      		adiw r26,3
+ 430               	.LBE226:
+ 431               	.LBE225:
+ 432               	.LBB227:
  222:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 			}
  223:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 
  224:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 			static inline bool USB_Device_IsAddressSet(void) ATTR_ALWAYS_INLINE ATTR_WARN_UNUSED_RESULT;
@@ -2050,330 +2056,332 @@
  237:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 				uint8_t SigReadAddress = INTERNAL_SERIAL_START_ADDRESS;
  238:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 
  239:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 				for (uint8_t SerialCharNum = 0; SerialCharNum < (INTERNAL_SERIAL_LENGTH_BITS / 4); SerialCharNu
- 426               		.loc 3 239 0
- 427 0188 20E0      		ldi r18,0
- 428               	.LBE229:
+ 433               		.loc 3 239 0
+ 434 018e 20E0      		ldi r18,0
+ 435               	.LBE227:
  237:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 
- 429               		.loc 3 237 0
- 430 018a 3EE0      		ldi r19,lo8(14)
- 431               	.LBB232:
- 432               	.LBB230:
- 433               	.LBB231:
+ 436               		.loc 3 237 0
+ 437 0190 3EE0      		ldi r19,lo8(14)
+ 438               	.LBB230:
+ 439               	.LBB228:
+ 440               	.LBB229:
  240:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 				{
  241:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 					uint8_t SerialByte = boot_signature_byte_get(SigReadAddress);
- 434               		.loc 3 241 0
- 435 018c 51E2      		ldi r21,lo8(33)
- 436               	.LVL30:
- 437               	.L30:
- 438 018e E32F      		mov r30,r19
- 439 0190 F0E0      		ldi r31,0
- 440               	/* #APP */
- 441               	 ;  241 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h" 1
- 442 0192 5093 5700 		sts 87, r21
- 443 0196 E491      		lpm r30, Z
- 444               		
- 445               	 ;  0 "" 2
- 446               	.LVL31:
- 447               	/* #NOAPP */
- 448               	.LBE231:
+ 441               		.loc 3 241 0
+ 442 0192 51E2      		ldi r21,lo8(33)
+ 443               	.LVL39:
+ 444               	.L27:
+ 445 0194 E32F      		mov r30,r19
+ 446 0196 F0E0      		ldi r31,0
+ 447               	/* #APP */
+ 448               	 ;  241 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h" 1
+ 449 0198 5093 5700 		sts 87, r21
+ 450 019c E491      		lpm r30, Z
+ 451               		
+ 452               	 ;  0 "" 2
+ 453               	.LVL40:
+ 454               	/* #NOAPP */
+ 455               	.LBE229:
  242:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 
  243:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 					if (SerialCharNum & 0x01)
- 449               		.loc 3 243 0
- 450 0198 20FF      		sbrs r18,0
- 451 019a 00C0      		rjmp .L26
+ 456               		.loc 3 243 0
+ 457 019e 20FF      		sbrs r18,0
+ 458 01a0 00C0      		rjmp .L24
  244:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 					{
  245:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 						SerialByte >>= 4;
- 452               		.loc 3 245 0
- 453 019c E295      		swap r30
- 454               	.LVL32:
- 455 019e EF70      		andi r30,lo8(15)
- 456               	.LVL33:
+ 459               		.loc 3 245 0
+ 460 01a2 E295      		swap r30
+ 461               	.LVL41:
+ 462 01a4 EF70      		andi r30,lo8(15)
+ 463               	.LVL42:
  246:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 						SigReadAddress++;
- 457               		.loc 3 246 0
- 458 01a0 3F5F      		subi r19,lo8(-(1))
- 459               	.LVL34:
- 460               	.L26:
+ 464               		.loc 3 246 0
+ 465 01a6 3F5F      		subi r19,lo8(-(1))
+ 466               	.LVL43:
+ 467               	.L24:
  247:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 					}
  248:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 
  249:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 					SerialByte &= 0x0F;
- 461               		.loc 3 249 0
- 462 01a2 EF70      		andi r30,lo8(15)
- 463               	.LVL35:
- 464 01a4 8E2F      		mov r24,r30
- 465 01a6 90E0      		ldi r25,0
+ 468               		.loc 3 249 0
+ 469 01a8 EF70      		andi r30,lo8(15)
+ 470               	.LVL44:
+ 471 01aa 8E2F      		mov r24,r30
+ 472 01ac 90E0      		ldi r25,0
  250:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 
  251:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 					UnicodeString[SerialCharNum] = cpu_to_le16((SerialByte >= 10) ?
- 466               		.loc 3 251 0
- 467 01a8 EA30      		cpi r30,lo8(10)
- 468 01aa 00F0      		brlo .L27
- 469 01ac C796      		adiw r24,55
- 470 01ae 00C0      		rjmp .L28
- 471               	.LVL36:
- 472               	.L27:
- 473 01b0 C096      		adiw r24,48
- 474               	.LVL37:
- 475               	.L28:
- 476 01b2 8D93      		st X+,r24
- 477 01b4 9D93      		st X+,r25
- 478               	.LBE230:
+ 473               		.loc 3 251 0
+ 474 01ae EA30      		cpi r30,lo8(10)
+ 475 01b0 00F0      		brlo .L25
+ 476 01b2 C796      		adiw r24,55
+ 477 01b4 00C0      		rjmp .L26
+ 478               	.LVL45:
+ 479               	.L25:
+ 480 01b6 C096      		adiw r24,48
+ 481               	.LVL46:
+ 482               	.L26:
+ 483 01b8 8D93      		st X+,r24
+ 484 01ba 9D93      		st X+,r25
+ 485               	.LBE228:
  239:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 				{
- 479               		.loc 3 239 0
- 480 01b6 2F5F      		subi r18,lo8(-(1))
- 481               	.LVL38:
- 482 01b8 2431      		cpi r18,lo8(20)
- 483 01ba 01F4      		brne .L30
- 484               	.LVL39:
- 485               	.LBE232:
- 486               	.LBB233:
- 487               	.LBB234:
+ 486               		.loc 3 239 0
+ 487 01bc 2F5F      		subi r18,lo8(-(1))
+ 488               	.LVL47:
+ 489 01be 2431      		cpi r18,lo8(20)
+ 490 01c0 01F4      		brne .L27
+ 491               	.LVL48:
+ 492               	.LBE230:
+ 493               	.LBB231:
+ 494               	.LBB232:
  329:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 
- 488               		.loc 4 329 0
+ 495               		.loc 4 329 0
  332:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 				#elif (ARCH == ARCH_UC3)
- 489               		.loc 4 332 0
- 490 01bc 4FBF      		out __SREG__,r20
- 491               	.LVL40:
+ 496               		.loc 4 332 0
+ 497 01c2 4FBF      		out __SREG__,r20
+ 498               	.LVL49:
  342:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/../../../Common/Common.h **** 			}
- 492               		.loc 4 342 0
- 493               	.LBE234:
- 494               	.LBE233:
- 495               	.LBE224:
- 496               	.LBE223:
- 497               	.LBB235:
- 498               	.LBB236:
+ 499               		.loc 4 342 0
+ 500               	.LBE232:
+ 501               	.LBE231:
+ 502               	.LBE222:
+ 503               	.LBE221:
+ 504               	.LBB233:
+ 505               	.LBB234:
  444:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 499               		.loc 2 444 0
- 500 01be 8091 E800 		lds r24,232
- 501 01c2 877F      		andi r24,lo8(-9)
- 502 01c4 8093 E800 		sts 232,r24
- 503               	.LBE236:
- 504               	.LBE235:
+ 506               		.loc 2 444 0
+ 507 01c4 8091 E800 		lds r24,232
+ 508 01c8 877F      		andi r24,lo8(-9)
+ 509 01ca 8093 E800 		sts 232,r24
+ 510               	.LBE234:
+ 511               	.LBE233:
  234:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	Endpoint_ClearOUT();
- 505               		.loc 1 234 0
- 506 01c8 6AE2      		ldi r22,lo8(42)
- 507 01ca 70E0      		ldi r23,0
- 508 01cc CE01      		movw r24,r28
- 509 01ce 0196      		adiw r24,1
- 510 01d0 0E94 0000 		call Endpoint_Write_Control_Stream_LE
- 511               	.LVL41:
- 512 01d4 00C0      		rjmp .L64
- 513               	.LVL42:
- 514               	.L25:
- 515               	.LBE222:
- 516               	.LBE221:
+ 512               		.loc 1 234 0
+ 513 01ce 6AE2      		ldi r22,lo8(42)
+ 514 01d0 70E0      		ldi r23,0
+ 515 01d2 CE01      		movw r24,r28
+ 516 01d4 0196      		adiw r24,1
+ 517 01d6 0E94 0000 		call Endpoint_Write_Control_Stream_LE
+ 518               	.LVL50:
+ 519 01da 00C0      		rjmp .L65
+ 520               	.LVL51:
+ 521               	.L23:
+ 522               	.LBE220:
+ 523               	.LBE219:
  257:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	                                                 &DescriptorPointer
- 517               		.loc 1 257 0
- 518 01d6 AE01      		movw r20,r28
- 519 01d8 4F5F      		subi r20,-1
- 520 01da 5F4F      		sbci r21,-1
- 521 01dc 6091 0000 		lds r22,USB_ControlRequest+4
- 522 01e0 0E94 0000 		call CALLBACK_USB_GetDescriptor
- 523               	.LVL43:
- 524 01e4 0097      		sbiw r24,0
- 525 01e6 01F4      		brne .+2
- 526 01e8 00C0      		rjmp .L4
- 527               	.LBB237:
- 528               	.LBB238:
+ 524               		.loc 1 257 0
+ 525 01dc AE01      		movw r20,r28
+ 526 01de 4F5F      		subi r20,-1
+ 527 01e0 5F4F      		sbci r21,-1
+ 528 01e2 6091 0000 		lds r22,USB_ControlRequest+4
+ 529 01e6 0E94 0000 		call CALLBACK_USB_GetDescriptor
+ 530               	.LVL52:
+ 531 01ea BC01      		movw r22,r24
+ 532               	.LVL53:
+ 533 01ec 892B      		or r24,r25
+ 534 01ee 01F4      		brne .+2
+ 535 01f0 00C0      		rjmp .L3
+ 536               	.LBB235:
+ 537               	.LBB236:
  444:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 529               		.loc 2 444 0
- 530 01ea 2091 E800 		lds r18,232
- 531 01ee 277F      		andi r18,lo8(-9)
- 532 01f0 2093 E800 		sts 232,r18
- 533               	.LBE238:
- 534               	.LBE237:
+ 538               		.loc 2 444 0
+ 539 01f2 9091 E800 		lds r25,232
+ 540 01f6 977F      		andi r25,lo8(-9)
+ 541 01f8 9093 E800 		sts 232,r25
+ 542               	.LBE236:
+ 543               	.LBE235:
  275:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	#else
- 535               		.loc 1 275 0
- 536 01f4 BC01      		movw r22,r24
- 537 01f6 8981      		ldd r24,Y+1
- 538 01f8 9A81      		ldd r25,Y+2
- 539               	.LVL44:
- 540 01fa 0E94 0000 		call Endpoint_Write_Control_PStream_LE
- 541               	.LVL45:
- 542               	.L64:
- 543               	.LBB239:
- 544               	.LBB240:
+ 544               		.loc 1 275 0
+ 545 01fc 8981      		ldd r24,Y+1
+ 546 01fe 9A81      		ldd r25,Y+2
+ 547 0200 0E94 0000 		call Endpoint_Write_Control_PStream_LE
+ 548               	.LVL54:
+ 549               	.L65:
+ 550               	.LBB237:
+ 551               	.LBB238:
  471:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
- 545               		.loc 2 471 0
- 546 01fe 8091 E800 		lds r24,232
- 547 0202 8B77      		andi r24,lo8(123)
- 548 0204 8093 E800 		sts 232,r24
- 549 0208 00C0      		rjmp .L4
- 550               	.LVL46:
- 551               	.L10:
- 552               	.LBE240:
- 553               	.LBE239:
- 554               	.LBE220:
- 555               	.LBE219:
+ 552               		.loc 2 471 0
+ 553 0204 8091 E800 		lds r24,232
+ 554 0208 8B77      		andi r24,lo8(123)
+ 555 020a 8093 E800 		sts 232,r24
+ 556 020e 00C0      		rjmp .L3
+ 557               	.LVL55:
+ 558               	.L9:
+ 559               	.LBE238:
+ 560               	.LBE237:
+ 561               	.LBE218:
+ 562               	.LBE217:
  103:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				  USB_Device_GetConfiguration();
- 556               		.loc 1 103 0
- 557 020a 2038      		cpi r18,lo8(-128)
- 558 020c 01F4      		brne .L4
- 559               	.LBB241:
- 560               	.LBB242:
- 561               	.LBB243:
- 562               	.LBB244:
+ 563               		.loc 1 103 0
+ 564 0210 8038      		cpi r24,lo8(-128)
+ 565 0212 01F4      		brne .L3
+ 566               	.LBB239:
+ 567               	.LBB240:
+ 568               	.LBB241:
+ 569               	.LBB242:
  444:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 563               		.loc 2 444 0
- 564 020e 8091 E800 		lds r24,232
- 565 0212 877F      		andi r24,lo8(-9)
- 566 0214 8093 E800 		sts 232,r24
- 567               	.LBE244:
- 568               	.LBE243:
+ 570               		.loc 2 444 0
+ 571 0214 8091 E800 		lds r24,232
+ 572               	.LVL56:
+ 573 0218 877F      		andi r24,lo8(-9)
+ 574 021a 8093 E800 		sts 232,r24
+ 575               	.LVL57:
+ 576               	.LBE242:
+ 577               	.LBE241:
  212:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	Endpoint_ClearIN();
- 569               		.loc 1 212 0
- 570 0218 8091 0000 		lds r24,USB_Device_ConfigurationNumber
- 571               	.LVL47:
- 572               	.LBB245:
- 573               	.LBB246:
+ 578               		.loc 1 212 0
+ 579 021e 8091 0000 		lds r24,USB_Device_ConfigurationNumber
+ 580               	.LVL58:
+ 581               	.LBB243:
+ 582               	.LBB244:
  554:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 574               		.loc 2 554 0
- 575 021c 8093 F100 		sts 241,r24
- 576               	.LVL48:
- 577               	.L65:
- 578               	.LBE246:
- 579               	.LBE245:
- 580               	.LBB247:
- 581               	.LBB248:
+ 583               		.loc 2 554 0
+ 584 0222 8093 F100 		sts 241,r24
+ 585               	.LVL59:
+ 586               	.L66:
+ 587               	.LBE244:
+ 588               	.LBE243:
+ 589               	.LBB245:
+ 590               	.LBB246:
  456:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
- 582               		.loc 2 456 0
- 583 0220 8091 E800 		lds r24,232
- 584 0224 8E77      		andi r24,lo8(126)
- 585               	.LVL49:
- 586               	.L63:
- 587 0226 8093 E800 		sts 232,r24
- 588               	.LBE248:
- 589               	.LBE247:
+ 591               		.loc 2 456 0
+ 592 0226 8091 E800 		lds r24,232
+ 593 022a 8E77      		andi r24,lo8(126)
+ 594               	.L64:
+ 595 022c 8093 E800 		sts 232,r24
+ 596               	.LBE246:
+ 597               	.LBE245:
  215:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** }
- 590               		.loc 1 215 0
- 591 022a 0E94 0000 		call Endpoint_ClearStatusStage
- 592               	.LVL50:
- 593 022e 00C0      		rjmp .L4
- 594               	.LVL51:
- 595               	.L11:
- 596               	.LBE242:
- 597               	.LBE241:
+ 598               		.loc 1 215 0
+ 599 0230 0E94 0000 		call Endpoint_ClearStatusStage
+ 600               	.LVL60:
+ 601 0234 00C0      		rjmp .L3
+ 602               	.LVL61:
+ 603               	.L10:
+ 604               	.LBE240:
+ 605               	.LBE239:
  108:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 				  USB_Device_SetConfiguration();
- 598               		.loc 1 108 0
- 599 0230 2111      		cpse r18,__zero_reg__
- 600 0232 00C0      		rjmp .L4
- 601               	.LBB249:
- 602               	.LBB250:
+ 606               		.loc 1 108 0
+ 607 0236 8111      		cpse r24,__zero_reg__
+ 608 0238 00C0      		rjmp .L3
+ 609               	.LBB247:
+ 610               	.LBB248:
  145:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	  return;
- 603               		.loc 1 145 0
- 604 0234 9091 0000 		lds r25,USB_ControlRequest+2
- 605 0238 9230      		cpi r25,lo8(2)
- 606 023a 00F4      		brsh .L4
- 607               	.LBB251:
- 608               	.LBB252:
+ 611               		.loc 1 145 0
+ 612 023a 9091 0000 		lds r25,USB_ControlRequest+2
+ 613 023e 9230      		cpi r25,lo8(2)
+ 614 0240 00F4      		brsh .L3
+ 615               	.LBB249:
+ 616               	.LBB250:
  444:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 609               		.loc 2 444 0
- 610 023c 8091 E800 		lds r24,232
- 611 0240 877F      		andi r24,lo8(-9)
- 612 0242 8093 E800 		sts 232,r24
- 613               	.LBE252:
- 614               	.LBE251:
+ 617               		.loc 2 444 0
+ 618 0242 8091 E800 		lds r24,232
+ 619               	.LVL62:
+ 620 0246 877F      		andi r24,lo8(-9)
+ 621 0248 8093 E800 		sts 232,r24
+ 622               	.LVL63:
+ 623               	.LBE250:
+ 624               	.LBE249:
  196:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
- 615               		.loc 1 196 0
- 616 0246 9093 0000 		sts USB_Device_ConfigurationNumber,r25
+ 625               		.loc 1 196 0
+ 626 024c 9093 0000 		sts USB_Device_ConfigurationNumber,r25
  198:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
- 617               		.loc 1 198 0
- 618 024a 0E94 0000 		call Endpoint_ClearStatusStage
- 619               	.LVL52:
+ 627               		.loc 1 198 0
+ 628 0250 0E94 0000 		call Endpoint_ClearStatusStage
+ 629               	.LVL64:
  200:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	  USB_DeviceState = DEVICE_STATE_Configured;
- 620               		.loc 1 200 0
- 621 024e 8091 0000 		lds r24,USB_Device_ConfigurationNumber
- 622 0252 8111      		cpse r24,__zero_reg__
- 623 0254 00C0      		rjmp .L66
- 624               	.LBB253:
- 625               	.LBB254:
+ 630               		.loc 1 200 0
+ 631 0254 8091 0000 		lds r24,USB_Device_ConfigurationNumber
+ 632 0258 8111      		cpse r24,__zero_reg__
+ 633 025a 00C0      		rjmp .L34
+ 634               	.LBB251:
+ 635               	.LBB252:
  227:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Device_AVR8.h **** 			}
- 626               		.loc 3 227 0
- 627 0256 8091 E300 		lds r24,227
- 628               	.LBE254:
- 629               	.LBE253:
+ 636               		.loc 3 227 0
+ 637 025c 8091 E300 		lds r24,227
+ 638               	.LBE252:
+ 639               	.LBE251:
  203:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
- 630               		.loc 1 203 0
- 631 025a 87FF      		sbrs r24,7
- 632 025c 00C0      		rjmp .L37
- 633               	.L66:
- 634 025e 84E0      		ldi r24,lo8(4)
- 635 0260 00C0      		rjmp .L34
- 636               	.L37:
- 637 0262 81E0      		ldi r24,lo8(1)
- 638               	.L34:
- 639 0264 8093 0000 		sts USB_DeviceState,r24
+ 640               		.loc 1 203 0
+ 641 0260 87FD      		sbrc r24,7
+ 642 0262 00C0      		rjmp .L34
+ 643 0264 81E0      		ldi r24,lo8(1)
+ 644 0266 00C0      		rjmp .L31
+ 645               	.L34:
+ 646 0268 84E0      		ldi r24,lo8(4)
+ 647               	.L31:
+ 648 026a 8093 0000 		sts USB_DeviceState,r24
  205:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** }
- 640               		.loc 1 205 0
- 641 0268 0E94 0000 		call EVENT_USB_Device_ConfigurationChanged
- 642               	.LVL53:
- 643               	.L4:
- 644               	.LBE250:
- 645               	.LBE249:
- 646               	.LBE175:
- 647               	.LBB255:
- 648               	.LBB256:
+ 649               		.loc 1 205 0
+ 650 026e 0E94 0000 		call EVENT_USB_Device_ConfigurationChanged
+ 651               	.LVL65:
+ 652               	.L3:
+ 653               	.LBE248:
+ 654               	.LBE247:
+ 655               	.LBE175:
+ 656               	.LBB253:
+ 657               	.LBB254:
  431:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 649               		.loc 2 431 0
- 650 026c 8091 E800 		lds r24,232
- 651               	.LBE256:
- 652               	.LBE255:
+ 658               		.loc 2 431 0
+ 659 0272 8091 E800 		lds r24,232
+ 660               	.LBE254:
+ 661               	.LBE253:
  118:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 	{
- 653               		.loc 1 118 0
- 654 0270 83FF      		sbrs r24,3
- 655 0272 00C0      		rjmp .L1
- 656               	.LBB257:
- 657               	.LBB258:
+ 662               		.loc 1 118 0
+ 663 0276 83FF      		sbrs r24,3
+ 664 0278 00C0      		rjmp .L1
+ 665               	.LBB255:
+ 666               	.LBB256:
  444:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 658               		.loc 2 444 0
- 659 0274 8091 E800 		lds r24,232
- 660 0278 877F      		andi r24,lo8(-9)
- 661 027a 8093 E800 		sts 232,r24
- 662               	.LBE258:
- 663               	.LBE257:
- 664               	.LBB259:
- 665               	.LBB260:
+ 667               		.loc 2 444 0
+ 668 027a 8091 E800 		lds r24,232
+ 669 027e 877F      		andi r24,lo8(-9)
+ 670 0280 8093 E800 		sts 232,r24
+ 671               	.LBE256:
+ 672               	.LBE255:
+ 673               	.LBB257:
+ 674               	.LBB258:
  491:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 666               		.loc 2 491 0
- 667 027e 8091 EB00 		lds r24,235
- 668 0282 8062      		ori r24,lo8(32)
- 669 0284 8093 EB00 		sts 235,r24
- 670               	.L1:
- 671               	/* epilogue start */
- 672               	.LBE260:
- 673               	.LBE259:
+ 675               		.loc 2 491 0
+ 676 0284 8091 EB00 		lds r24,235
+ 677 0288 8062      		ori r24,lo8(32)
+ 678 028a 8093 EB00 		sts 235,r24
+ 679               	.L1:
+ 680               	/* epilogue start */
+ 681               	.LBE258:
+ 682               	.LBE257:
  123:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/DeviceStandardReq.c **** 
- 674               		.loc 1 123 0
- 675 0288 AA96      		adiw r28,42
- 676 028a 0FB6      		in __tmp_reg__,__SREG__
- 677 028c F894      		cli
- 678 028e DEBF      		out __SP_H__,r29
- 679 0290 0FBE      		out __SREG__,__tmp_reg__
- 680 0292 CDBF      		out __SP_L__,r28
- 681 0294 DF91      		pop r29
- 682 0296 CF91      		pop r28
- 683 0298 1F91      		pop r17
- 684 029a 0895      		ret
- 685               		.cfi_endproc
- 686               	.LFE85:
- 688               		.comm	USB_Device_RemoteWakeupEnabled,1,1
- 689               		.comm	USB_Device_CurrentlySelfPowered,1,1
- 690               		.comm	USB_Device_ConfigurationNumber,1,1
- 691               		.text
- 692               	.Letext0:
- 693               		.file 5 "/usr/lib/avr/include/stdint.h"
- 694               		.file 6 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/StdDescriptors.h"
- 695               		.file 7 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/StdRequestType.h"
- 696               		.file 8 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../Device.h"
- 697               		.file 9 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
- 698               		.file 10 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/EndpointStream_
- 699               		.file 11 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/Events.h"
+ 683               		.loc 1 123 0
+ 684 028e AA96      		adiw r28,42
+ 685 0290 0FB6      		in __tmp_reg__,__SREG__
+ 686 0292 F894      		cli
+ 687 0294 DEBF      		out __SP_H__,r29
+ 688 0296 0FBE      		out __SREG__,__tmp_reg__
+ 689 0298 CDBF      		out __SP_L__,r28
+ 690 029a DF91      		pop r29
+ 691 029c CF91      		pop r28
+ 692 029e 1F91      		pop r17
+ 693 02a0 0895      		ret
+ 694               		.cfi_endproc
+ 695               	.LFE85:
+ 697               		.comm	USB_Device_RemoteWakeupEnabled,1,1
+ 698               		.comm	USB_Device_CurrentlySelfPowered,1,1
+ 699               		.comm	USB_Device_ConfigurationNumber,1,1
+ 700               		.text
+ 701               	.Letext0:
+ 702               		.file 5 "/usr/lib/avr/include/stdint.h"
+ 703               		.file 6 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/StdDescriptors.h"
+ 704               		.file 7 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/StdRequestType.h"
+ 705               		.file 8 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../Device.h"
+ 706               		.file 9 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
+ 707               		.file 10 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/EndpointStream_
+ 708               		.file 11 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/Events.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 DeviceStandardReq.c
-     /tmp/ccAhbfLX.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccAhbfLX.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccAhbfLX.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccAhbfLX.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccAhbfLX.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccAhbfLX.s:13     .text.USB_Device_ProcessControlRequest:0000000000000000 USB_Device_ProcessControlRequest
+     /tmp/ccjspT2O.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccjspT2O.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccjspT2O.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccjspT2O.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccjspT2O.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccjspT2O.s:13     .text.USB_Device_ProcessControlRequest:0000000000000000 USB_Device_ProcessControlRequest
                             *COM*:0000000000000001 USB_Device_CurrentlySelfPowered
                             *COM*:0000000000000001 USB_Device_RemoteWakeupEnabled
                             *COM*:0000000000000001 USB_Device_ConfigurationNumber

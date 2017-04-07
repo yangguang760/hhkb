@@ -10,7 +10,7 @@
   10               		.section	.text.keymap_key_to_keycode,"ax",@progbits
   11               	.global	keymap_key_to_keycode
   13               	keymap_key_to_keycode:
-  14               	.LFB103:
+  14               	.LFB4:
   15               		.file 1 "keymap_common.c"
    1:keymap_common.c **** /*
    2:keymap_common.c **** Copyright 2012,2013 Jun Wako <wakojun@gmail.com>
@@ -77,11 +77,11 @@
   51               		.loc 1 27 0
   52 0022 0895      		ret
   53               		.cfi_endproc
-  54               	.LFE103:
+  54               	.LFE4:
   56               		.section	.text.keymap_fn_to_action,"ax",@progbits
   57               	.global	keymap_fn_to_action
   59               	keymap_fn_to_action:
-  60               	.LFB104:
+  60               	.LFB5:
   28:keymap_common.c **** 
   29:keymap_common.c **** /* translates Fn keycode to action */
   30:keymap_common.c **** action_t keymap_fn_to_action(uint8_t keycode)
@@ -116,7 +116,7 @@
   86               	/* #NOAPP */
   87 0010 0895      		ret
   88               		.cfi_endproc
-  89               	.LFE104:
+  89               	.LFE5:
   91               		.comm	keymap_config,1,1
   92               		.text
   93               	.Letext0:
@@ -124,18 +124,17 @@
   95               		.file 3 "../../tmk_core/common/keyboard.h"
   96               		.file 4 "../../tmk_core/common/action_code.h"
   97               		.file 5 "../../tmk_core/common/keymap.h"
-  98               		.file 6 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
-  99               		.file 7 "keymap_common.h"
- 100               		.file 8 "../../tmk_core/common/keycode.h"
+  98               		.file 6 "keymap_common.h"
+  99               		.file 7 "../../tmk_core/common/keycode.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keymap_common.c
-     /tmp/ccrRXpFz.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccrRXpFz.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccrRXpFz.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccrRXpFz.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccrRXpFz.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccrRXpFz.s:13     .text.keymap_key_to_keycode:0000000000000000 keymap_key_to_keycode
-     /tmp/ccrRXpFz.s:59     .text.keymap_fn_to_action:0000000000000000 keymap_fn_to_action
+     /tmp/ccYsUTaI.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccYsUTaI.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccYsUTaI.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccYsUTaI.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccYsUTaI.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccYsUTaI.s:13     .text.keymap_key_to_keycode:0000000000000000 keymap_key_to_keycode
+     /tmp/ccYsUTaI.s:59     .text.keymap_fn_to_action:0000000000000000 keymap_fn_to_action
                             *COM*:0000000000000001 keymap_config
 
 UNDEFINED SYMBOLS

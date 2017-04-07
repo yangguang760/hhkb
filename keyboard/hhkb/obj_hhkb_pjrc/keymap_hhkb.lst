@@ -10,7 +10,7 @@
   10               		.section	.text.action_get_macro,"ax",@progbits
   11               	.global	action_get_macro
   13               	action_get_macro:
-  14               	.LFB103:
+  14               	.LFB4:
   15               		.file 1 "keymap_hhkb.c"
    1:keymap_hhkb.c **** /*
    2:keymap_hhkb.c ****  * HHKB Layout
@@ -38,7 +38,7 @@
   24:keymap_hhkb.c ****      */
   25:keymap_hhkb.c ****     KEYMAP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS,GRV,   \
   26:keymap_hhkb.c ****            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,       \
-  27:keymap_hhkb.c ****            FN3, FN1,   FN2,   D,   F,   G,   H,   J,   K,   L,  SCLN,QUOT,ENT,             \
+  27:keymap_hhkb.c ****            FN2, FN1,   S,   D,   F,   G,   H,   J,   K,   L,  SCLN,QUOT,ENT,             \
   28:keymap_hhkb.c ****            LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,RSFT,FN0,             \
   29:keymap_hhkb.c ****                 LGUI,LALT,          SPC,                RALT,RGUI),
   30:keymap_hhkb.c **** 
@@ -75,9 +75,9 @@
   61:keymap_hhkb.c ****      *       `-------------------------------------------'
   62:keymap_hhkb.c ****      */
   63:keymap_hhkb.c ****     KEYMAP(TRNS, TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS, TRNS, TRNS, T
-  64:keymap_hhkb.c ****            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS, TRNS, TRNS,      \
+  64:keymap_hhkb.c ****            CAPS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS, TRNS, TRNS,      \
   65:keymap_hhkb.c ****            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,LEFT,DOWN,UP,RGHT,TRNS,TRNS,BSPC,            \
-  66:keymap_hhkb.c ****            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS,FN4,TRNS,TRNS,TRNS,            \
+  66:keymap_hhkb.c ****            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS,FN3,TRNS,TRNS,TRNS,            \
   67:keymap_hhkb.c ****                 TRNS,TRNS,          DEL,               TRNS,TRNS),
   68:keymap_hhkb.c **** 
   69:keymap_hhkb.c ****     /* Layer 3: yg mouse mode
@@ -138,8 +138,8 @@
   34               	.LVL1:
   35 0010 8823      		tst r24
   36 0012 01F0      		breq .L8
-  37 0014 80E0      		ldi r24,lo8(__m.4723)
-  38 0016 90E0      		ldi r25,hi8(__m.4723)
+  37 0014 80E0      		ldi r24,lo8(__m.2335)
+  38 0016 90E0      		ldi r25,hi8(__m.2335)
   39 0018 0895      		ret
   40               	.LVL2:
   41               	.L3:
@@ -152,8 +152,8 @@
   44               	.LVL3:
   45 001c 8823      		tst r24
   46 001e 01F0      		breq .L8
-  47 0020 80E0      		ldi r24,lo8(__m.4726)
-  48 0022 90E0      		ldi r25,hi8(__m.4726)
+  47 0020 80E0      		ldi r24,lo8(__m.2338)
+  48 0022 90E0      		ldi r25,hi8(__m.2338)
   49 0024 0895      		ret
   50               	.LVL4:
   51               	.L5:
@@ -166,8 +166,8 @@
   54               	.LVL5:
   55 0028 8111      		cpse r24,__zero_reg__
   56 002a 00C0      		rjmp .L9
-  57 002c 80E0      		ldi r24,lo8(__m.4731)
-  58 002e 90E0      		ldi r25,hi8(__m.4731)
+  57 002c 80E0      		ldi r24,lo8(__m.2343)
+  58 002e 90E0      		ldi r25,hi8(__m.2343)
   59 0030 0895      		ret
   60               	.L8:
  105:keymap_hhkb.c ****                     MACRO_NONE );
@@ -177,8 +177,8 @@
   64 0036 0895      		ret
   65               	.L9:
   66               		.loc 1 113 0
-  67 0038 80E0      		ldi r24,lo8(__m.4729)
-  68 003a 90E0      		ldi r25,hi8(__m.4729)
+  67 0038 80E0      		ldi r24,lo8(__m.2341)
+  68 003a 90E0      		ldi r25,hi8(__m.2341)
  114:keymap_hhkb.c ****                     MACRO( U(TAB), END ));
  115:keymap_hhkb.c ****     }
  116:keymap_hhkb.c ****     return MACRO_NONE;
@@ -186,28 +186,28 @@
   69               		.loc 1 117 0
   70 003c 0895      		ret
   71               		.cfi_endproc
-  72               	.LFE103:
-  74               		.section	.progmem.data.__m.4731,"a",@progbits
-  77               	__m.4731:
+  72               	.LFE4:
+  74               		.section	.progmem.data.__m.2343,"a",@progbits
+  77               	__m.2343:
   78 0000 02        		.byte	2
   79 0001 2B        		.byte	43
   80 0002 00        		.byte	0
-  81               		.section	.progmem.data.__m.4729,"a",@progbits
-  84               	__m.4729:
+  81               		.section	.progmem.data.__m.2341,"a",@progbits
+  84               	__m.2341:
   85 0000 01        		.byte	1
   86 0001 E2        		.byte	-30
   87 0002 01        		.byte	1
   88 0003 2B        		.byte	43
   89 0004 00        		.byte	0
-  90               		.section	.progmem.data.__m.4726,"a",@progbits
-  93               	__m.4726:
+  90               		.section	.progmem.data.__m.2338,"a",@progbits
+  93               	__m.2338:
   94 0000 01        		.byte	1
   95 0001 A9        		.byte	-87
   96 0002 02        		.byte	2
   97 0003 A9        		.byte	-87
   98 0004 00        		.byte	0
-  99               		.section	.progmem.data.__m.4723,"a",@progbits
- 102               	__m.4723:
+  99               		.section	.progmem.data.__m.2335,"a",@progbits
+ 102               	__m.2335:
  103 0000 01        		.byte	1
  104 0001 2C        		.byte	44
  105 0002 02        		.byte	2
@@ -243,7 +243,7 @@
  139 0000 1F        		.byte	31
  140 0001 14        		.byte	20
  141 0002 1A        		.byte	26
- 142 0003 C2        		.byte	-62
+ 142 0003 16        		.byte	22
  143 0004 C1        		.byte	-63
  144 0005 1D        		.byte	29
  145 0006 1B        		.byte	27
@@ -267,7 +267,7 @@
  163 0018 1E        		.byte	30
  164 0019 29        		.byte	41
  165 001a 2B        		.byte	43
- 166 001b C3        		.byte	-61
+ 166 001b C2        		.byte	-62
  167 001c E1        		.byte	-31
  168 001d E3        		.byte	-29
  169 001e E2        		.byte	-30
@@ -394,7 +394,7 @@
  290 0097 00        		.byte	0
  291 0098 01        		.byte	1
  292 0099 01        		.byte	1
- 293 009a 01        		.byte	1
+ 293 009a 39        		.byte	57
  294 009b 01        		.byte	1
  295 009c 01        		.byte	1
  296 009d 01        		.byte	1
@@ -430,7 +430,7 @@
  326 00bb 01        		.byte	1
  327 00bc 01        		.byte	1
  328 00bd 01        		.byte	1
- 329 00be C4        		.byte	-60
+ 329 00be C3        		.byte	-61
  330 00bf 00        		.byte	0
  331 00c0 01        		.byte	1
  332 00c1 01        		.byte	1
@@ -506,21 +506,20 @@
  402               		.file 6 "../../tmk_core/common/action_macro.h"
  403               		.file 7 "../../tmk_core/common/action.h"
  404               		.file 8 "../../tmk_core/common/keymap.h"
- 405               		.file 9 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keymap_hhkb.c
-     /tmp/ccAQZGPu.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccAQZGPu.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccAQZGPu.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccAQZGPu.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccAQZGPu.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccAQZGPu.s:13     .text.action_get_macro:0000000000000000 action_get_macro
-     /tmp/ccAQZGPu.s:102    .progmem.data.__m.4723:0000000000000000 __m.4723
-     /tmp/ccAQZGPu.s:93     .progmem.data.__m.4726:0000000000000000 __m.4726
-     /tmp/ccAQZGPu.s:77     .progmem.data.__m.4731:0000000000000000 __m.4731
-     /tmp/ccAQZGPu.s:84     .progmem.data.__m.4729:0000000000000000 __m.4729
-     /tmp/ccAQZGPu.s:128    .progmem.data.fn_actions:0000000000000000 fn_actions
-     /tmp/ccAQZGPu.s:138    .progmem.data.keymaps:0000000000000000 keymaps
+     /tmp/ccwBO9ZC.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccwBO9ZC.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccwBO9ZC.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccwBO9ZC.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccwBO9ZC.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccwBO9ZC.s:13     .text.action_get_macro:0000000000000000 action_get_macro
+     /tmp/ccwBO9ZC.s:102    .progmem.data.__m.2335:0000000000000000 __m.2335
+     /tmp/ccwBO9ZC.s:93     .progmem.data.__m.2338:0000000000000000 __m.2338
+     /tmp/ccwBO9ZC.s:77     .progmem.data.__m.2343:0000000000000000 __m.2343
+     /tmp/ccwBO9ZC.s:84     .progmem.data.__m.2341:0000000000000000 __m.2341
+     /tmp/ccwBO9ZC.s:128    .progmem.data.fn_actions:0000000000000000 fn_actions
+     /tmp/ccwBO9ZC.s:138    .progmem.data.keymaps:0000000000000000 keymaps
                             *COM*:0000000000000001 keymap_config
 
 UNDEFINED SYMBOLS

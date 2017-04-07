@@ -163,9 +163,24 @@
   37 0010 8430      		cpi r24,lo8(4)
   38 0012 00F4      		brsh .L6
   39 0014 8130      		cpi r24,lo8(1)
-  40 0016 01F0      		breq .+2
+  40 0016 01F4      		brne .+2
   41 0018 00C0      		rjmp .L11
-  42               	.LBB5:
+  42 001a 00C0      		rjmp .L2
+  43               	.L3:
+  44 001c 883E      		cpi r24,lo8(-24)
+  45 001e 00F4      		brsh .L8
+  46 0020 803E      		cpi r24,lo8(-32)
+  47 0022 00F4      		brsh .L6
+  48 0024 8F3B      		cpi r24,lo8(-65)
+  49 0026 01F4      		brne .+2
+  50 0028 00C0      		rjmp .L9
+  51 002a 00C0      		rjmp .L2
+  52               	.L8:
+  53 002c 803F      		cpi r24,lo8(-16)
+  54 002e 00F0      		brlo .+2
+  55 0030 00C0      		rjmp .L35
+  56               	.L2:
+  57               	.LBB5:
  128:../../tmk_core/common/keymap.c ****         case KC_A ... KC_EXSEL:
  129:../../tmk_core/common/keymap.c ****         case KC_LCTRL ... KC_RGUI:
  130:../../tmk_core/common/keymap.c ****             action.code = ACTION_KEY(keycode);
@@ -181,31 +196,174 @@
  140:../../tmk_core/common/keymap.c ****             break;
  141:../../tmk_core/common/keymap.c ****         case KC_TRNS:
  142:../../tmk_core/common/keymap.c ****             action.code = ACTION_TRANSPARENT;
-  43               		.loc 1 142 0
-  44 001a C1E0      		ldi r28,lo8(1)
-  45 001c D0E0      		ldi r29,0
-  46 001e 00C0      		rjmp .L2
-  47               	.L3:
-  48               	.LBE5:
- 127:../../tmk_core/common/keymap.c ****         case KC_A ... KC_EXSEL:
-  49               		.loc 1 127 0
-  50 0020 883E      		cpi r24,lo8(-24)
-  51 0022 00F4      		brsh .L8
-  52 0024 803E      		cpi r24,lo8(-32)
-  53 0026 00F4      		brsh .L6
-  54 0028 8F3B      		cpi r24,lo8(-65)
-  55 002a 01F0      		breq .+2
-  56 002c 00C0      		rjmp .L11
-  57               	.LBB8:
  143:../../tmk_core/common/keymap.c ****             break;
  144:../../tmk_core/common/keymap.c ****         case KC_BOOTLOADER:
  145:../../tmk_core/common/keymap.c ****             clear_keyboard();
-  58               		.loc 1 145 0
-  59 002e 0E94 0000 		call clear_keyboard
-  60               	.LVL1:
-  61               	.LBB6:
-  62               	.LBB7:
-  63               		.file 2 "/usr/lib/avr/include/util/delay.h"
+ 146:../../tmk_core/common/keymap.c ****             wait_ms(50);
+ 147:../../tmk_core/common/keymap.c ****             bootloader_jump(); // not return
+ 148:../../tmk_core/common/keymap.c ****             break;
+ 149:../../tmk_core/common/keymap.c ****         default:
+ 150:../../tmk_core/common/keymap.c ****             action.code = ACTION_NO;
+  58               		.loc 1 150 0
+  59 0032 C0E0      		ldi r28,0
+  60 0034 D0E0      		ldi r29,0
+  61 0036 00C0      		rjmp .L7
+  62               	.L6:
+ 130:../../tmk_core/common/keymap.c ****             break;
+  63               		.loc 1 130 0
+  64 0038 C82F      		mov r28,r24
+  65 003a D0E0      		ldi r29,0
+  66               	.LVL1:
+ 131:../../tmk_core/common/keymap.c ****         case KC_SYSTEM_POWER ... KC_SYSTEM_WAKE:
+  67               		.loc 1 131 0
+  68 003c 00C0      		rjmp .L7
+  69               	.LVL2:
+  70               	.L5:
+ 133:../../tmk_core/common/keymap.c ****             break;
+  71               		.loc 1 133 0
+  72 003e 853A      		cpi r24,lo8(-91)
+  73 0040 01F4      		brne .+2
+  74 0042 00C0      		rjmp .L12
+ 133:../../tmk_core/common/keymap.c ****             break;
+  75               		.loc 1 133 0 is_stmt 0 discriminator 1
+  76 0044 863A      		cpi r24,lo8(-90)
+  77 0046 01F4      		brne .+2
+  78 0048 00C0      		rjmp .L13
+ 133:../../tmk_core/common/keymap.c ****             break;
+  79               		.loc 1 133 0
+  80 004a C3E8      		ldi r28,lo8(-125)
+  81 004c D0E4      		ldi r29,lo8(64)
+  82 004e 00C0      		rjmp .L7
+  83               	.L4:
+ 136:../../tmk_core/common/keymap.c ****             break;
+  84               		.loc 1 136 0 is_stmt 1
+  85 0050 883A      		cpi r24,lo8(-88)
+  86 0052 01F4      		brne .+2
+  87 0054 00C0      		rjmp .L14
+ 136:../../tmk_core/common/keymap.c ****             break;
+  88               		.loc 1 136 0 is_stmt 0 discriminator 1
+  89 0056 893A      		cpi r24,lo8(-87)
+  90 0058 01F4      		brne .+2
+  91 005a 00C0      		rjmp .L15
+ 136:../../tmk_core/common/keymap.c ****             break;
+  92               		.loc 1 136 0 discriminator 3
+  93 005c 8A3A      		cpi r24,lo8(-86)
+  94 005e 01F4      		brne .+2
+  95 0060 00C0      		rjmp .L16
+ 136:../../tmk_core/common/keymap.c ****             break;
+  96               		.loc 1 136 0 discriminator 5
+  97 0062 8B3A      		cpi r24,lo8(-85)
+  98 0064 01F4      		brne .+2
+  99 0066 00C0      		rjmp .L17
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 100               		.loc 1 136 0 discriminator 7
+ 101 0068 8C3A      		cpi r24,lo8(-84)
+ 102 006a 01F4      		brne .+2
+ 103 006c 00C0      		rjmp .L18
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 104               		.loc 1 136 0 discriminator 9
+ 105 006e 8B3B      		cpi r24,lo8(-69)
+ 106 0070 01F4      		brne .+2
+ 107 0072 00C0      		rjmp .L19
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 108               		.loc 1 136 0 discriminator 11
+ 109 0074 8C3B      		cpi r24,lo8(-68)
+ 110 0076 01F4      		brne .+2
+ 111 0078 00C0      		rjmp .L20
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 112               		.loc 1 136 0 discriminator 13
+ 113 007a 8D3A      		cpi r24,lo8(-83)
+ 114 007c 01F4      		brne .+2
+ 115 007e 00C0      		rjmp .L21
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 116               		.loc 1 136 0 discriminator 15
+ 117 0080 803B      		cpi r24,lo8(-80)
+ 118 0082 01F4      		brne .+2
+ 119 0084 00C0      		rjmp .L22
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 120               		.loc 1 136 0 discriminator 17
+ 121 0086 8E3A      		cpi r24,lo8(-82)
+ 122 0088 01F4      		brne .+2
+ 123 008a 00C0      		rjmp .L23
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 124               		.loc 1 136 0 discriminator 19
+ 125 008c 8F3A      		cpi r24,lo8(-81)
+ 126 008e 01F4      		brne .+2
+ 127 0090 00C0      		rjmp .L24
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 128               		.loc 1 136 0 discriminator 21
+ 129 0092 813B      		cpi r24,lo8(-79)
+ 130 0094 01F4      		brne .+2
+ 131 0096 00C0      		rjmp .L25
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 132               		.loc 1 136 0 discriminator 23
+ 133 0098 823B      		cpi r24,lo8(-78)
+ 134 009a 01F4      		brne .+2
+ 135 009c 00C0      		rjmp .L26
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 136               		.loc 1 136 0 discriminator 25
+ 137 009e 833B      		cpi r24,lo8(-77)
+ 138 00a0 01F4      		brne .+2
+ 139 00a2 00C0      		rjmp .L27
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 140               		.loc 1 136 0 discriminator 27
+ 141 00a4 843B      		cpi r24,lo8(-76)
+ 142 00a6 01F4      		brne .+2
+ 143 00a8 00C0      		rjmp .L28
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 144               		.loc 1 136 0 discriminator 29
+ 145 00aa 853B      		cpi r24,lo8(-75)
+ 146 00ac 01F4      		brne .+2
+ 147 00ae 00C0      		rjmp .L29
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 148               		.loc 1 136 0 discriminator 31
+ 149 00b0 863B      		cpi r24,lo8(-74)
+ 150 00b2 01F4      		brne .+2
+ 151 00b4 00C0      		rjmp .L30
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 152               		.loc 1 136 0 discriminator 33
+ 153 00b6 873B      		cpi r24,lo8(-73)
+ 154 00b8 01F4      		brne .+2
+ 155 00ba 00C0      		rjmp .L31
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 156               		.loc 1 136 0 discriminator 35
+ 157 00bc 883B      		cpi r24,lo8(-72)
+ 158 00be 01F4      		brne .+2
+ 159 00c0 00C0      		rjmp .L32
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 160               		.loc 1 136 0 discriminator 37
+ 161 00c2 893B      		cpi r24,lo8(-71)
+ 162 00c4 01F4      		brne .+2
+ 163 00c6 00C0      		rjmp .L33
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 164               		.loc 1 136 0 discriminator 39
+ 165 00c8 8A3B      		cpi r24,lo8(-70)
+ 166 00ca 01F4      		brne .+2
+ 167 00cc 00C0      		rjmp .L34
+ 136:../../tmk_core/common/keymap.c ****             break;
+ 168               		.loc 1 136 0
+ 169 00ce C0E0      		ldi r28,0
+ 170 00d0 D4E4      		ldi r29,lo8(68)
+ 171 00d2 00C0      		rjmp .L7
+ 172               	.L35:
+ 139:../../tmk_core/common/keymap.c ****             break;
+ 173               		.loc 1 139 0 is_stmt 1
+ 174 00d4 C82F      		mov r28,r24
+ 175 00d6 D0E0      		ldi r29,0
+ 176 00d8 D065      		ori r29,80
+ 177               	.LVL3:
+ 140:../../tmk_core/common/keymap.c ****         case KC_TRNS:
+ 178               		.loc 1 140 0
+ 179 00da 00C0      		rjmp .L7
+ 180               	.LVL4:
+ 181               	.L9:
+ 145:../../tmk_core/common/keymap.c ****             wait_ms(50);
+ 182               		.loc 1 145 0
+ 183 00dc 0E94 0000 		call clear_keyboard
+ 184               	.LVL5:
+ 185               	.LBB6:
+ 186               	.LBB7:
+ 187               		.file 2 "/usr/lib/avr/include/util/delay.h"
    1:/usr/lib/avr/include/util/delay.h **** /* Copyright (c) 2002, Marek Michalkiewicz
    2:/usr/lib/avr/include/util/delay.h ****    Copyright (c) 2004,2005,2007 Joerg Wunsch
    3:/usr/lib/avr/include/util/delay.h ****    Copyright (c) 2007  Florin-Viorel Petrov
@@ -369,579 +527,422 @@
  161:/usr/lib/avr/include/util/delay.h **** 	#endif
  162:/usr/lib/avr/include/util/delay.h **** 
  163:/usr/lib/avr/include/util/delay.h **** 	__builtin_avr_delay_cycles(__ticks_dc);
-  64               		.loc 2 163 0
-  65 0032 2FEF      		ldi r18,lo8(159999)
-  66 0034 80E7      		ldi r24,hi8(159999)
-  67 0036 92E0      		ldi r25,hlo8(159999)
-  68 0038 2150      		1: subi r18,1
-  69 003a 8040      		sbci r24,0
-  70 003c 9040      		sbci r25,0
-  71 003e 01F4      		brne 1b
-  72 0040 00C0      		rjmp .
-  73 0042 0000      		nop
-  74               	.LBE7:
-  75               	.LBE6:
- 146:../../tmk_core/common/keymap.c ****             wait_ms(50);
- 147:../../tmk_core/common/keymap.c ****             bootloader_jump(); // not return
-  76               		.loc 1 147 0
-  77 0044 0E94 0000 		call bootloader_jump
-  78               	.LVL2:
- 148:../../tmk_core/common/keymap.c ****             break;
-  79               		.loc 1 148 0
-  80 0048 00C0      		rjmp .L2
-  81               	.LVL3:
-  82               	.L8:
-  83               	.LBE8:
- 127:../../tmk_core/common/keymap.c ****         case KC_A ... KC_EXSEL:
-  84               		.loc 1 127 0
-  85 004a 803F      		cpi r24,lo8(-16)
-  86 004c 00F4      		brsh .+2
-  87 004e 00C0      		rjmp .L11
-  88               	.LBB9:
- 139:../../tmk_core/common/keymap.c ****             break;
-  89               		.loc 1 139 0
-  90 0050 C82F      		mov r28,r24
-  91 0052 D0E0      		ldi r29,0
-  92 0054 D065      		ori r29,80
-  93               	.LVL4:
- 140:../../tmk_core/common/keymap.c ****         case KC_TRNS:
-  94               		.loc 1 140 0
-  95 0056 00C0      		rjmp .L2
-  96               	.LVL5:
-  97               	.L6:
- 130:../../tmk_core/common/keymap.c ****             break;
-  98               		.loc 1 130 0
-  99 0058 C82F      		mov r28,r24
- 100 005a D0E0      		ldi r29,0
- 101               	.LVL6:
- 131:../../tmk_core/common/keymap.c ****         case KC_SYSTEM_POWER ... KC_SYSTEM_WAKE:
- 102               		.loc 1 131 0
- 103 005c 00C0      		rjmp .L2
- 104               	.LVL7:
- 105               	.L5:
+ 188               		.loc 2 163 0
+ 189 00e0 2FEF      		ldi r18,lo8(159999)
+ 190 00e2 80E7      		ldi r24,hi8(159999)
+ 191 00e4 92E0      		ldi r25,hlo8(159999)
+ 192 00e6 2150      	1:	subi r18,1
+ 193 00e8 8040      		sbci r24,0
+ 194 00ea 9040      		sbci r25,0
+ 195 00ec 01F4      		brne 1b
+ 196 00ee 00C0      		rjmp .
+ 197 00f0 0000      		nop
+ 198               	.LBE7:
+ 199               	.LBE6:
+ 147:../../tmk_core/common/keymap.c ****             break;
+ 200               		.loc 1 147 0
+ 201 00f2 0E94 0000 		call bootloader_jump
+ 202               	.LVL6:
+ 148:../../tmk_core/common/keymap.c ****         default:
+ 203               		.loc 1 148 0
+ 204 00f6 00C0      		rjmp .L7
+ 205               	.LVL7:
+ 206               	.L11:
+ 142:../../tmk_core/common/keymap.c ****             break;
+ 207               		.loc 1 142 0
+ 208 00f8 C1E0      		ldi r28,lo8(1)
+ 209 00fa D0E0      		ldi r29,0
+ 210 00fc 00C0      		rjmp .L7
+ 211               	.L12:
  133:../../tmk_core/common/keymap.c ****             break;
- 106               		.loc 1 133 0
- 107 005e 853A      		cpi r24,lo8(-91)
- 108 0060 01F4      		brne .+2
- 109 0062 00C0      		rjmp .L12
- 133:../../tmk_core/common/keymap.c ****             break;
- 110               		.loc 1 133 0 is_stmt 0 discriminator 1
- 111 0064 863A      		cpi r24,lo8(-90)
- 112 0066 01F0      		breq .+2
- 113 0068 00C0      		rjmp .L13
- 133:../../tmk_core/common/keymap.c ****             break;
- 114               		.loc 1 133 0
- 115 006a C2E8      		ldi r28,lo8(-126)
- 116 006c D0E4      		ldi r29,lo8(64)
- 117 006e 00C0      		rjmp .L2
- 118               	.L4:
+ 212               		.loc 1 133 0
+ 213 00fe C1E8      		ldi r28,lo8(-127)
+ 214 0100 D0E4      		ldi r29,lo8(64)
+ 215 0102 00C0      		rjmp .L7
+ 216               	.L13:
+ 217 0104 C2E8      		ldi r28,lo8(-126)
+ 218 0106 D0E4      		ldi r29,lo8(64)
+ 219 0108 00C0      		rjmp .L7
+ 220               	.L14:
  136:../../tmk_core/common/keymap.c ****             break;
- 119               		.loc 1 136 0 is_stmt 1
- 120 0070 883A      		cpi r24,lo8(-88)
- 121 0072 01F4      		brne .+2
- 122 0074 00C0      		rjmp .L14
- 136:../../tmk_core/common/keymap.c ****             break;
- 123               		.loc 1 136 0 is_stmt 0 discriminator 1
- 124 0076 893A      		cpi r24,lo8(-87)
- 125 0078 01F4      		brne .+2
- 126 007a 00C0      		rjmp .L15
- 136:../../tmk_core/common/keymap.c ****             break;
- 127               		.loc 1 136 0 discriminator 3
- 128 007c 8A3A      		cpi r24,lo8(-86)
- 129 007e 01F4      		brne .+2
- 130 0080 00C0      		rjmp .L16
- 136:../../tmk_core/common/keymap.c ****             break;
- 131               		.loc 1 136 0 discriminator 5
- 132 0082 8B3A      		cpi r24,lo8(-85)
- 133 0084 01F4      		brne .+2
- 134 0086 00C0      		rjmp .L17
- 136:../../tmk_core/common/keymap.c ****             break;
- 135               		.loc 1 136 0 discriminator 7
- 136 0088 8C3A      		cpi r24,lo8(-84)
- 137 008a 01F4      		brne .+2
- 138 008c 00C0      		rjmp .L18
- 136:../../tmk_core/common/keymap.c ****             break;
- 139               		.loc 1 136 0 discriminator 9
- 140 008e 8B3B      		cpi r24,lo8(-69)
- 141 0090 01F4      		brne .+2
- 142 0092 00C0      		rjmp .L19
- 136:../../tmk_core/common/keymap.c ****             break;
- 143               		.loc 1 136 0 discriminator 11
- 144 0094 8C3B      		cpi r24,lo8(-68)
- 145 0096 01F4      		brne .+2
- 146 0098 00C0      		rjmp .L20
- 136:../../tmk_core/common/keymap.c ****             break;
- 147               		.loc 1 136 0 discriminator 13
- 148 009a 8D3A      		cpi r24,lo8(-83)
- 149 009c 01F4      		brne .+2
- 150 009e 00C0      		rjmp .L21
- 136:../../tmk_core/common/keymap.c ****             break;
- 151               		.loc 1 136 0 discriminator 15
- 152 00a0 803B      		cpi r24,lo8(-80)
- 153 00a2 01F4      		brne .+2
- 154 00a4 00C0      		rjmp .L22
- 136:../../tmk_core/common/keymap.c ****             break;
- 155               		.loc 1 136 0 discriminator 17
- 156 00a6 8E3A      		cpi r24,lo8(-82)
- 157 00a8 01F4      		brne .+2
- 158 00aa 00C0      		rjmp .L23
- 136:../../tmk_core/common/keymap.c ****             break;
- 159               		.loc 1 136 0 discriminator 19
- 160 00ac 8F3A      		cpi r24,lo8(-81)
- 161 00ae 01F4      		brne .+2
- 162 00b0 00C0      		rjmp .L24
- 136:../../tmk_core/common/keymap.c ****             break;
- 163               		.loc 1 136 0 discriminator 21
- 164 00b2 813B      		cpi r24,lo8(-79)
- 165 00b4 01F4      		brne .+2
- 166 00b6 00C0      		rjmp .L25
- 136:../../tmk_core/common/keymap.c ****             break;
- 167               		.loc 1 136 0 discriminator 23
- 168 00b8 823B      		cpi r24,lo8(-78)
- 169 00ba 01F4      		brne .+2
- 170 00bc 00C0      		rjmp .L26
- 136:../../tmk_core/common/keymap.c ****             break;
- 171               		.loc 1 136 0 discriminator 25
- 172 00be 833B      		cpi r24,lo8(-77)
- 173 00c0 01F4      		brne .+2
- 174 00c2 00C0      		rjmp .L27
- 136:../../tmk_core/common/keymap.c ****             break;
- 175               		.loc 1 136 0 discriminator 27
- 176 00c4 843B      		cpi r24,lo8(-76)
- 177 00c6 01F4      		brne .+2
- 178 00c8 00C0      		rjmp .L28
- 136:../../tmk_core/common/keymap.c ****             break;
- 179               		.loc 1 136 0 discriminator 29
- 180 00ca 853B      		cpi r24,lo8(-75)
- 181 00cc 01F4      		brne .+2
- 182 00ce 00C0      		rjmp .L29
- 136:../../tmk_core/common/keymap.c ****             break;
- 183               		.loc 1 136 0 discriminator 31
- 184 00d0 863B      		cpi r24,lo8(-74)
- 185 00d2 01F4      		brne .+2
- 186 00d4 00C0      		rjmp .L30
- 136:../../tmk_core/common/keymap.c ****             break;
- 187               		.loc 1 136 0 discriminator 33
- 188 00d6 873B      		cpi r24,lo8(-73)
- 189 00d8 01F4      		brne .+2
- 190 00da 00C0      		rjmp .L31
- 136:../../tmk_core/common/keymap.c ****             break;
- 191               		.loc 1 136 0 discriminator 35
- 192 00dc 883B      		cpi r24,lo8(-72)
- 193 00de 01F4      		brne .+2
- 194 00e0 00C0      		rjmp .L32
- 136:../../tmk_core/common/keymap.c ****             break;
- 195               		.loc 1 136 0 discriminator 37
- 196 00e2 893B      		cpi r24,lo8(-71)
- 197 00e4 01F4      		brne .+2
- 198 00e6 00C0      		rjmp .L33
- 136:../../tmk_core/common/keymap.c ****             break;
- 199               		.loc 1 136 0 discriminator 39
- 200 00e8 8A3B      		cpi r24,lo8(-70)
- 201 00ea 01F0      		breq .+2
- 202 00ec 00C0      		rjmp .L34
- 136:../../tmk_core/common/keymap.c ****             break;
- 203               		.loc 1 136 0
- 204 00ee CAE2      		ldi r28,lo8(42)
- 205 00f0 D6E4      		ldi r29,lo8(70)
- 206 00f2 00C0      		rjmp .L2
- 207               	.L11:
- 149:../../tmk_core/common/keymap.c ****         default:
- 150:../../tmk_core/common/keymap.c ****             action.code = ACTION_NO;
- 208               		.loc 1 150 0 is_stmt 1
- 209 00f4 C0E0      		ldi r28,0
- 210 00f6 D0E0      		ldi r29,0
- 211 00f8 00C0      		rjmp .L2
- 212               	.L12:
- 133:../../tmk_core/common/keymap.c ****             break;
- 213               		.loc 1 133 0
- 214 00fa C1E8      		ldi r28,lo8(-127)
- 215 00fc D0E4      		ldi r29,lo8(64)
- 216 00fe 00C0      		rjmp .L2
- 217               	.L13:
- 218 0100 C3E8      		ldi r28,lo8(-125)
- 219 0102 D0E4      		ldi r29,lo8(64)
- 220 0104 00C0      		rjmp .L2
- 221               	.L14:
- 136:../../tmk_core/common/keymap.c ****             break;
- 222               		.loc 1 136 0
- 223 0106 C2EE      		ldi r28,lo8(-30)
- 224 0108 D4E4      		ldi r29,lo8(68)
- 225 010a 00C0      		rjmp .L2
- 226               	.L15:
- 227 010c C9EE      		ldi r28,lo8(-23)
- 228 010e D4E4      		ldi r29,lo8(68)
- 229 0110 00C0      		rjmp .L2
- 230               	.L16:
- 231 0112 CAEE      		ldi r28,lo8(-22)
- 232 0114 D4E4      		ldi r29,lo8(68)
- 233 0116 00C0      		rjmp .L2
- 234               	.L17:
- 235 0118 C5EB      		ldi r28,lo8(-75)
- 236 011a D4E4      		ldi r29,lo8(68)
- 237 011c 00C0      		rjmp .L2
- 238               	.L18:
- 239 011e C6EB      		ldi r28,lo8(-74)
- 240 0120 D4E4      		ldi r29,lo8(68)
- 241 0122 00C0      		rjmp .L2
- 242               	.L19:
- 243 0124 C3EB      		ldi r28,lo8(-77)
- 244 0126 D4E4      		ldi r29,lo8(68)
- 245 0128 00C0      		rjmp .L2
- 246               	.L20:
- 247 012a C4EB      		ldi r28,lo8(-76)
- 248 012c D4E4      		ldi r29,lo8(68)
- 249 012e 00C0      		rjmp .L2
- 250               	.L21:
- 251 0130 C7EB      		ldi r28,lo8(-73)
- 252 0132 D4E4      		ldi r29,lo8(68)
- 253 0134 00C0      		rjmp .L2
- 254               	.L22:
- 255 0136 CCEC      		ldi r28,lo8(-52)
- 256 0138 D4E4      		ldi r29,lo8(68)
- 257 013a 00C0      		rjmp .L2
- 258               	.L23:
- 259 013c CDEC      		ldi r28,lo8(-51)
- 260 013e D4E4      		ldi r29,lo8(68)
- 261 0140 00C0      		rjmp .L2
- 262               	.L24:
- 263 0142 C3E8      		ldi r28,lo8(-125)
- 264 0144 D5E4      		ldi r29,lo8(69)
- 265 0146 00C0      		rjmp .L2
- 266               	.L25:
- 267 0148 CAE8      		ldi r28,lo8(-118)
- 268 014a D5E4      		ldi r29,lo8(69)
- 269 014c 00C0      		rjmp .L2
- 270               	.L26:
- 271 014e C2E9      		ldi r28,lo8(-110)
- 272 0150 D5E4      		ldi r29,lo8(69)
- 273 0152 00C0      		rjmp .L2
- 274               	.L27:
- 275 0154 C4E9      		ldi r28,lo8(-108)
- 276 0156 D5E4      		ldi r29,lo8(69)
- 277 0158 00C0      		rjmp .L2
- 278               	.L28:
- 279 015a C1E2      		ldi r28,lo8(33)
- 280 015c D6E4      		ldi r29,lo8(70)
- 281 015e 00C0      		rjmp .L2
- 282               	.L29:
- 283 0160 C3E2      		ldi r28,lo8(35)
- 284 0162 D6E4      		ldi r29,lo8(70)
- 285 0164 00C0      		rjmp .L2
- 286               	.L30:
- 287 0166 C4E2      		ldi r28,lo8(36)
- 288 0168 D6E4      		ldi r29,lo8(70)
- 289 016a 00C0      		rjmp .L2
- 290               	.L31:
- 291 016c C5E2      		ldi r28,lo8(37)
- 292 016e D6E4      		ldi r29,lo8(70)
- 293 0170 00C0      		rjmp .L2
- 294               	.L32:
- 295 0172 C6E2      		ldi r28,lo8(38)
- 296 0174 D6E4      		ldi r29,lo8(70)
- 297 0176 00C0      		rjmp .L2
- 298               	.L33:
- 299 0178 C7E2      		ldi r28,lo8(39)
- 300 017a D6E4      		ldi r29,lo8(70)
- 301 017c 00C0      		rjmp .L2
- 302               	.L34:
- 303 017e C0E0      		ldi r28,0
- 304 0180 D4E4      		ldi r29,lo8(68)
- 305               	.LVL8:
- 306               	.L2:
- 307               	.LBE9:
+ 221               		.loc 1 136 0
+ 222 010a C2EE      		ldi r28,lo8(-30)
+ 223 010c D4E4      		ldi r29,lo8(68)
+ 224 010e 00C0      		rjmp .L7
+ 225               	.L15:
+ 226 0110 C9EE      		ldi r28,lo8(-23)
+ 227 0112 D4E4      		ldi r29,lo8(68)
+ 228 0114 00C0      		rjmp .L7
+ 229               	.L16:
+ 230 0116 CAEE      		ldi r28,lo8(-22)
+ 231 0118 D4E4      		ldi r29,lo8(68)
+ 232 011a 00C0      		rjmp .L7
+ 233               	.L17:
+ 234 011c C5EB      		ldi r28,lo8(-75)
+ 235 011e D4E4      		ldi r29,lo8(68)
+ 236 0120 00C0      		rjmp .L7
+ 237               	.L18:
+ 238 0122 C6EB      		ldi r28,lo8(-74)
+ 239 0124 D4E4      		ldi r29,lo8(68)
+ 240 0126 00C0      		rjmp .L7
+ 241               	.L19:
+ 242 0128 C3EB      		ldi r28,lo8(-77)
+ 243 012a D4E4      		ldi r29,lo8(68)
+ 244 012c 00C0      		rjmp .L7
+ 245               	.L20:
+ 246 012e C4EB      		ldi r28,lo8(-76)
+ 247 0130 D4E4      		ldi r29,lo8(68)
+ 248 0132 00C0      		rjmp .L7
+ 249               	.L21:
+ 250 0134 C7EB      		ldi r28,lo8(-73)
+ 251 0136 D4E4      		ldi r29,lo8(68)
+ 252 0138 00C0      		rjmp .L7
+ 253               	.L22:
+ 254 013a CCEC      		ldi r28,lo8(-52)
+ 255 013c D4E4      		ldi r29,lo8(68)
+ 256 013e 00C0      		rjmp .L7
+ 257               	.L23:
+ 258 0140 CDEC      		ldi r28,lo8(-51)
+ 259 0142 D4E4      		ldi r29,lo8(68)
+ 260 0144 00C0      		rjmp .L7
+ 261               	.L24:
+ 262 0146 C3E8      		ldi r28,lo8(-125)
+ 263 0148 D5E4      		ldi r29,lo8(69)
+ 264 014a 00C0      		rjmp .L7
+ 265               	.L25:
+ 266 014c CAE8      		ldi r28,lo8(-118)
+ 267 014e D5E4      		ldi r29,lo8(69)
+ 268 0150 00C0      		rjmp .L7
+ 269               	.L26:
+ 270 0152 C2E9      		ldi r28,lo8(-110)
+ 271 0154 D5E4      		ldi r29,lo8(69)
+ 272 0156 00C0      		rjmp .L7
+ 273               	.L27:
+ 274 0158 C4E9      		ldi r28,lo8(-108)
+ 275 015a D5E4      		ldi r29,lo8(69)
+ 276 015c 00C0      		rjmp .L7
+ 277               	.L28:
+ 278 015e C1E2      		ldi r28,lo8(33)
+ 279 0160 D6E4      		ldi r29,lo8(70)
+ 280 0162 00C0      		rjmp .L7
+ 281               	.L29:
+ 282 0164 C3E2      		ldi r28,lo8(35)
+ 283 0166 D6E4      		ldi r29,lo8(70)
+ 284 0168 00C0      		rjmp .L7
+ 285               	.L30:
+ 286 016a C4E2      		ldi r28,lo8(36)
+ 287 016c D6E4      		ldi r29,lo8(70)
+ 288 016e 00C0      		rjmp .L7
+ 289               	.L31:
+ 290 0170 C5E2      		ldi r28,lo8(37)
+ 291 0172 D6E4      		ldi r29,lo8(70)
+ 292 0174 00C0      		rjmp .L7
+ 293               	.L32:
+ 294 0176 C6E2      		ldi r28,lo8(38)
+ 295 0178 D6E4      		ldi r29,lo8(70)
+ 296 017a 00C0      		rjmp .L7
+ 297               	.L33:
+ 298 017c C7E2      		ldi r28,lo8(39)
+ 299 017e D6E4      		ldi r29,lo8(70)
+ 300 0180 00C0      		rjmp .L7
+ 301               	.L34:
+ 302 0182 CAE2      		ldi r28,lo8(42)
+ 303 0184 D6E4      		ldi r29,lo8(70)
+ 304               	.LVL8:
+ 305               	.L7:
+ 306               	.LBE5:
  151:../../tmk_core/common/keymap.c ****             break;
  152:../../tmk_core/common/keymap.c ****     }
  153:../../tmk_core/common/keymap.c ****     return action;
  154:../../tmk_core/common/keymap.c **** }
- 308               		.loc 1 154 0
- 309 0182 CE01      		movw r24,r28
- 310               	/* epilogue start */
- 311 0184 DF91      		pop r29
- 312 0186 CF91      		pop r28
- 313               	.LVL9:
- 314 0188 0895      		ret
- 315               		.cfi_endproc
- 316               	.LFE106:
- 318               		.section	.text.action_for_key,"ax",@progbits
- 319               	.global	action_for_key
- 321               	action_for_key:
- 322               	.LFB103:
+ 307               		.loc 1 154 0
+ 308 0186 CE01      		movw r24,r28
+ 309               	/* epilogue start */
+ 310 0188 DF91      		pop r29
+ 311 018a CF91      		pop r28
+ 312               	.LVL9:
+ 313 018c 0895      		ret
+ 314               		.cfi_endproc
+ 315               	.LFE106:
+ 317               		.section	.text.action_for_key,"ax",@progbits
+ 318               	.global	action_for_key
+ 320               	action_for_key:
+ 321               	.LFB103:
   32:../../tmk_core/common/keymap.c ****     uint8_t keycode = keymap_key_to_keycode(layer, key);
- 323               		.loc 1 32 0
- 324               		.cfi_startproc
- 325               	.LVL10:
- 326               	/* prologue: function */
- 327               	/* frame size = 0 */
- 328               	/* stack size = 0 */
- 329               	.L__stack_usage = 0
+ 322               		.loc 1 32 0
+ 323               		.cfi_startproc
+ 324               	.LVL10:
+ 325               	/* prologue: function */
+ 326               	/* frame size = 0 */
+ 327               	/* stack size = 0 */
+ 328               	.L__stack_usage = 0
   33:../../tmk_core/common/keymap.c ****     switch (keycode) {
- 330               		.loc 1 33 0
- 331 0000 0E94 0000 		call keymap_key_to_keycode
- 332               	.LVL11:
+ 329               		.loc 1 33 0
+ 330 0000 0E94 0000 		call keymap_key_to_keycode
+ 331               	.LVL11:
   34:../../tmk_core/common/keymap.c ****         case KC_FN0 ... KC_FN31:
- 333               		.loc 1 34 0
- 334 0004 803E      		cpi r24,lo8(-32)
- 335 0006 00F4      		brsh .L39
- 336 0008 803C      		cpi r24,lo8(-64)
- 337 000a 00F4      		brsh .L40
- 338 000c 8133      		cpi r24,lo8(49)
- 339 000e 01F4      		brne .+2
- 340 0010 00C0      		rjmp .L41
- 341 0012 00F4      		brsh .L42
- 342 0014 8932      		cpi r24,lo8(41)
- 343 0016 01F4      		brne .+2
- 344 0018 00C0      		rjmp .L43
- 345 001a 8A32      		cpi r24,lo8(42)
- 346 001c 01F4      		brne .+2
- 347 001e 00C0      		rjmp .L44
- 348 0020 00C0      		rjmp .L38
- 349               	.L42:
- 350 0022 8933      		cpi r24,lo8(57)
- 351 0024 01F0      		breq .L45
- 352 0026 8238      		cpi r24,lo8(-126)
- 353 0028 01F0      		breq .L45
- 354 002a 8533      		cpi r24,lo8(53)
- 355 002c 01F4      		brne .+2
- 356 002e 00C0      		rjmp .L46
- 357 0030 00C0      		rjmp .L38
- 358               	.L39:
- 359 0032 833E      		cpi r24,lo8(-29)
- 360 0034 01F0      		breq .L47
- 361 0036 00F4      		brsh .L48
- 362 0038 803E      		cpi r24,lo8(-32)
- 363 003a 01F0      		breq .L49
- 364 003c 823E      		cpi r24,lo8(-30)
- 365 003e 01F0      		breq .L50
- 366 0040 00C0      		rjmp .L38
- 367               	.L48:
- 368 0042 863E      		cpi r24,lo8(-26)
- 369 0044 01F0      		breq .L51
- 370 0046 873E      		cpi r24,lo8(-25)
- 371 0048 01F0      		breq .L52
- 372 004a 00C0      		rjmp .L38
- 373               	.L40:
+ 332               		.loc 1 34 0
+ 333 0004 803E      		cpi r24,lo8(-32)
+ 334 0006 00F4      		brsh .L39
+ 335 0008 803C      		cpi r24,lo8(-64)
+ 336 000a 00F4      		brsh .L40
+ 337 000c 8133      		cpi r24,lo8(49)
+ 338 000e 01F4      		brne .+2
+ 339 0010 00C0      		rjmp .L41
+ 340 0012 00F4      		brsh .L42
+ 341 0014 8932      		cpi r24,lo8(41)
+ 342 0016 01F4      		brne .+2
+ 343 0018 00C0      		rjmp .L43
+ 344 001a 8A32      		cpi r24,lo8(42)
+ 345 001c 01F4      		brne .+2
+ 346 001e 00C0      		rjmp .L44
+ 347 0020 00C0      		rjmp .L38
+ 348               	.L42:
+ 349 0022 8933      		cpi r24,lo8(57)
+ 350 0024 01F0      		breq .L45
+ 351 0026 8238      		cpi r24,lo8(-126)
+ 352 0028 01F0      		breq .L45
+ 353 002a 8533      		cpi r24,lo8(53)
+ 354 002c 01F4      		brne .+2
+ 355 002e 00C0      		rjmp .L46
+ 356 0030 00C0      		rjmp .L38
+ 357               	.L39:
+ 358 0032 833E      		cpi r24,lo8(-29)
+ 359 0034 01F0      		breq .L47
+ 360 0036 00F4      		brsh .L48
+ 361 0038 803E      		cpi r24,lo8(-32)
+ 362 003a 01F0      		breq .L49
+ 363 003c 823E      		cpi r24,lo8(-30)
+ 364 003e 01F0      		breq .L50
+ 365 0040 00C0      		rjmp .L38
+ 366               	.L48:
+ 367 0042 863E      		cpi r24,lo8(-26)
+ 368 0044 01F0      		breq .L51
+ 369 0046 873E      		cpi r24,lo8(-25)
+ 370 0048 01F0      		breq .L52
+ 371 004a 00C0      		rjmp .L38
+ 372               	.L40:
   36:../../tmk_core/common/keymap.c **** #ifdef BOOTMAGIC_ENABLE
- 374               		.loc 1 36 0
- 375 004c 0E94 0000 		call keymap_fn_to_action
- 376               	.LVL12:
- 377 0050 0895      		ret
- 378               	.LVL13:
- 379               	.L45:
+ 373               		.loc 1 36 0
+ 374 004c 0E94 0000 		call keymap_fn_to_action
+ 375               	.LVL12:
+ 376 0050 0895      		ret
+ 377               	.LVL13:
+ 378               	.L45:
   40:../../tmk_core/common/keymap.c ****                 return keycode_to_action(KC_LCTL);
- 380               		.loc 1 40 0
- 381 0052 9091 0000 		lds r25,keymap_config
- 382 0056 90FD      		sbrc r25,0
- 383 0058 00C0      		rjmp .L54
+ 379               		.loc 1 40 0
+ 380 0052 9091 0000 		lds r25,keymap_config
+ 381 0056 90FD      		sbrc r25,0
+ 382 0058 00C0      		rjmp .L54
   40:../../tmk_core/common/keymap.c ****                 return keycode_to_action(KC_LCTL);
- 384               		.loc 1 40 0 is_stmt 0 discriminator 1
- 385 005a 91FF      		sbrs r25,1
- 386 005c 00C0      		rjmp .L38
- 387               	.LVL14:
- 388               	.L54:
+ 383               		.loc 1 40 0 is_stmt 0 discriminator 1
+ 384 005a 91FF      		sbrs r25,1
+ 385 005c 00C0      		rjmp .L38
+ 386               	.LVL14:
+ 387               	.L54:
   41:../../tmk_core/common/keymap.c ****             }
- 389               		.loc 1 41 0 is_stmt 1
- 390 005e 80EE      		ldi r24,lo8(-32)
- 391 0060 00C0      		rjmp .L38
- 392               	.LVL15:
- 393               	.L49:
+ 388               		.loc 1 41 0 is_stmt 1
+ 389 005e 80EE      		ldi r24,lo8(-32)
+ 390 0060 00C0      		rjmp .L38
+ 391               	.LVL15:
+ 392               	.L49:
   45:../../tmk_core/common/keymap.c ****                 return keycode_to_action(KC_CAPSLOCK);
- 394               		.loc 1 45 0
- 395 0062 8091 0000 		lds r24,keymap_config
- 396               	.LVL16:
- 397 0066 80FF      		sbrs r24,0
- 398 0068 00C0      		rjmp .L54
+ 393               		.loc 1 45 0
+ 394 0062 8091 0000 		lds r24,keymap_config
+ 395               	.LVL16:
+ 396 0066 80FF      		sbrs r24,0
+ 397 0068 00C0      		rjmp .L54
   46:../../tmk_core/common/keymap.c ****             }
- 399               		.loc 1 46 0
- 400 006a 89E3      		ldi r24,lo8(57)
- 401 006c 00C0      		rjmp .L38
- 402               	.LVL17:
- 403               	.L50:
+ 398               		.loc 1 46 0
+ 399 006a 89E3      		ldi r24,lo8(57)
+ 400 006c 00C0      		rjmp .L38
+ 401               	.LVL17:
+ 402               	.L50:
   50:../../tmk_core/common/keymap.c ****                 if (keymap_config.no_gui) {
- 404               		.loc 1 50 0
- 405 006e 8091 0000 		lds r24,keymap_config
- 406               	.LVL18:
- 407 0072 82FF      		sbrs r24,2
- 408 0074 00C0      		rjmp .L56
- 409               	.L58:
+ 403               		.loc 1 50 0
+ 404 006e 8091 0000 		lds r24,keymap_config
+ 405               	.LVL18:
+ 406 0072 82FF      		sbrs r24,2
+ 407 0074 00C0      		rjmp .L56
+ 408               	.L58:
   51:../../tmk_core/common/keymap.c ****                     return keycode_to_action(ACTION_NO);
- 410               		.loc 1 51 0
- 411 0076 8091 0000 		lds r24,keymap_config
- 412 007a 84FF      		sbrs r24,4
- 413 007c 00C0      		rjmp .L57
- 414               	.L60:
+ 409               		.loc 1 51 0
+ 410 0076 8091 0000 		lds r24,keymap_config
+ 411 007a 84FF      		sbrs r24,4
+ 412 007c 00C0      		rjmp .L57
+ 413               	.L60:
   52:../../tmk_core/common/keymap.c ****                 }
- 415               		.loc 1 52 0
- 416 007e 80E0      		ldi r24,0
- 417 0080 00C0      		rjmp .L38
- 418               	.L57:
+ 414               		.loc 1 52 0
+ 415 007e 80E0      		ldi r24,0
+ 416 0080 00C0      		rjmp .L38
+ 417               	.L57:
   54:../../tmk_core/common/keymap.c ****             }
- 419               		.loc 1 54 0
- 420 0082 83EE      		ldi r24,lo8(-29)
- 421 0084 00C0      		rjmp .L38
- 422               	.LVL19:
- 423               	.L47:
+ 418               		.loc 1 54 0
+ 419 0082 83EE      		ldi r24,lo8(-29)
+ 420 0084 00C0      		rjmp .L38
+ 421               	.LVL19:
+ 422               	.L47:
   58:../../tmk_core/common/keymap.c ****                 return keycode_to_action(KC_LALT);
- 424               		.loc 1 58 0
- 425 0086 8091 0000 		lds r24,keymap_config
- 426               	.LVL20:
- 427 008a 82FF      		sbrs r24,2
- 428 008c 00C0      		rjmp .L58
- 429               	.L56:
+ 423               		.loc 1 58 0
+ 424 0086 8091 0000 		lds r24,keymap_config
+ 425               	.LVL20:
+ 426 008a 82FF      		sbrs r24,2
+ 427 008c 00C0      		rjmp .L58
+ 428               	.L56:
   56:../../tmk_core/common/keymap.c ****         case KC_LGUI:
- 430               		.loc 1 56 0
- 431 008e 82EE      		ldi r24,lo8(-30)
- 432 0090 00C0      		rjmp .L38
- 433               	.LVL21:
- 434               	.L51:
+ 429               		.loc 1 56 0
+ 430 008e 82EE      		ldi r24,lo8(-30)
+ 431 0090 00C0      		rjmp .L38
+ 432               	.LVL21:
+ 433               	.L51:
   66:../../tmk_core/common/keymap.c ****                 if (keymap_config.no_gui) {
- 435               		.loc 1 66 0
- 436 0092 8091 0000 		lds r24,keymap_config
- 437               	.LVL22:
- 438 0096 83FF      		sbrs r24,3
- 439 0098 00C0      		rjmp .L59
- 440               	.L61:
+ 434               		.loc 1 66 0
+ 435 0092 8091 0000 		lds r24,keymap_config
+ 436               	.LVL22:
+ 437 0096 83FF      		sbrs r24,3
+ 438 0098 00C0      		rjmp .L59
+ 439               	.L61:
   67:../../tmk_core/common/keymap.c ****                     return keycode_to_action(ACTION_NO);
- 441               		.loc 1 67 0
- 442 009a 8091 0000 		lds r24,keymap_config
- 443 009e 84FD      		sbrc r24,4
- 444 00a0 00C0      		rjmp .L60
+ 440               		.loc 1 67 0
+ 441 009a 8091 0000 		lds r24,keymap_config
+ 442 009e 84FD      		sbrc r24,4
+ 443 00a0 00C0      		rjmp .L60
   70:../../tmk_core/common/keymap.c ****             }
- 445               		.loc 1 70 0
- 446 00a2 87EE      		ldi r24,lo8(-25)
- 447 00a4 00C0      		rjmp .L38
- 448               	.LVL23:
- 449               	.L52:
+ 444               		.loc 1 70 0
+ 445 00a2 87EE      		ldi r24,lo8(-25)
+ 446 00a4 00C0      		rjmp .L38
+ 447               	.LVL23:
+ 448               	.L52:
   74:../../tmk_core/common/keymap.c ****                 return keycode_to_action(KC_RALT);
- 450               		.loc 1 74 0
- 451 00a6 8091 0000 		lds r24,keymap_config
- 452               	.LVL24:
- 453 00aa 83FF      		sbrs r24,3
- 454 00ac 00C0      		rjmp .L61
- 455               	.L59:
+ 449               		.loc 1 74 0
+ 450 00a6 8091 0000 		lds r24,keymap_config
+ 451               	.LVL24:
+ 452 00aa 83FF      		sbrs r24,3
+ 453 00ac 00C0      		rjmp .L61
+ 454               	.L59:
   72:../../tmk_core/common/keymap.c ****         case KC_RGUI:
- 456               		.loc 1 72 0
- 457 00ae 86EE      		ldi r24,lo8(-26)
- 458 00b0 00C0      		rjmp .L38
- 459               	.LVL25:
- 460               	.L46:
+ 455               		.loc 1 72 0
+ 456 00ae 86EE      		ldi r24,lo8(-26)
+ 457 00b0 00C0      		rjmp .L38
+ 458               	.LVL25:
+ 459               	.L46:
   82:../../tmk_core/common/keymap.c ****                 return keycode_to_action(KC_ESC);
- 461               		.loc 1 82 0
- 462 00b2 8091 0000 		lds r24,keymap_config
- 463               	.LVL26:
- 464 00b6 85FF      		sbrs r24,5
- 465 00b8 00C0      		rjmp .L62
- 466               	.L63:
+ 460               		.loc 1 82 0
+ 461 00b2 8091 0000 		lds r24,keymap_config
+ 462               	.LVL26:
+ 463 00b6 85FF      		sbrs r24,5
+ 464 00b8 00C0      		rjmp .L62
+ 465               	.L63:
   83:../../tmk_core/common/keymap.c ****             }
- 467               		.loc 1 83 0
- 468 00ba 89E2      		ldi r24,lo8(41)
- 469 00bc 00C0      		rjmp .L38
- 470               	.LVL27:
- 471               	.L43:
+ 466               		.loc 1 83 0
+ 467 00ba 89E2      		ldi r24,lo8(41)
+ 468 00bc 00C0      		rjmp .L38
+ 469               	.LVL27:
+ 470               	.L43:
   87:../../tmk_core/common/keymap.c ****                 return keycode_to_action(KC_GRAVE);
- 472               		.loc 1 87 0
- 473 00be 8091 0000 		lds r24,keymap_config
- 474               	.LVL28:
- 475 00c2 85FF      		sbrs r24,5
- 476 00c4 00C0      		rjmp .L63
- 477               	.L62:
+ 471               		.loc 1 87 0
+ 472 00be 8091 0000 		lds r24,keymap_config
+ 473               	.LVL28:
+ 474 00c2 85FF      		sbrs r24,5
+ 475 00c4 00C0      		rjmp .L63
+ 476               	.L62:
   85:../../tmk_core/common/keymap.c ****         case KC_ESC:
- 478               		.loc 1 85 0
- 479 00c6 85E3      		ldi r24,lo8(53)
- 480 00c8 00C0      		rjmp .L38
- 481               	.LVL29:
- 482               	.L41:
+ 477               		.loc 1 85 0
+ 478 00c6 85E3      		ldi r24,lo8(53)
+ 479 00c8 00C0      		rjmp .L38
+ 480               	.LVL29:
+ 481               	.L41:
   92:../../tmk_core/common/keymap.c ****                 return keycode_to_action(KC_BSPACE);
- 483               		.loc 1 92 0
- 484 00ca 8091 0000 		lds r24,keymap_config
- 485               	.LVL30:
- 486 00ce 86FF      		sbrs r24,6
- 487 00d0 00C0      		rjmp .L64
- 488               	.L65:
+ 482               		.loc 1 92 0
+ 483 00ca 8091 0000 		lds r24,keymap_config
+ 484               	.LVL30:
+ 485 00ce 86FF      		sbrs r24,6
+ 486 00d0 00C0      		rjmp .L64
+ 487               	.L65:
   93:../../tmk_core/common/keymap.c ****             }
- 489               		.loc 1 93 0
- 490 00d2 8AE2      		ldi r24,lo8(42)
- 491 00d4 00C0      		rjmp .L38
- 492               	.LVL31:
- 493               	.L44:
+ 488               		.loc 1 93 0
+ 489 00d2 8AE2      		ldi r24,lo8(42)
+ 490 00d4 00C0      		rjmp .L38
+ 491               	.LVL31:
+ 492               	.L44:
   97:../../tmk_core/common/keymap.c ****                 return keycode_to_action(KC_BSLASH);
- 494               		.loc 1 97 0
- 495 00d6 8091 0000 		lds r24,keymap_config
- 496               	.LVL32:
- 497 00da 86FF      		sbrs r24,6
- 498 00dc 00C0      		rjmp .L65
- 499               	.L64:
+ 493               		.loc 1 97 0
+ 494 00d6 8091 0000 		lds r24,keymap_config
+ 495               	.LVL32:
+ 496 00da 86FF      		sbrs r24,6
+ 497 00dc 00C0      		rjmp .L65
+ 498               	.L64:
   95:../../tmk_core/common/keymap.c ****         case KC_BSPACE:
- 500               		.loc 1 95 0
- 501 00de 81E3      		ldi r24,lo8(49)
- 502               	.L38:
+ 499               		.loc 1 95 0
+ 500 00de 81E3      		ldi r24,lo8(49)
+ 501               	.L38:
  103:../../tmk_core/common/keymap.c ****     }
- 503               		.loc 1 103 0
- 504 00e0 0E94 0000 		call keycode_to_action
- 505               	.LVL33:
+ 502               		.loc 1 103 0
+ 503 00e0 0E94 0000 		call keycode_to_action
+ 504               	.LVL33:
  105:../../tmk_core/common/keymap.c **** 
- 506               		.loc 1 105 0
- 507 00e4 0895      		ret
- 508               		.cfi_endproc
- 509               	.LFE103:
- 511               		.section	.text.action_get_macro,"ax",@progbits
- 512               		.weak	action_get_macro
- 514               	action_get_macro:
- 515               	.LFB104:
+ 505               		.loc 1 105 0
+ 506 00e4 0895      		ret
+ 507               		.cfi_endproc
+ 508               	.LFE103:
+ 510               		.section	.text.action_get_macro,"ax",@progbits
+ 511               		.weak	action_get_macro
+ 513               	action_get_macro:
+ 514               	.LFB104:
  111:../../tmk_core/common/keymap.c ****     return MACRO_NONE;
- 516               		.loc 1 111 0
- 517               		.cfi_startproc
- 518               	.LVL34:
- 519               	/* prologue: function */
- 520               	/* frame size = 0 */
- 521               	/* stack size = 0 */
- 522               	.L__stack_usage = 0
+ 515               		.loc 1 111 0
+ 516               		.cfi_startproc
+ 517               	.LVL34:
+ 518               	/* prologue: function */
+ 519               	/* frame size = 0 */
+ 520               	/* stack size = 0 */
+ 521               	.L__stack_usage = 0
  113:../../tmk_core/common/keymap.c **** 
- 523               		.loc 1 113 0
- 524 0000 80E0      		ldi r24,0
- 525 0002 90E0      		ldi r25,0
- 526               	.LVL35:
- 527 0004 0895      		ret
- 528               		.cfi_endproc
- 529               	.LFE104:
- 531               		.section	.text.action_function,"ax",@progbits
- 532               		.weak	action_function
- 534               	action_function:
- 535               	.LFB105:
+ 522               		.loc 1 113 0
+ 523 0000 80E0      		ldi r24,0
+ 524 0002 90E0      		ldi r25,0
+ 525               	.LVL35:
+ 526 0004 0895      		ret
+ 527               		.cfi_endproc
+ 528               	.LFE104:
+ 530               		.section	.text.action_function,"ax",@progbits
+ 531               		.weak	action_function
+ 533               	action_function:
+ 534               	.LFB105:
  118:../../tmk_core/common/keymap.c **** }
- 536               		.loc 1 118 0
- 537               		.cfi_startproc
- 538               	.LVL36:
- 539               	/* prologue: function */
- 540               	/* frame size = 0 */
- 541               	/* stack size = 0 */
- 542               	.L__stack_usage = 0
- 543 0000 0895      		ret
- 544               		.cfi_endproc
- 545               	.LFE105:
- 547               		.comm	keymap_config,1,1
- 548               		.text
- 549               	.Letext0:
- 550               		.file 3 "/usr/lib/avr/include/stdint.h"
- 551               		.file 4 "../../tmk_core/common/keyboard.h"
- 552               		.file 5 "../../tmk_core/common/keycode.h"
- 553               		.file 6 "../../tmk_core/common/action_code.h"
- 554               		.file 7 "../../tmk_core/common/action_macro.h"
- 555               		.file 8 "../../tmk_core/common/action.h"
- 556               		.file 9 "../../tmk_core/common/keymap.h"
- 557               		.file 10 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
+ 535               		.loc 1 118 0
+ 536               		.cfi_startproc
+ 537               	.LVL36:
+ 538               	/* prologue: function */
+ 539               	/* frame size = 0 */
+ 540               	/* stack size = 0 */
+ 541               	.L__stack_usage = 0
+ 542 0000 0895      		ret
+ 543               		.cfi_endproc
+ 544               	.LFE105:
+ 546               		.comm	keymap_config,1,1
+ 547               		.text
+ 548               	.Letext0:
+ 549               		.file 3 "/usr/lib/avr/include/stdint.h"
+ 550               		.file 4 "../../tmk_core/common/keyboard.h"
+ 551               		.file 5 "../../tmk_core/common/keycode.h"
+ 552               		.file 6 "../../tmk_core/common/action_code.h"
+ 553               		.file 7 "../../tmk_core/common/action_macro.h"
+ 554               		.file 8 "../../tmk_core/common/action.h"
+ 555               		.file 9 "../../tmk_core/common/keymap.h"
+ 556               		.file 10 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keymap.c
-     /tmp/ccL377md.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccL377md.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccL377md.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccL377md.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccL377md.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccL377md.s:12     .text.keycode_to_action:0000000000000000 keycode_to_action
-     /tmp/ccL377md.s:321    .text.action_for_key:0000000000000000 action_for_key
+     /tmp/cc2dzjxQ.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cc2dzjxQ.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cc2dzjxQ.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cc2dzjxQ.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cc2dzjxQ.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cc2dzjxQ.s:12     .text.keycode_to_action:0000000000000000 keycode_to_action
+     /tmp/cc2dzjxQ.s:320    .text.action_for_key:0000000000000000 action_for_key
                             *COM*:0000000000000001 keymap_config
-     /tmp/ccL377md.s:514    .text.action_get_macro:0000000000000000 action_get_macro
-     /tmp/ccL377md.s:534    .text.action_function:0000000000000000 action_function
+     /tmp/cc2dzjxQ.s:513    .text.action_get_macro:0000000000000000 action_get_macro
+     /tmp/cc2dzjxQ.s:533    .text.action_function:0000000000000000 action_function
 
 UNDEFINED SYMBOLS
 clear_keyboard

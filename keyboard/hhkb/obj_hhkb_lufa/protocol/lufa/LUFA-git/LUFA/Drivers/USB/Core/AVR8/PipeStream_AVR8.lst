@@ -10,10 +10,10 @@
   10               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 PipeStream_AVR8.c
-     /tmp/ccET8tBG.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccET8tBG.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccET8tBG.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccET8tBG.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccET8tBG.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cc8crKox.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cc8crKox.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cc8crKox.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cc8crKox.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cc8crKox.s:6      *ABS*:0000000000000001 __zero_reg__
 
 NO UNDEFINED SYMBOLS

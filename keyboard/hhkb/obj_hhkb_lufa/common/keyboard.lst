@@ -256,405 +256,406 @@
   88               		.loc 1 175 0 is_stmt 0 discriminator 1
   89 000c 80FF      		sbrs r24,0
   90 000e 00C0      		rjmp .L7
-  91 0010 80E0      		ldi r24,lo8(__c.4760)
-  92 0012 90E0      		ldi r25,hi8(__c.4760)
-  93 0014 0E94 0000 		call xputs
-  94               	.LVL6:
-  95               	.L7:
-  96               		.loc 1 175 0 discriminator 2
-  97 0018 8091 0000 		lds r24,debug_config
-  98 001c 80FF      		sbrs r24,0
-  99 001e 00C0      		rjmp .L8
- 100               		.loc 1 175 0 discriminator 1
- 101 0020 1F92      		push __zero_reg__
- 102               	.LCFI1:
- 103               		.cfi_def_cfa_offset 4
- 104 0022 CF93      		push r28
- 105               	.LCFI2:
- 106               		.cfi_def_cfa_offset 5
- 107 0024 20E0      		ldi r18,lo8(__c.4762)
- 108 0026 30E0      		ldi r19,hi8(__c.4762)
- 109 0028 3F93      		push r19
- 110               	.LCFI3:
- 111               		.cfi_def_cfa_offset 6
- 112 002a 2F93      		push r18
- 113               	.LCFI4:
- 114               		.cfi_def_cfa_offset 7
- 115 002c 0E94 0000 		call __xprintf
- 116               	.LVL7:
- 117 0030 0F90      		pop __tmp_reg__
- 118 0032 0F90      		pop __tmp_reg__
- 119 0034 0F90      		pop __tmp_reg__
- 120 0036 0F90      		pop __tmp_reg__
- 121               	.LCFI5:
- 122               		.cfi_def_cfa_offset 3
- 123               	.L8:
- 124               		.loc 1 175 0 discriminator 2
- 125 0038 8091 0000 		lds r24,debug_config
- 126 003c 80FF      		sbrs r24,0
- 127 003e 00C0      		rjmp .L6
- 128               		.loc 1 175 0 discriminator 1
- 129 0040 80E0      		ldi r24,lo8(__c.4764)
- 130 0042 90E0      		ldi r25,hi8(__c.4764)
- 131 0044 0E94 0000 		call xputs
- 132               	.LVL8:
- 133               	.L6:
+  91               		.loc 1 175 0 discriminator 2
+  92 0010 80E0      		ldi r24,lo8(__c.4780)
+  93 0012 90E0      		ldi r25,hi8(__c.4780)
+  94 0014 0E94 0000 		call xputs
+  95               	.LVL6:
+  96               	.L7:
+  97               		.loc 1 175 0 discriminator 4
+  98 0018 8091 0000 		lds r24,debug_config
+  99 001c 80FF      		sbrs r24,0
+ 100 001e 00C0      		rjmp .L8
+ 101               		.loc 1 175 0 discriminator 5
+ 102 0020 1F92      		push __zero_reg__
+ 103               	.LCFI1:
+ 104               		.cfi_def_cfa_offset 4
+ 105 0022 CF93      		push r28
+ 106               	.LCFI2:
+ 107               		.cfi_def_cfa_offset 5
+ 108 0024 80E0      		ldi r24,lo8(__c.4782)
+ 109 0026 90E0      		ldi r25,hi8(__c.4782)
+ 110 0028 9F93      		push r25
+ 111               	.LCFI3:
+ 112               		.cfi_def_cfa_offset 6
+ 113 002a 8F93      		push r24
+ 114               	.LCFI4:
+ 115               		.cfi_def_cfa_offset 7
+ 116 002c 0E94 0000 		call __xprintf
+ 117               	.LVL7:
+ 118 0030 0F90      		pop __tmp_reg__
+ 119 0032 0F90      		pop __tmp_reg__
+ 120 0034 0F90      		pop __tmp_reg__
+ 121 0036 0F90      		pop __tmp_reg__
+ 122               	.LCFI5:
+ 123               		.cfi_def_cfa_offset 3
+ 124               	.L8:
+ 125               		.loc 1 175 0 discriminator 7
+ 126 0038 8091 0000 		lds r24,debug_config
+ 127 003c 80FF      		sbrs r24,0
+ 128 003e 00C0      		rjmp .L6
+ 129               		.loc 1 175 0 discriminator 8
+ 130 0040 80E0      		ldi r24,lo8(__c.4784)
+ 131 0042 90E0      		ldi r25,hi8(__c.4784)
+ 132 0044 0E94 0000 		call xputs
+ 133               	.LVL8:
+ 134               	.L6:
  176:../../tmk_core/common/keyboard.c ****     led_set(leds);
- 134               		.loc 1 176 0 is_stmt 1
- 135 0048 8C2F      		mov r24,r28
- 136               	/* epilogue start */
+ 135               		.loc 1 176 0 is_stmt 1
+ 136 0048 8C2F      		mov r24,r28
+ 137               	/* epilogue start */
  177:../../tmk_core/common/keyboard.c **** }
- 137               		.loc 1 177 0
- 138 004a CF91      		pop r28
- 139               	.LVL9:
+ 138               		.loc 1 177 0
+ 139 004a CF91      		pop r28
+ 140               	.LVL9:
  176:../../tmk_core/common/keyboard.c ****     led_set(leds);
- 140               		.loc 1 176 0
- 141 004c 0C94 0000 		jmp led_set
- 142               	.LVL10:
- 143               		.cfi_endproc
- 144               	.LFE107:
- 146               		.section	.text.keyboard_task,"ax",@progbits
- 147               	.global	keyboard_task
- 149               	keyboard_task:
- 150               	.LFB106:
+ 141               		.loc 1 176 0
+ 142 004c 0C94 0000 		jmp led_set
+ 143               	.LVL10:
+ 144               		.cfi_endproc
+ 145               	.LFE107:
+ 147               		.section	.text.keyboard_task,"ax",@progbits
+ 148               	.global	keyboard_task
+ 150               	keyboard_task:
+ 151               	.LFB106:
  100:../../tmk_core/common/keyboard.c ****     static matrix_row_t matrix_prev[MATRIX_ROWS];
- 151               		.loc 1 100 0
- 152               		.cfi_startproc
- 153 0000 CF92      		push r12
- 154               	.LCFI6:
- 155               		.cfi_def_cfa_offset 3
- 156               		.cfi_offset 12, -2
- 157 0002 DF92      		push r13
- 158               	.LCFI7:
- 159               		.cfi_def_cfa_offset 4
- 160               		.cfi_offset 13, -3
- 161 0004 EF92      		push r14
- 162               	.LCFI8:
- 163               		.cfi_def_cfa_offset 5
- 164               		.cfi_offset 14, -4
- 165 0006 FF92      		push r15
- 166               	.LCFI9:
- 167               		.cfi_def_cfa_offset 6
- 168               		.cfi_offset 15, -5
- 169 0008 0F93      		push r16
- 170               	.LCFI10:
- 171               		.cfi_def_cfa_offset 7
- 172               		.cfi_offset 16, -6
- 173 000a 1F93      		push r17
- 174               	.LCFI11:
- 175               		.cfi_def_cfa_offset 8
- 176               		.cfi_offset 17, -7
- 177 000c CF93      		push r28
- 178               	.LCFI12:
- 179               		.cfi_def_cfa_offset 9
- 180               		.cfi_offset 28, -8
- 181 000e DF93      		push r29
- 182               	.LCFI13:
- 183               		.cfi_def_cfa_offset 10
- 184               		.cfi_offset 29, -9
- 185 0010 CDB7      		in r28,__SP_L__
- 186 0012 DEB7      		in r29,__SP_H__
- 187               	.LCFI14:
- 188               		.cfi_def_cfa_register 28
- 189 0014 2B97      		sbiw r28,11
- 190               	.LCFI15:
- 191               		.cfi_def_cfa_offset 21
- 192 0016 0FB6      		in __tmp_reg__,__SREG__
- 193 0018 F894      		cli
- 194 001a DEBF      		out __SP_H__,r29
- 195 001c 0FBE      		out __SREG__,__tmp_reg__
- 196 001e CDBF      		out __SP_L__,r28
- 197               	/* prologue: function */
- 198               	/* frame size = 11 */
- 199               	/* stack size = 19 */
- 200               	.L__stack_usage = 19
- 201               	.LVL11:
+ 152               		.loc 1 100 0
+ 153               		.cfi_startproc
+ 154 0000 CF92      		push r12
+ 155               	.LCFI6:
+ 156               		.cfi_def_cfa_offset 3
+ 157               		.cfi_offset 12, -2
+ 158 0002 DF92      		push r13
+ 159               	.LCFI7:
+ 160               		.cfi_def_cfa_offset 4
+ 161               		.cfi_offset 13, -3
+ 162 0004 EF92      		push r14
+ 163               	.LCFI8:
+ 164               		.cfi_def_cfa_offset 5
+ 165               		.cfi_offset 14, -4
+ 166 0006 FF92      		push r15
+ 167               	.LCFI9:
+ 168               		.cfi_def_cfa_offset 6
+ 169               		.cfi_offset 15, -5
+ 170 0008 0F93      		push r16
+ 171               	.LCFI10:
+ 172               		.cfi_def_cfa_offset 7
+ 173               		.cfi_offset 16, -6
+ 174 000a 1F93      		push r17
+ 175               	.LCFI11:
+ 176               		.cfi_def_cfa_offset 8
+ 177               		.cfi_offset 17, -7
+ 178 000c CF93      		push r28
+ 179               	.LCFI12:
+ 180               		.cfi_def_cfa_offset 9
+ 181               		.cfi_offset 28, -8
+ 182 000e DF93      		push r29
+ 183               	.LCFI13:
+ 184               		.cfi_def_cfa_offset 10
+ 185               		.cfi_offset 29, -9
+ 186 0010 CDB7      		in r28,__SP_L__
+ 187 0012 DEB7      		in r29,__SP_H__
+ 188               	.LCFI14:
+ 189               		.cfi_def_cfa_register 28
+ 190 0014 2B97      		sbiw r28,11
+ 191               	.LCFI15:
+ 192               		.cfi_def_cfa_offset 21
+ 193 0016 0FB6      		in __tmp_reg__,__SREG__
+ 194 0018 F894      		cli
+ 195 001a DEBF      		out __SP_H__,r29
+ 196 001c 0FBE      		out __SREG__,__tmp_reg__
+ 197 001e CDBF      		out __SP_L__,r28
+ 198               	/* prologue: function */
+ 199               	/* frame size = 11 */
+ 200               	/* stack size = 19 */
+ 201               	.L__stack_usage = 19
+ 202               	.LVL11:
  109:../../tmk_core/common/keyboard.c ****     for (uint8_t r = 0; r < MATRIX_ROWS; r++) {
- 202               		.loc 1 109 0
- 203 0020 0E94 0000 		call matrix_scan
- 204               	.LVL12:
- 205 0024 30E0      		ldi r19,lo8(matrix_prev.4740)
- 206 0026 E32E      		mov r14,r19
- 207 0028 30E0      		ldi r19,hi8(matrix_prev.4740)
- 208 002a F32E      		mov r15,r19
- 209 002c 00E0      		ldi r16,0
- 210 002e 10E0      		ldi r17,0
- 211               	.LVL13:
- 212               	.L30:
- 213 0030 C02E      		mov r12,r16
- 214               	.LVL14:
- 215               	.LBB2:
+ 203               		.loc 1 109 0
+ 204 0020 0E94 0000 		call matrix_scan
+ 205               	.LVL12:
+ 206 0024 80E0      		ldi r24,lo8(matrix_prev.4760)
+ 207 0026 C82E      		mov r12,r24
+ 208 0028 80E0      		ldi r24,hi8(matrix_prev.4760)
+ 209 002a D82E      		mov r13,r24
+ 210 002c 00E0      		ldi r16,0
+ 211 002e 10E0      		ldi r17,0
+ 212               	.LVL13:
+ 213               	.L22:
+ 214 0030 E02E      		mov r14,r16
+ 215               	.LVL14:
+ 216               	.LBB2:
  111:../../tmk_core/common/keyboard.c ****         matrix_change = matrix_row ^ matrix_prev[r];
- 216               		.loc 1 111 0
- 217 0032 802F      		mov r24,r16
- 218 0034 0E94 0000 		call matrix_get_row
- 219               	.LVL15:
+ 217               		.loc 1 111 0
+ 218 0032 802F      		mov r24,r16
+ 219 0034 0E94 0000 		call matrix_get_row
+ 220               	.LVL15:
  112:../../tmk_core/common/keyboard.c ****         if (matrix_change) {
- 220               		.loc 1 112 0
- 221 0038 F701      		movw r30,r14
- 222 003a D190      		ld r13,Z+
- 223 003c 7F01      		movw r14,r30
- 224 003e D826      		eor r13,r24
- 225               	.LVL16:
+ 221               		.loc 1 112 0
+ 222 0038 F601      		movw r30,r12
+ 223 003a 4191      		ld r20,Z+
+ 224 003c 6F01      		movw r12,r30
+ 225 003e F42E      		mov r15,r20
+ 226 0040 F826      		eor r15,r24
+ 227               	.LVL16:
  113:../../tmk_core/common/keyboard.c **** #ifdef MATRIX_HAS_GHOST
- 226               		.loc 1 113 0
- 227 0040 01F4      		brne .L21
- 228               	.LVL17:
- 229               	.L28:
- 230 0042 0F5F      		subi r16,-1
- 231 0044 1F4F      		sbci r17,-1
- 232               	.LVL18:
+ 228               		.loc 1 113 0
+ 229 0042 01F4      		brne .L21
+ 230               	.LVL17:
+ 231               	.L29:
+ 232 0044 0F5F      		subi r16,-1
+ 233 0046 1F4F      		sbci r17,-1
+ 234               	.LVL18:
  110:../../tmk_core/common/keyboard.c ****         matrix_row = matrix_get_row(r);
- 233               		.loc 1 110 0
- 234 0046 0830      		cpi r16,8
- 235 0048 1105      		cpc r17,__zero_reg__
- 236 004a 01F4      		brne .L30
- 237               	.LBE2:
+ 235               		.loc 1 110 0
+ 236 0048 0830      		cpi r16,8
+ 237 004a 1105      		cpc r17,__zero_reg__
+ 238 004c 01F4      		brne .L22
+ 239               	.LBE2:
  145:../../tmk_core/common/keyboard.c **** 
- 238               		.loc 1 145 0
- 239 004c 8FEF      		ldi r24,lo8(-1)
- 240 004e 8983      		std Y+1,r24
- 241 0050 8A83      		std Y+2,r24
- 242 0052 1B82      		std Y+3,__zero_reg__
- 243 0054 0E94 0000 		call timer_read
- 244               	.LVL19:
- 245 0058 8160      		ori r24,1
- 246 005a 782F      		mov r23,r24
- 247 005c 9D83      		std Y+5,r25
- 248 005e 8C83      		std Y+4,r24
- 249 0060 4981      		ldd r20,Y+1
- 250 0062 5A81      		ldd r21,Y+2
- 251 0064 6B81      		ldd r22,Y+3
- 252 0066 8D81      		ldd r24,Y+5
- 253 0068 0E94 0000 		call action_exec
- 254               	.LVL20:
- 255 006c 00C0      		rjmp .L27
- 256               	.LVL21:
- 257               	.L21:
- 258               	.LBB4:
+ 240               		.loc 1 145 0
+ 241 004e 8FEF      		ldi r24,lo8(-1)
+ 242 0050 8983      		std Y+1,r24
+ 243 0052 8A83      		std Y+2,r24
+ 244 0054 1B82      		std Y+3,__zero_reg__
+ 245 0056 0E94 0000 		call timer_read
+ 246               	.LVL19:
+ 247 005a 8160      		ori r24,1
+ 248 005c 782F      		mov r23,r24
+ 249 005e 9D83      		std Y+5,r25
+ 250 0060 8C83      		std Y+4,r24
+ 251 0062 4981      		ldd r20,Y+1
+ 252 0064 5A81      		ldd r21,Y+2
+ 253 0066 6B81      		ldd r22,Y+3
+ 254 0068 8D81      		ldd r24,Y+5
+ 255 006a 0E94 0000 		call action_exec
+ 256               	.LVL20:
+ 257 006e 00C0      		rjmp .L27
+ 258               	.LVL21:
+ 259               	.L21:
+ 260               	.LBB4:
  128:../../tmk_core/common/keyboard.c ****             for (uint8_t c = 0; c < MATRIX_COLS; c++) {
- 259               		.loc 1 128 0
- 260 006e 9091 0000 		lds r25,debug_config
- 261 0072 91FF      		sbrs r25,1
- 262 0074 00C0      		rjmp .L24
+ 261               		.loc 1 128 0
+ 262 0070 9091 0000 		lds r25,debug_config
+ 263 0074 91FF      		sbrs r25,1
+ 264 0076 00C0      		rjmp .L24
  128:../../tmk_core/common/keyboard.c ****             for (uint8_t c = 0; c < MATRIX_COLS; c++) {
- 263               		.loc 1 128 0 is_stmt 0 discriminator 1
- 264 0076 8B87      		std Y+11,r24
- 265 0078 0E94 0000 		call matrix_print
- 266               	.LVL22:
- 267 007c 8B85      		ldd r24,Y+11
- 268               	.L24:
- 269               	.LVL23:
- 270               	.LBE4:
+ 265               		.loc 1 128 0 is_stmt 0 discriminator 1
+ 266 0078 8B87      		std Y+11,r24
+ 267 007a 0E94 0000 		call matrix_print
+ 268               	.LVL22:
+ 269 007e 8B85      		ldd r24,Y+11
+ 270               	.L24:
+ 271               	.LVL23:
+ 272               	.LBE4:
  109:../../tmk_core/common/keyboard.c ****     for (uint8_t r = 0; r < MATRIX_ROWS; r++) {
- 271               		.loc 1 109 0 is_stmt 1
- 272 007e 20E0      		ldi r18,0
- 273 0080 30E0      		ldi r19,0
- 274               	.LBB5:
- 275               	.LBB3:
+ 273               		.loc 1 109 0 is_stmt 1
+ 274 0080 20E0      		ldi r18,0
+ 275 0082 30E0      		ldi r19,0
+ 276               	.LBB5:
+ 277               	.LBB3:
  130:../../tmk_core/common/keyboard.c ****                     action_exec((keyevent_t){
- 276               		.loc 1 130 0
- 277 0082 4D2D      		mov r20,r13
- 278 0084 50E0      		ldi r21,0
- 279               	.LVL24:
- 280               	.L29:
- 281 0086 922F      		mov r25,r18
- 282               	.LVL25:
- 283 0088 BA01      		movw r22,r20
- 284 008a 022E      		mov r0,r18
- 285 008c 00C0      		rjmp 2f
- 286               		1:
- 287 008e 7595      		asr r23
- 288 0090 6795      		ror r22
- 289               		2:
- 290 0092 0A94      		dec r0
- 291 0094 02F4      		brpl 1b
- 292 0096 60FF      		sbrs r22,0
- 293 0098 00C0      		rjmp .L25
+ 278               		.loc 1 130 0
+ 279 0084 4F2D      		mov r20,r15
+ 280 0086 50E0      		ldi r21,0
+ 281               	.LVL24:
+ 282               	.L28:
+ 283 0088 922F      		mov r25,r18
+ 284               	.LVL25:
+ 285 008a BA01      		movw r22,r20
+ 286 008c 022E      		mov r0,r18
+ 287 008e 00C0      		rjmp 2f
+ 288               		1:
+ 289 0090 7595      		asr r23
+ 290 0092 6795      		ror r22
+ 291               		2:
+ 292 0094 0A94      		dec r0
+ 293 0096 02F4      		brpl 1b
+ 294 0098 60FF      		sbrs r22,0
+ 295 009a 00C0      		rjmp .L25
  131:../../tmk_core/common/keyboard.c ****                         .key = (keypos_t){ .row = r, .col = c },
- 294               		.loc 1 131 0
- 295 009a 2E83      		std Y+6,r18
- 296 009c CF82      		std Y+7,r12
+ 296               		.loc 1 131 0
+ 297 009c 2E83      		std Y+6,r18
+ 298 009e EF82      		std Y+7,r14
  133:../../tmk_core/common/keyboard.c ****                         .time = (timer_read() | 1) /* time should not be 0 */
- 297               		.loc 1 133 0
- 298 009e EE24      		clr r14
- 299 00a0 E394      		inc r14
- 300 00a2 F12C      		mov r15,__zero_reg__
- 301               	.LVL26:
- 302 00a4 00C0      		rjmp 2f
- 303               		1:
- 304 00a6 EE0C      		lsl r14
- 305 00a8 FF1C      		rol r15
- 306               		2:
- 307 00aa 9A95      		dec r25
- 308 00ac 02F4      		brpl 1b
- 309 00ae 90E0      		ldi r25,0
- 310 00b0 8E21      		and r24,r14
- 311 00b2 9F21      		and r25,r15
- 312 00b4 21E0      		ldi r18,lo8(1)
- 313 00b6 892B      		or r24,r25
- 314 00b8 01F4      		brne .L26
- 315 00ba 20E0      		ldi r18,0
- 316               	.L26:
+ 299               		.loc 1 133 0
+ 300 00a0 21E0      		ldi r18,lo8(1)
+ 301 00a2 30E0      		ldi r19,0
+ 302               	.LVL26:
+ 303 00a4 6901      		movw r12,r18
+ 304 00a6 00C0      		rjmp 2f
+ 305               		1:
+ 306 00a8 CC0C      		lsl r12
+ 307 00aa DD1C      		rol r13
+ 308               		2:
+ 309 00ac 9A95      		dec r25
+ 310 00ae 02F4      		brpl 1b
+ 311 00b0 90E0      		ldi r25,0
+ 312 00b2 8C21      		and r24,r12
+ 313 00b4 9D21      		and r25,r13
+ 314 00b6 892B      		or r24,r25
+ 315 00b8 01F4      		brne .L26
+ 316 00ba 20E0      		ldi r18,0
+ 317               	.L26:
  131:../../tmk_core/common/keyboard.c ****                         .key = (keypos_t){ .row = r, .col = c },
- 317               		.loc 1 131 0
- 318 00bc 2887      		std Y+8,r18
+ 318               		.loc 1 131 0
+ 319 00bc 2887      		std Y+8,r18
  134:../../tmk_core/common/keyboard.c ****                     });
- 319               		.loc 1 134 0
- 320 00be 0E94 0000 		call timer_read
- 321               	.LVL27:
- 322 00c2 8160      		ori r24,1
+ 320               		.loc 1 134 0
+ 321 00be 0E94 0000 		call timer_read
+ 322               	.LVL27:
+ 323 00c2 8160      		ori r24,1
  131:../../tmk_core/common/keyboard.c ****                         .key = (keypos_t){ .row = r, .col = c },
- 323               		.loc 1 131 0
- 324 00c4 782F      		mov r23,r24
- 325 00c6 9A87      		std Y+10,r25
- 326 00c8 8987      		std Y+9,r24
- 327 00ca 4E81      		ldd r20,Y+6
- 328 00cc 5F81      		ldd r21,Y+7
- 329 00ce 6885      		ldd r22,Y+8
- 330 00d0 8A85      		ldd r24,Y+10
- 331 00d2 0E94 0000 		call action_exec
- 332               	.LVL28:
+ 324               		.loc 1 131 0
+ 325 00c4 782F      		mov r23,r24
+ 326 00c6 9A87      		std Y+10,r25
+ 327 00c8 8987      		std Y+9,r24
+ 328 00ca 4E81      		ldd r20,Y+6
+ 329 00cc 5F81      		ldd r21,Y+7
+ 330 00ce 6885      		ldd r22,Y+8
+ 331 00d0 8A85      		ldd r24,Y+10
+ 332 00d2 0E94 0000 		call action_exec
+ 333               	.LVL28:
  137:../../tmk_core/common/keyboard.c ****                     // process a key per task call
- 333               		.loc 1 137 0
- 334 00d6 F801      		movw r30,r16
- 335 00d8 E050      		subi r30,lo8(-(matrix_prev.4740))
- 336 00da F040      		sbci r31,hi8(-(matrix_prev.4740))
- 337 00dc 8081      		ld r24,Z
- 338 00de 8E25      		eor r24,r14
- 339 00e0 8083      		st Z,r24
+ 334               		.loc 1 137 0
+ 335 00d6 F801      		movw r30,r16
+ 336 00d8 E050      		subi r30,lo8(-(matrix_prev.4760))
+ 337 00da F040      		sbci r31,hi8(-(matrix_prev.4760))
+ 338 00dc 8081      		ld r24,Z
+ 339 00de C826      		eor r12,r24
+ 340 00e0 C082      		st Z,r12
  139:../../tmk_core/common/keyboard.c ****                 }
- 340               		.loc 1 139 0
- 341 00e2 00C0      		rjmp .L27
- 342               	.LVL29:
- 343               	.L25:
- 344 00e4 2F5F      		subi r18,-1
- 345 00e6 3F4F      		sbci r19,-1
- 346               	.LVL30:
+ 341               		.loc 1 139 0
+ 342 00e2 00C0      		rjmp .L27
+ 343               	.LVL29:
+ 344               	.L25:
+ 345 00e4 2F5F      		subi r18,-1
+ 346 00e6 3F4F      		sbci r19,-1
+ 347               	.LVL30:
  129:../../tmk_core/common/keyboard.c ****                 if (matrix_change & ((matrix_row_t)1<<c)) {
- 347               		.loc 1 129 0
- 348 00e8 2830      		cpi r18,8
- 349 00ea 3105      		cpc r19,__zero_reg__
- 350 00ec 01F4      		brne .L29
- 351 00ee 00C0      		rjmp .L28
- 352               	.LVL31:
- 353               	.L27:
- 354               	.LBE3:
- 355               	.LBE5:
+ 348               		.loc 1 129 0 discriminator 2
+ 349 00e8 2830      		cpi r18,8
+ 350 00ea 3105      		cpc r19,__zero_reg__
+ 351 00ec 01F4      		brne .L28
+ 352 00ee 00C0      		rjmp .L29
+ 353               	.LVL31:
+ 354               	.L27:
+ 355               	.LBE3:
+ 356               	.LBE5:
  151:../../tmk_core/common/keyboard.c **** #endif
- 356               		.loc 1 151 0
- 357 00f0 0E94 0000 		call mousekey_task
- 358               	.LVL32:
+ 357               		.loc 1 151 0
+ 358 00f0 0E94 0000 		call mousekey_task
+ 359               	.LVL32:
  167:../../tmk_core/common/keyboard.c ****         led_status = host_keyboard_leds();
- 359               		.loc 1 167 0
- 360 00f4 1091 0000 		lds r17,led_status.4741
- 361 00f8 0E94 0000 		call host_keyboard_leds
- 362               	.LVL33:
- 363 00fc 1817      		cp r17,r24
- 364 00fe 01F0      		breq .L20
+ 360               		.loc 1 167 0
+ 361 00f4 1091 0000 		lds r17,led_status.4761
+ 362 00f8 0E94 0000 		call host_keyboard_leds
+ 363               	.LVL33:
+ 364 00fc 1817      		cp r17,r24
+ 365 00fe 01F0      		breq .L20
  168:../../tmk_core/common/keyboard.c ****         keyboard_set_leds(led_status);
- 365               		.loc 1 168 0
- 366 0100 0E94 0000 		call host_keyboard_leds
- 367               	.LVL34:
- 368 0104 8093 0000 		sts led_status.4741,r24
- 369               	/* epilogue start */
+ 366               		.loc 1 168 0
+ 367 0100 0E94 0000 		call host_keyboard_leds
+ 368               	.LVL34:
+ 369 0104 8093 0000 		sts led_status.4761,r24
+ 370               	/* epilogue start */
  171:../../tmk_core/common/keyboard.c **** 
- 370               		.loc 1 171 0
- 371 0108 2B96      		adiw r28,11
- 372 010a 0FB6      		in __tmp_reg__,__SREG__
- 373 010c F894      		cli
- 374 010e DEBF      		out __SP_H__,r29
- 375 0110 0FBE      		out __SREG__,__tmp_reg__
- 376 0112 CDBF      		out __SP_L__,r28
- 377 0114 DF91      		pop r29
- 378 0116 CF91      		pop r28
- 379 0118 1F91      		pop r17
- 380 011a 0F91      		pop r16
- 381 011c FF90      		pop r15
- 382 011e EF90      		pop r14
- 383 0120 DF90      		pop r13
- 384               	.LVL35:
- 385 0122 CF90      		pop r12
+ 371               		.loc 1 171 0
+ 372 0108 2B96      		adiw r28,11
+ 373 010a 0FB6      		in __tmp_reg__,__SREG__
+ 374 010c F894      		cli
+ 375 010e DEBF      		out __SP_H__,r29
+ 376 0110 0FBE      		out __SREG__,__tmp_reg__
+ 377 0112 CDBF      		out __SP_L__,r28
+ 378 0114 DF91      		pop r29
+ 379 0116 CF91      		pop r28
+ 380 0118 1F91      		pop r17
+ 381 011a 0F91      		pop r16
+ 382 011c FF90      		pop r15
+ 383               	.LVL35:
+ 384 011e EF90      		pop r14
+ 385 0120 DF90      		pop r13
+ 386 0122 CF90      		pop r12
  169:../../tmk_core/common/keyboard.c ****     }
- 386               		.loc 1 169 0
- 387 0124 0C94 0000 		jmp keyboard_set_leds
- 388               	.LVL36:
- 389               	.L20:
- 390               	/* epilogue start */
+ 387               		.loc 1 169 0
+ 388 0124 0C94 0000 		jmp keyboard_set_leds
+ 389               	.LVL36:
+ 390               	.L20:
+ 391               	/* epilogue start */
  171:../../tmk_core/common/keyboard.c **** 
- 391               		.loc 1 171 0
- 392 0128 2B96      		adiw r28,11
- 393 012a 0FB6      		in __tmp_reg__,__SREG__
- 394 012c F894      		cli
- 395 012e DEBF      		out __SP_H__,r29
- 396 0130 0FBE      		out __SREG__,__tmp_reg__
- 397 0132 CDBF      		out __SP_L__,r28
- 398 0134 DF91      		pop r29
- 399 0136 CF91      		pop r28
- 400 0138 1F91      		pop r17
- 401 013a 0F91      		pop r16
- 402 013c FF90      		pop r15
- 403 013e EF90      		pop r14
- 404 0140 DF90      		pop r13
- 405               	.LVL37:
- 406 0142 CF90      		pop r12
- 407 0144 0895      		ret
- 408               		.cfi_endproc
- 409               	.LFE106:
- 411               		.section	.progmem.data.__c.4764,"a",@progbits
- 414               	__c.4764:
- 415 0000 0A00      		.string	"\n"
- 416               		.section	.progmem.data.__c.4762,"a",@progbits
- 419               	__c.4762:
- 420 0000 2530 3258 		.string	"%02X"
- 420      00
- 421               		.section	.progmem.data.__c.4760,"a",@progbits
- 424               	__c.4760:
- 425 0000 6B65 7962 		.string	"keyboard_set_led: "
- 425      6F61 7264 
- 425      5F73 6574 
- 425      5F6C 6564 
- 425      3A20 00
- 426               		.section	.bss.led_status.4741,"aw",@nobits
- 429               	led_status.4741:
- 430 0000 00        		.zero	1
- 431               		.section	.bss.matrix_prev.4740,"aw",@nobits
- 434               	matrix_prev.4740:
- 435 0000 0000 0000 		.zero	8
- 435      0000 0000 
- 436               		.comm	keymap_config,1,1
- 437               		.text
- 438               	.Letext0:
- 439               		.file 2 "/usr/lib/avr/include/stdint.h"
- 440               		.file 3 "../../tmk_core/common/keyboard.h"
- 441               		.file 4 "../../tmk_core/common/matrix.h"
- 442               		.file 5 "../../tmk_core/common/keymap.h"
- 443               		.file 6 "../../tmk_core/common/debug.h"
- 444               		.file 7 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
- 445               		.file 8 "../../tmk_core/common/timer.h"
- 446               		.file 9 "../../tmk_core/common/bootmagic.h"
- 447               		.file 10 "../../tmk_core/common/avr/xprintf.h"
- 448               		.file 11 "../../tmk_core/common/led.h"
- 449               		.file 12 "../../tmk_core/common/action.h"
- 450               		.file 13 "../../tmk_core/common/mousekey.h"
- 451               		.file 14 "../../tmk_core/common/host.h"
+ 392               		.loc 1 171 0
+ 393 0128 2B96      		adiw r28,11
+ 394 012a 0FB6      		in __tmp_reg__,__SREG__
+ 395 012c F894      		cli
+ 396 012e DEBF      		out __SP_H__,r29
+ 397 0130 0FBE      		out __SREG__,__tmp_reg__
+ 398 0132 CDBF      		out __SP_L__,r28
+ 399 0134 DF91      		pop r29
+ 400 0136 CF91      		pop r28
+ 401 0138 1F91      		pop r17
+ 402 013a 0F91      		pop r16
+ 403 013c FF90      		pop r15
+ 404               	.LVL37:
+ 405 013e EF90      		pop r14
+ 406 0140 DF90      		pop r13
+ 407 0142 CF90      		pop r12
+ 408 0144 0895      		ret
+ 409               		.cfi_endproc
+ 410               	.LFE106:
+ 412               		.section	.progmem.data.__c.4784,"a",@progbits
+ 415               	__c.4784:
+ 416 0000 0A00      		.string	"\n"
+ 417               		.section	.progmem.data.__c.4782,"a",@progbits
+ 420               	__c.4782:
+ 421 0000 2530 3258 		.string	"%02X"
+ 421      00
+ 422               		.section	.progmem.data.__c.4780,"a",@progbits
+ 425               	__c.4780:
+ 426 0000 6B65 7962 		.string	"keyboard_set_led: "
+ 426      6F61 7264 
+ 426      5F73 6574 
+ 426      5F6C 6564 
+ 426      3A20 00
+ 427               		.section	.bss.led_status.4761,"aw",@nobits
+ 430               	led_status.4761:
+ 431 0000 00        		.zero	1
+ 432               		.section	.bss.matrix_prev.4760,"aw",@nobits
+ 435               	matrix_prev.4760:
+ 436 0000 0000 0000 		.zero	8
+ 436      0000 0000 
+ 437               		.comm	keymap_config,1,1
+ 438               		.text
+ 439               	.Letext0:
+ 440               		.file 2 "/usr/lib/avr/include/stdint.h"
+ 441               		.file 3 "../../tmk_core/common/keyboard.h"
+ 442               		.file 4 "../../tmk_core/common/matrix.h"
+ 443               		.file 5 "../../tmk_core/common/keymap.h"
+ 444               		.file 6 "../../tmk_core/common/debug.h"
+ 445               		.file 7 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
+ 446               		.file 8 "../../tmk_core/common/timer.h"
+ 447               		.file 9 "../../tmk_core/common/bootmagic.h"
+ 448               		.file 10 "../../tmk_core/common/avr/xprintf.h"
+ 449               		.file 11 "../../tmk_core/common/led.h"
+ 450               		.file 12 "../../tmk_core/common/action.h"
+ 451               		.file 13 "../../tmk_core/common/mousekey.h"
+ 452               		.file 14 "../../tmk_core/common/host.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keyboard.c
-     /tmp/cc4Qg4je.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cc4Qg4je.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cc4Qg4je.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cc4Qg4je.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cc4Qg4je.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cc4Qg4je.s:13     .text.matrix_setup:0000000000000000 matrix_setup
-     /tmp/cc4Qg4je.s:29     .text.keyboard_setup:0000000000000000 keyboard_setup
-     /tmp/cc4Qg4je.s:46     .text.keyboard_init:0000000000000000 keyboard_init
-     /tmp/cc4Qg4je.s:69     .text.keyboard_set_leds:0000000000000000 keyboard_set_leds
-     /tmp/cc4Qg4je.s:424    .progmem.data.__c.4760:0000000000000000 __c.4760
-     /tmp/cc4Qg4je.s:419    .progmem.data.__c.4762:0000000000000000 __c.4762
-     /tmp/cc4Qg4je.s:414    .progmem.data.__c.4764:0000000000000000 __c.4764
-     /tmp/cc4Qg4je.s:149    .text.keyboard_task:0000000000000000 keyboard_task
-     /tmp/cc4Qg4je.s:434    .bss.matrix_prev.4740:0000000000000000 matrix_prev.4740
-     /tmp/cc4Qg4je.s:429    .bss.led_status.4741:0000000000000000 led_status.4741
+     /tmp/cccAWHbe.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cccAWHbe.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cccAWHbe.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cccAWHbe.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cccAWHbe.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cccAWHbe.s:13     .text.matrix_setup:0000000000000000 matrix_setup
+     /tmp/cccAWHbe.s:29     .text.keyboard_setup:0000000000000000 keyboard_setup
+     /tmp/cccAWHbe.s:46     .text.keyboard_init:0000000000000000 keyboard_init
+     /tmp/cccAWHbe.s:69     .text.keyboard_set_leds:0000000000000000 keyboard_set_leds
+     /tmp/cccAWHbe.s:425    .progmem.data.__c.4780:0000000000000000 __c.4780
+     /tmp/cccAWHbe.s:420    .progmem.data.__c.4782:0000000000000000 __c.4782
+     /tmp/cccAWHbe.s:415    .progmem.data.__c.4784:0000000000000000 __c.4784
+     /tmp/cccAWHbe.s:150    .text.keyboard_task:0000000000000000 keyboard_task
+     /tmp/cccAWHbe.s:435    .bss.matrix_prev.4760:0000000000000000 matrix_prev.4760
+     /tmp/cccAWHbe.s:430    .bss.led_status.4761:0000000000000000 led_status.4761
                             *COM*:0000000000000001 keymap_config
 
 UNDEFINED SYMBOLS

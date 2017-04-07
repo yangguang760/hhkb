@@ -24,7 +24,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      */
     KEYMAP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS,GRV,   \
            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,       \
-           FN2, FN1,   S,   D,   F,   G,   H,   J,   K,   L,  SCLN,QUOT,ENT,             \
+           FN3, FN1,   FN2,   D,   F,   G,   H,   J,   K,   L,  SCLN,QUOT,ENT,             \
            LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,RSFT,FN0,             \
                 LGUI,LALT,          SPC,                RALT,RGUI),
 
@@ -61,10 +61,29 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      *       `-------------------------------------------'
      */
     KEYMAP(TRNS, TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS,   \
-           CAPS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS, TRNS, TRNS,      \
+           TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS, TRNS, TRNS,      \
            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,LEFT,DOWN,UP,RGHT,TRNS,TRNS,BSPC,            \
-           TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS,FN3,TRNS,TRNS,TRNS,            \
+           TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS,FN4,TRNS,TRNS,TRNS,            \
                 TRNS,TRNS,          DEL,               TRNS,TRNS),
+
+    /* Layer 3: yg mouse mode
+     * ,-----------------------------------------------------------.
+     * |Pwr| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
+     * |-----------------------------------------------------------|
+     * |Caps |   |   |   |   |   |   |   |Psc|Slk|Pus|Up |   |Backs|
+     * |-----------------------------------------------------------|
+     * |      |VoD|VoU|Mut|   |   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
+     * |-----------------------------------------------------------|
+     * |        |   |   |   |   |   |  +|  -|End|PgD|Dow|      |   |
+     * `-----------------------------------------------------------'
+     *       |   |     |                       |     |   |
+     *       `-------------------------------------------'
+     */
+    KEYMAP(TRNS, TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS,   \
+           TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,WH_D,WH_U,TRNS,TRNS, TRNS, TRNS, TRNS,      \
+           TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,MS_L,MS_D,MS_U,MS_R,BTN2,TRNS,TRNS,            \
+           TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,            \
+                TRNS,TRNS,          BTN1,               TRNS,TRNS),
 };
 
 
@@ -135,7 +154,8 @@ const uint16_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
 const uint16_t fn_actions[] PROGMEM = {
     [0]  = ACTION_LAYER_MOMENTARY(1),
     [1]  = ACTION_LAYER_TAP_KEY(2,KC_A),
-    [2]  = ACTION_MODS_TAP_KEY(MOD_LCTL,KC_ESC),
-    [3]  = ACTION_MACRO(HELLO)
+    [2]  = ACTION_LAYER_TAP_KEY(3,KC_S),
+    [3]  = ACTION_MODS_TAP_KEY(MOD_LCTL,KC_ESC),
+    [4]  = ACTION_MACRO(HELLO)
 };
 #endif

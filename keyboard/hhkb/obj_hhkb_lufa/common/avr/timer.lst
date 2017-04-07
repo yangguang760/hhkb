@@ -285,223 +285,224 @@
  197 0034 E206      		cpc r14,r18
  198 0036 F306      		cpc r15,r19
  199 0038 00F4      		brsh .L8
- 200               		.loc 1 97 0 is_stmt 0 discriminator 2
- 201 003a 4150      		subi r20,1
- 202 003c 5109      		sbc r21,__zero_reg__
- 203               	.LVL8:
- 204               	.L8:
- 205 003e 481B      		sub r20,r24
- 206 0040 590B      		sbc r21,r25
-  98:../../tmk_core/common/avr/timer.c **** }
- 207               		.loc 1 98 0 is_stmt 1 discriminator 2
- 208 0042 CA01      		movw r24,r20
+ 200 003a 4150      		subi r20,1
+ 201 003c 5109      		sbc r21,__zero_reg__
+ 202               	.LVL8:
+ 203               	.L8:
+ 204               		.loc 1 97 0 is_stmt 0 discriminator 2
+ 205 003e 9A01      		movw r18,r20
+ 206 0040 281B      		sub r18,r24
+ 207 0042 390B      		sbc r19,r25
+ 208 0044 C901      		movw r24,r18
  209               	.LVL9:
  210               	/* epilogue start */
- 211 0044 1F91      		pop r17
- 212 0046 0F91      		pop r16
- 213               	.LVL10:
- 214 0048 FF90      		pop r15
- 215 004a EF90      		pop r14
- 216 004c DF90      		pop r13
- 217 004e CF90      		pop r12
- 218 0050 0895      		ret
- 219               		.cfi_endproc
- 220               	.LFE4:
- 222               		.section	.text.timer_elapsed32,"ax",@progbits
- 223               	.global	timer_elapsed32
- 225               	timer_elapsed32:
- 226               	.LFB5:
+  98:../../tmk_core/common/avr/timer.c **** }
+ 211               		.loc 1 98 0 is_stmt 1 discriminator 2
+ 212 0046 1F91      		pop r17
+ 213 0048 0F91      		pop r16
+ 214               	.LVL10:
+ 215 004a FF90      		pop r15
+ 216 004c EF90      		pop r14
+ 217 004e DF90      		pop r13
+ 218 0050 CF90      		pop r12
+ 219 0052 0895      		ret
+ 220               		.cfi_endproc
+ 221               	.LFE4:
+ 223               		.section	.text.timer_elapsed32,"ax",@progbits
+ 224               	.global	timer_elapsed32
+ 226               	timer_elapsed32:
+ 227               	.LFB5:
   99:../../tmk_core/common/avr/timer.c **** 
  100:../../tmk_core/common/avr/timer.c **** inline
  101:../../tmk_core/common/avr/timer.c **** uint32_t timer_elapsed32(uint32_t last)
  102:../../tmk_core/common/avr/timer.c **** {
- 227               		.loc 1 102 0
- 228               		.cfi_startproc
- 229               	.LVL11:
- 230 0000 CF92      		push r12
- 231               	.LCFI6:
- 232               		.cfi_def_cfa_offset 3
- 233               		.cfi_offset 12, -2
- 234 0002 DF92      		push r13
- 235               	.LCFI7:
- 236               		.cfi_def_cfa_offset 4
- 237               		.cfi_offset 13, -3
- 238 0004 EF92      		push r14
- 239               	.LCFI8:
- 240               		.cfi_def_cfa_offset 5
- 241               		.cfi_offset 14, -4
- 242 0006 FF92      		push r15
- 243               	.LCFI9:
- 244               		.cfi_def_cfa_offset 6
- 245               		.cfi_offset 15, -5
- 246 0008 0F93      		push r16
- 247               	.LCFI10:
- 248               		.cfi_def_cfa_offset 7
- 249               		.cfi_offset 16, -6
- 250 000a 1F93      		push r17
- 251               	.LCFI11:
- 252               		.cfi_def_cfa_offset 8
- 253               		.cfi_offset 17, -7
- 254               	/* prologue: function */
- 255               	/* frame size = 0 */
- 256               	/* stack size = 6 */
- 257               	.L__stack_usage = 6
+ 228               		.loc 1 102 0
+ 229               		.cfi_startproc
+ 230               	.LVL11:
+ 231 0000 CF92      		push r12
+ 232               	.LCFI6:
+ 233               		.cfi_def_cfa_offset 3
+ 234               		.cfi_offset 12, -2
+ 235 0002 DF92      		push r13
+ 236               	.LCFI7:
+ 237               		.cfi_def_cfa_offset 4
+ 238               		.cfi_offset 13, -3
+ 239 0004 EF92      		push r14
+ 240               	.LCFI8:
+ 241               		.cfi_def_cfa_offset 5
+ 242               		.cfi_offset 14, -4
+ 243 0006 FF92      		push r15
+ 244               	.LCFI9:
+ 245               		.cfi_def_cfa_offset 6
+ 246               		.cfi_offset 15, -5
+ 247 0008 0F93      		push r16
+ 248               	.LCFI10:
+ 249               		.cfi_def_cfa_offset 7
+ 250               		.cfi_offset 16, -6
+ 251 000a 1F93      		push r17
+ 252               	.LCFI11:
+ 253               		.cfi_def_cfa_offset 8
+ 254               		.cfi_offset 17, -7
+ 255               	/* prologue: function */
+ 256               	/* frame size = 0 */
+ 257               	/* stack size = 6 */
+ 258               	.L__stack_usage = 6
  103:../../tmk_core/common/avr/timer.c ****     uint32_t t;
  104:../../tmk_core/common/avr/timer.c **** 
  105:../../tmk_core/common/avr/timer.c ****     uint8_t sreg = SREG;
- 258               		.loc 1 105 0
- 259 000c 4FB7      		in r20,__SREG__
- 260               	.LVL12:
+ 259               		.loc 1 105 0
+ 260 000c 2FB7      		in r18,__SREG__
+ 261               	.LVL12:
  106:../../tmk_core/common/avr/timer.c ****     cli();
- 261               		.loc 1 106 0
- 262               	/* #APP */
- 263               	 ;  106 "../../tmk_core/common/avr/timer.c" 1
- 264 000e F894      		cli
- 265               	 ;  0 "" 2
+ 262               		.loc 1 106 0
+ 263               	/* #APP */
+ 264               	 ;  106 "../../tmk_core/common/avr/timer.c" 1
+ 265 000e F894      		cli
+ 266               	 ;  0 "" 2
  107:../../tmk_core/common/avr/timer.c ****     t = timer_count;
- 266               		.loc 1 107 0
- 267               	/* #NOAPP */
- 268 0010 0091 0000 		lds r16,timer_count
- 269 0014 1091 0000 		lds r17,timer_count+1
- 270 0018 2091 0000 		lds r18,timer_count+2
- 271 001c 3091 0000 		lds r19,timer_count+3
- 272               	.LVL13:
+ 267               		.loc 1 107 0
+ 268               	/* #NOAPP */
+ 269 0010 C090 0000 		lds r12,timer_count
+ 270 0014 D090 0000 		lds r13,timer_count+1
+ 271 0018 E090 0000 		lds r14,timer_count+2
+ 272 001c F090 0000 		lds r15,timer_count+3
+ 273               	.LVL13:
  108:../../tmk_core/common/avr/timer.c ****     SREG = sreg;
- 273               		.loc 1 108 0
- 274 0020 4FBF      		out __SREG__,r20
- 275 0022 6801      		movw r12,r16
- 276 0024 7901      		movw r14,r18
- 277 0026 C61A      		sub r12,r22
- 278 0028 D70A      		sbc r13,r23
- 279 002a E80A      		sbc r14,r24
- 280 002c F90A      		sbc r15,r25
+ 274               		.loc 1 108 0
+ 275 0020 2FBF      		out __SREG__,r18
+ 276 0022 9701      		movw r18,r14
+ 277 0024 8601      		movw r16,r12
+ 278 0026 061B      		sub r16,r22
+ 279 0028 170B      		sbc r17,r23
+ 280 002a 280B      		sbc r18,r24
+ 281 002c 390B      		sbc r19,r25
  109:../../tmk_core/common/avr/timer.c **** 
  110:../../tmk_core/common/avr/timer.c ****     return TIMER_DIFF_32(t, last);
- 281               		.loc 1 110 0
- 282 002e 0617      		cp r16,r22
- 283 0030 1707      		cpc r17,r23
- 284 0032 2807      		cpc r18,r24
- 285 0034 3907      		cpc r19,r25
- 286 0036 00F0      		brlo .L11
- 287               		.loc 1 110 0 is_stmt 0 discriminator 1
- 288 0038 C701      		movw r24,r14
- 289 003a B601      		movw r22,r12
- 290               	.LVL14:
- 291 003c 00C0      		rjmp .L12
- 292               	.LVL15:
- 293               	.L11:
- 294               		.loc 1 110 0 discriminator 2
- 295 003e C701      		movw r24,r14
- 296 0040 B601      		movw r22,r12
- 297               	.LVL16:
- 298 0042 6150      		subi r22,1
- 299 0044 7109      		sbc r23,__zero_reg__
- 300 0046 8109      		sbc r24,__zero_reg__
- 301 0048 9109      		sbc r25,__zero_reg__
- 302               	.L12:
- 303               	/* epilogue start */
+ 282               		.loc 1 110 0
+ 283 002e C616      		cp r12,r22
+ 284 0030 D706      		cpc r13,r23
+ 285 0032 E806      		cpc r14,r24
+ 286 0034 F906      		cpc r15,r25
+ 287 0036 00F0      		brlo .L11
+ 288               		.loc 1 110 0 is_stmt 0 discriminator 1
+ 289 0038 C901      		movw r24,r18
+ 290 003a B801      		movw r22,r16
+ 291               	.LVL14:
+ 292 003c 00C0      		rjmp .L12
+ 293               	.LVL15:
+ 294               	.L11:
+ 295               		.loc 1 110 0 discriminator 2
+ 296 003e C901      		movw r24,r18
+ 297 0040 B801      		movw r22,r16
+ 298               	.LVL16:
+ 299 0042 6150      		subi r22,1
+ 300 0044 7109      		sbc r23,__zero_reg__
+ 301 0046 8109      		sbc r24,__zero_reg__
+ 302 0048 9109      		sbc r25,__zero_reg__
+ 303               	.L12:
+ 304               	/* epilogue start */
  111:../../tmk_core/common/avr/timer.c **** }
- 304               		.loc 1 111 0 is_stmt 1 discriminator 3
- 305 004a 1F91      		pop r17
- 306 004c 0F91      		pop r16
- 307               	.LVL17:
+ 305               		.loc 1 111 0 is_stmt 1 discriminator 4
+ 306 004a 1F91      		pop r17
+ 307 004c 0F91      		pop r16
  308 004e FF90      		pop r15
  309 0050 EF90      		pop r14
  310 0052 DF90      		pop r13
  311 0054 CF90      		pop r12
- 312 0056 0895      		ret
- 313               		.cfi_endproc
- 314               	.LFE5:
- 316               		.section	.text.__vector_21,"ax",@progbits
- 317               	.global	__vector_21
- 319               	__vector_21:
- 320               	.LFB6:
+ 312               	.LVL17:
+ 313 0056 0895      		ret
+ 314               		.cfi_endproc
+ 315               	.LFE5:
+ 317               		.section	.text.__vector_21,"ax",@progbits
+ 318               	.global	__vector_21
+ 320               	__vector_21:
+ 321               	.LFB6:
  112:../../tmk_core/common/avr/timer.c **** 
  113:../../tmk_core/common/avr/timer.c **** // excecuted once per 1ms.(excess for just timer count?)
  114:../../tmk_core/common/avr/timer.c **** ISR(TIMER0_COMPA_vect)
  115:../../tmk_core/common/avr/timer.c **** {
- 321               		.loc 1 115 0
- 322               		.cfi_startproc
- 323 0000 1F92      		push r1
- 324               	.LCFI12:
- 325               		.cfi_def_cfa_offset 3
- 326               		.cfi_offset 1, -2
- 327 0002 0F92      		push r0
- 328               	.LCFI13:
- 329               		.cfi_def_cfa_offset 4
- 330               		.cfi_offset 0, -3
- 331 0004 0FB6      		in r0,__SREG__
- 332 0006 0F92      		push r0
- 333 0008 1124      		clr __zero_reg__
- 334 000a 8F93      		push r24
- 335               	.LCFI14:
- 336               		.cfi_def_cfa_offset 5
- 337               		.cfi_offset 24, -4
- 338 000c 9F93      		push r25
- 339               	.LCFI15:
- 340               		.cfi_def_cfa_offset 6
- 341               		.cfi_offset 25, -5
- 342 000e AF93      		push r26
- 343               	.LCFI16:
- 344               		.cfi_def_cfa_offset 7
- 345               		.cfi_offset 26, -6
- 346 0010 BF93      		push r27
- 347               	.LCFI17:
- 348               		.cfi_def_cfa_offset 8
- 349               		.cfi_offset 27, -7
- 350               	/* prologue: Signal */
- 351               	/* frame size = 0 */
- 352               	/* stack size = 7 */
- 353               	.L__stack_usage = 7
+ 322               		.loc 1 115 0
+ 323               		.cfi_startproc
+ 324 0000 1F92      		push r1
+ 325               	.LCFI12:
+ 326               		.cfi_def_cfa_offset 3
+ 327               		.cfi_offset 1, -2
+ 328 0002 0F92      		push r0
+ 329               	.LCFI13:
+ 330               		.cfi_def_cfa_offset 4
+ 331               		.cfi_offset 0, -3
+ 332 0004 0FB6      		in r0,__SREG__
+ 333 0006 0F92      		push r0
+ 334 0008 1124      		clr __zero_reg__
+ 335 000a 8F93      		push r24
+ 336               	.LCFI14:
+ 337               		.cfi_def_cfa_offset 5
+ 338               		.cfi_offset 24, -4
+ 339 000c 9F93      		push r25
+ 340               	.LCFI15:
+ 341               		.cfi_def_cfa_offset 6
+ 342               		.cfi_offset 25, -5
+ 343 000e AF93      		push r26
+ 344               	.LCFI16:
+ 345               		.cfi_def_cfa_offset 7
+ 346               		.cfi_offset 26, -6
+ 347 0010 BF93      		push r27
+ 348               	.LCFI17:
+ 349               		.cfi_def_cfa_offset 8
+ 350               		.cfi_offset 27, -7
+ 351               	/* prologue: Signal */
+ 352               	/* frame size = 0 */
+ 353               	/* stack size = 7 */
+ 354               	.L__stack_usage = 7
  116:../../tmk_core/common/avr/timer.c ****     timer_count++;
- 354               		.loc 1 116 0
- 355 0012 8091 0000 		lds r24,timer_count
- 356 0016 9091 0000 		lds r25,timer_count+1
- 357 001a A091 0000 		lds r26,timer_count+2
- 358 001e B091 0000 		lds r27,timer_count+3
- 359 0022 0196      		adiw r24,1
- 360 0024 A11D      		adc r26,__zero_reg__
- 361 0026 B11D      		adc r27,__zero_reg__
- 362 0028 8093 0000 		sts timer_count,r24
- 363 002c 9093 0000 		sts timer_count+1,r25
- 364 0030 A093 0000 		sts timer_count+2,r26
- 365 0034 B093 0000 		sts timer_count+3,r27
- 366               	/* epilogue start */
+ 355               		.loc 1 116 0
+ 356 0012 8091 0000 		lds r24,timer_count
+ 357 0016 9091 0000 		lds r25,timer_count+1
+ 358 001a A091 0000 		lds r26,timer_count+2
+ 359 001e B091 0000 		lds r27,timer_count+3
+ 360 0022 0196      		adiw r24,1
+ 361 0024 A11D      		adc r26,__zero_reg__
+ 362 0026 B11D      		adc r27,__zero_reg__
+ 363 0028 8093 0000 		sts timer_count,r24
+ 364 002c 9093 0000 		sts timer_count+1,r25
+ 365 0030 A093 0000 		sts timer_count+2,r26
+ 366 0034 B093 0000 		sts timer_count+3,r27
+ 367               	/* epilogue start */
  117:../../tmk_core/common/avr/timer.c **** }
- 367               		.loc 1 117 0
- 368 0038 BF91      		pop r27
- 369 003a AF91      		pop r26
- 370 003c 9F91      		pop r25
- 371 003e 8F91      		pop r24
- 372 0040 0F90      		pop r0
- 373 0042 0FBE      		out __SREG__,r0
- 374 0044 0F90      		pop r0
- 375 0046 1F90      		pop r1
- 376 0048 1895      		reti
- 377               		.cfi_endproc
- 378               	.LFE6:
- 380               	.global	timer_count
- 381               		.section	.bss.timer_count,"aw",@nobits
- 384               	timer_count:
- 385 0000 0000 0000 		.zero	4
- 386               		.text
- 387               	.Letext0:
- 388               		.file 2 "/usr/lib/avr/include/stdint.h"
+ 368               		.loc 1 117 0
+ 369 0038 BF91      		pop r27
+ 370 003a AF91      		pop r26
+ 371 003c 9F91      		pop r25
+ 372 003e 8F91      		pop r24
+ 373 0040 0F90      		pop r0
+ 374 0042 0FBE      		out __SREG__,r0
+ 375 0044 0F90      		pop r0
+ 376 0046 1F90      		pop r1
+ 377 0048 1895      		reti
+ 378               		.cfi_endproc
+ 379               	.LFE6:
+ 381               	.global	timer_count
+ 382               		.section	.bss.timer_count,"aw",@nobits
+ 385               	timer_count:
+ 386 0000 0000 0000 		.zero	4
+ 387               		.text
+ 388               	.Letext0:
+ 389               		.file 2 "/usr/lib/avr/include/stdint.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 timer.c
-     /tmp/ccQKuojt.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccQKuojt.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccQKuojt.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccQKuojt.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccQKuojt.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccQKuojt.s:13     .text.timer_init:0000000000000000 timer_init
-     /tmp/ccQKuojt.s:40     .text.timer_clear:0000000000000000 timer_clear
-     /tmp/ccQKuojt.s:384    .bss.timer_count:0000000000000000 timer_count
-     /tmp/ccQKuojt.s:71     .text.timer_read:0000000000000000 timer_read
-     /tmp/ccQKuojt.s:103    .text.timer_read32:0000000000000000 timer_read32
-     /tmp/ccQKuojt.s:136    .text.timer_elapsed:0000000000000000 timer_elapsed
-     /tmp/ccQKuojt.s:225    .text.timer_elapsed32:0000000000000000 timer_elapsed32
-     /tmp/ccQKuojt.s:319    .text.__vector_21:0000000000000000 __vector_21
+     /tmp/ccernuK7.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccernuK7.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccernuK7.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccernuK7.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccernuK7.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccernuK7.s:13     .text.timer_init:0000000000000000 timer_init
+     /tmp/ccernuK7.s:40     .text.timer_clear:0000000000000000 timer_clear
+     /tmp/ccernuK7.s:385    .bss.timer_count:0000000000000000 timer_count
+     /tmp/ccernuK7.s:71     .text.timer_read:0000000000000000 timer_read
+     /tmp/ccernuK7.s:103    .text.timer_read32:0000000000000000 timer_read32
+     /tmp/ccernuK7.s:136    .text.timer_elapsed:0000000000000000 timer_elapsed
+     /tmp/ccernuK7.s:226    .text.timer_elapsed32:0000000000000000 timer_elapsed32
+     /tmp/ccernuK7.s:320    .text.__vector_21:0000000000000000 __vector_21
 
 UNDEFINED SYMBOLS
 __do_clear_bss

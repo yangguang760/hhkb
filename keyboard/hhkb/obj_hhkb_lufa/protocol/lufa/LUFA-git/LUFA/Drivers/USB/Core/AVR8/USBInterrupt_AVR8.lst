@@ -959,7 +959,7 @@
  200               		.loc 3 331 0
  201 0066 82E1      		ldi r24,lo8(18)
  202 0068 89BD      		out 0x29,r24
- 203               	.L8:
+ 203               	.L7:
  204               	.LBE85:
  205               	.LBE84:
   95:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 		{
@@ -970,7 +970,7 @@
  206               		.loc 1 99 0 discriminator 1
  207 006a 09B4      		in __tmp_reg__,0x29
  208 006c 00FE      		sbrs __tmp_reg__,0
- 209 006e 00C0      		rjmp .L8
+ 209 006e 00C0      		rjmp .L7
  100:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 			}
  101:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 
  102:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 			USB_DeviceState = DEVICE_STATE_Powered;
@@ -1023,7 +1023,7 @@
  116:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 	if (USB_INT_HasOccurred(USB_INT_SUSPI) && USB_INT_IsEnabled(USB_INT_SUSPI))
  236               		.loc 1 116 0
  237 008a 80FF      		sbrs r24,0
- 238 008c 00C0      		rjmp .L9
+ 238 008c 00C0      		rjmp .L8
  239               	.LVL8:
  240               	.LBB90:
  241               	.LBB91:
@@ -1034,7 +1034,7 @@
  245               	.LBE90:
  246               		.loc 1 116 0
  247 0092 80FF      		sbrs r24,0
- 248 0094 00C0      		rjmp .L9
+ 248 0094 00C0      		rjmp .L8
  249               	.LVL9:
  250               	.LBB92:
  251               	.LBB93:
@@ -1137,7 +1137,7 @@
  284               		.loc 1 131 0
  285 00bc 0E94 0000 		call EVENT_USB_Device_Suspend
  286               	.LVL11:
- 287               	.L9:
+ 287               	.L8:
  288               	.LBB100:
  289               	.LBB101:
  328:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/USBInterrupt_AVR8.h **** 					case USB_INT_SUSPI:
@@ -1151,7 +1151,7 @@
  135:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 	if (USB_INT_HasOccurred(USB_INT_WAKEUPI) && USB_INT_IsEnabled(USB_INT_WAKEUPI))
  294               		.loc 1 135 0
  295 00c4 84FF      		sbrs r24,4
- 296 00c6 00C0      		rjmp .L10
+ 296 00c6 00C0      		rjmp .L9
  297               	.LVL12:
  298               	.LBB102:
  299               	.LBB103:
@@ -1162,7 +1162,7 @@
  303               	.LBE102:
  304               		.loc 1 135 0
  305 00cc 84FF      		sbrs r24,4
- 306 00ce 00C0      		rjmp .L10
+ 306 00ce 00C0      		rjmp .L9
  307               	.LBB104:
  308               	.LBB105:
  330:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 				PLLCSR = (USB_PLL_PSC | (1 << PLLE));
@@ -1173,7 +1173,7 @@
  312               		.loc 3 331 0
  313 00d4 82E1      		ldi r24,lo8(18)
  314 00d6 89BD      		out 0x29,r24
- 315               	.L12:
+ 315               	.L10:
  316               	.LBE105:
  317               	.LBE104:
  136:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 	{
@@ -1184,7 +1184,7 @@
  318               		.loc 1 140 0 discriminator 1
  319 00d8 09B4      		in __tmp_reg__,0x29
  320 00da 00FE      		sbrs __tmp_reg__,0
- 321 00dc 00C0      		rjmp .L12
+ 321 00dc 00C0      		rjmp .L10
  322               	.LBB106:
  323               	.LBB107:
  384:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			}
@@ -1242,12 +1242,12 @@
  357               		.loc 1 150 0
  358 0106 8091 0000 		lds r24,USB_Device_ConfigurationNumber
  359 010a 8823      		tst r24
- 360 010c 01F0      		breq .L13
+ 360 010c 01F0      		breq .L11
  151:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 		  USB_DeviceState = DEVICE_STATE_Configured;
  361               		.loc 1 151 0
  362 010e 84E0      		ldi r24,lo8(4)
- 363 0110 00C0      		rjmp .L15
- 364               	.L13:
+ 363 0110 00C0      		rjmp .L13
+ 364               	.L11:
  365               	.LBB114:
  366               	.LBB115:
  367               		.file 4 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/
@@ -1485,24 +1485,24 @@
  152:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 		else
  153:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 		  USB_DeviceState = (USB_Device_IsAddressSet()) ? DEVICE_STATE_Addressed : DEVICE_STATE_Powered;
  372               		.loc 1 153 0
- 373 0116 87FF      		sbrs r24,7
- 374 0118 00C0      		rjmp .L17
- 375 011a 83E0      		ldi r24,lo8(3)
- 376 011c 00C0      		rjmp .L15
- 377               	.L17:
- 378 011e 81E0      		ldi r24,lo8(1)
- 379               	.L15:
- 380               		.loc 1 153 0 is_stmt 0 discriminator 3
+ 373 0116 87FD      		sbrc r24,7
+ 374 0118 00C0      		rjmp .L15
+ 375 011a 81E0      		ldi r24,lo8(1)
+ 376 011c 00C0      		rjmp .L13
+ 377               	.L15:
+ 378 011e 83E0      		ldi r24,lo8(3)
+ 379               	.L13:
+ 380               		.loc 1 153 0 is_stmt 0 discriminator 4
  381 0120 8093 0000 		sts USB_DeviceState,r24
  154:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 
  155:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 		#if defined(USB_SERIES_2_AVR) && !defined(NO_LIMITED_CONTROLLER_CONNECT)
  156:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 		EVENT_USB_Device_Connect();
  157:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 		#else
  158:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.c **** 		EVENT_USB_Device_WakeUp();
- 382               		.loc 1 158 0 is_stmt 1 discriminator 3
+ 382               		.loc 1 158 0 is_stmt 1 discriminator 4
  383 0124 0E94 0000 		call EVENT_USB_Device_WakeUp
  384               	.LVL16:
- 385               	.L10:
+ 385               	.L9:
  386               	.LBB116:
  387               	.LBB117:
  332:../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/USBInterrupt_AVR8.h **** 					case USB_INT_SOFI:
@@ -1925,14 +1925,14 @@
  490               		.file 10 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/AVR8/../AVR8/../Events.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 USBInterrupt_AVR8.c
-     /tmp/cck5BHYQ.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cck5BHYQ.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cck5BHYQ.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cck5BHYQ.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cck5BHYQ.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cck5BHYQ.s:13     .text.USB_INT_DisableAllInterrupts:0000000000000000 USB_INT_DisableAllInterrupts
-     /tmp/cck5BHYQ.s:37     .text.USB_INT_ClearAllInterrupts:0000000000000000 USB_INT_ClearAllInterrupts
-     /tmp/cck5BHYQ.s:56     .text.__vector_10:0000000000000000 __vector_10
+     /tmp/ccCGzDPN.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccCGzDPN.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccCGzDPN.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccCGzDPN.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccCGzDPN.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccCGzDPN.s:13     .text.USB_INT_DisableAllInterrupts:0000000000000000 USB_INT_DisableAllInterrupts
+     /tmp/ccCGzDPN.s:37     .text.USB_INT_ClearAllInterrupts:0000000000000000 USB_INT_ClearAllInterrupts
+     /tmp/ccCGzDPN.s:56     .text.__vector_10:0000000000000000 __vector_10
 
 UNDEFINED SYMBOLS
 EVENT_USB_Device_StartOfFrame
